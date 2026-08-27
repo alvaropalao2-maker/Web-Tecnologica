@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Producto Amazon - Cubo</title>
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <link href="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/css/givolt.webflow.shared.5760b6763.css" rel="stylesheet" type="text/css" crossorigin="anonymous" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; font-family: 'Inter', system-ui, sans-serif; background: #f4f6f9; color: #1a1a1a; }
+
+    /* Header */
+    .amz-header { background: #1a1a2e; padding: 0 24px; height: 64px; display: flex; align-items: center; justify-content: space-between; position: sticky; top: 0; z-index: 100; }
+    .amz-logo { font-size: 22px; font-weight: 800; color: #fff; text-decoration: none; letter-spacing: -0.5px; }
+    .amz-header-back { display: flex; align-items: center; gap: 8px; color: rgba(255,255,255,0.7); font-size: 14px; text-decoration: none; transition: color 0.2s; }
+    .amz-header-back:hover { color: #fff; }
+    .amz-header-back svg { width: 18px; height: 18px; }
+
+    /* Layout */
+    .amz-page { max-width: 1100px; margin: 0 auto; padding: 36px 24px 64px; }
+
+    /* Breadcrumb */
+    .amz-breadcrumb { font-size: 13px; color: #888; margin-bottom: 24px; display: flex; align-items: center; gap: 8px; }
+    .amz-breadcrumb a { color: #888; text-decoration: none; }
+    .amz-breadcrumb a:hover { color: #1a1a2e; }
+
+    /* Product grid */
+    .amz-product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; background: #fff; border-radius: 16px; padding: 32px; box-shadow: 0 2px 16px rgba(0,0,0,0.07); }
+    @media (max-width: 768px) { .amz-product-grid { grid-template-columns: 1fr; gap: 24px; padding: 20px; } }
+
+    /* Gallery */
+    .amz-gallery { display: flex; gap: 12px; }
+    .amz-thumbs { display: flex; flex-direction: column; gap: 8px; width: 72px; flex-shrink: 0; }
+    .amz-thumb { width: 72px; height: 72px; object-fit: contain; border-radius: 8px; border: 2px solid #e5e7eb; cursor: pointer; background: #f9fafb; padding: 4px; transition: border-color 0.15s; }
+    .amz-thumb.active, .amz-thumb:hover { border-color: #1a1a2e; }
+    .amz-main-img-wrap { flex: 1; border-radius: 12px; overflow: hidden; background: #f9fafb; display: flex; align-items: center; justify-content: center; min-height: 340px; }
+    .amz-main-img { max-width: 100%; max-height: 380px; object-fit: contain; }
+
+    /* Info */
+    .amz-info { display: flex; flex-direction: column; gap: 0; }
+    .amz-source-badge { display: inline-flex; align-items: center; gap: 6px; background: #FFF3CD; border: 1px solid #FDE68A; border-radius: 6px; padding: 5px 12px; font-size: 11px; font-weight: 700; color: #92400E; margin-bottom: 14px; width: fit-content; }
+    .amz-title { font-size: 22px; font-weight: 700; color: #1a1a1a; line-height: 1.35; margin: 0 0 12px; }
+    .amz-rating { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+    .amz-stars { display: flex; gap: 2px; }
+    .amz-star { font-size: 17px; }
+    .amz-rating-text { font-size: 13px; color: #666; }
+    .amz-price-box { margin-bottom: 16px; padding: 16px; background: #f8fafc; border-radius: 10px; border: 1px solid #e5e7eb; }
+    .amz-price-main { font-size: 30px; font-weight: 800; color: #1a1a2e; }
+    .amz-price-orig { font-size: 14px; color: #999; text-decoration: line-through; margin-left: 10px; }
+    .amz-discount-badge { display: inline-block; background: #dc2626; color: #fff; font-size: 11px; font-weight: 700; padding: 2px 8px; border-radius: 4px; margin-left: 8px; vertical-align: middle; }
+    .amz-prime { display: flex; align-items: center; gap: 8px; margin-top: 8px; }
+    .amz-prime-badge { background: #00a8e1; color: #fff; font-size: 10px; font-weight: 800; padding: 3px 8px; border-radius: 4px; letter-spacing: 0.05em; }
+    .amz-prime-text { font-size: 13px; color: #555; }
+    .amz-divider { height: 1px; background: #f0f0f0; margin: 16px 0; }
+    .amz-specs { display: flex; flex-direction: column; gap: 8px; margin-bottom: 16px; }
+    .amz-spec { display: flex; gap: 8px; font-size: 13px; }
+    .amz-spec-dot { width: 6px; height: 6px; border-radius: 50%; background: #1a1a2e; flex-shrink: 0; margin-top: 5px; }
+    .amz-spec-text { color: #555; line-height: 1.5; }
+    .amz-btn-amazon { display: block; width: 100%; padding: 16px; background: #FF9900; color: #111; border: none; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; text-align: center; text-decoration: none; margin-bottom: 10px; transition: background 0.2s; font-family: inherit; }
+    .amz-btn-amazon:hover { background: #e88a00; color: #111; }
+    .amz-btn-secondary { display: block; width: 100%; padding: 14px; background: #1a1a2e; color: #fff; border: none; border-radius: 12px; font-size: 15px; font-weight: 600; cursor: pointer; text-align: center; text-decoration: none; transition: background 0.2s; font-family: inherit; }
+    .amz-btn-secondary:hover { background: #2d2d4e; color: #fff; }
+
+    /* Description */
+    .amz-description { background: #fff; border-radius: 16px; padding: 28px 32px; box-shadow: 0 2px 16px rgba(0,0,0,0.07); margin-top: 24px; }
+    .amz-desc-title { font-size: 18px; font-weight: 700; color: #1a1a2e; margin: 0 0 16px; }
+    .amz-bullets { display: flex; flex-direction: column; gap: 10px; padding: 0; margin: 0; list-style: none; }
+    .amz-bullet { display: flex; gap: 10px; font-size: 14px; color: #444; line-height: 1.6; }
+    .amz-bullet::before { content: "✓"; color: #16a34a; font-weight: 700; flex-shrink: 0; }
+    .amz-desc-text { font-size: 14px; color: #555; line-height: 1.75; margin: 0 0 16px; }
+
+    /* Loading */
+    .amz-loading { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 60vh; gap: 20px; }
+    .amz-spinner { width: 48px; height: 48px; border: 4px solid #e5e7eb; border-top-color: #1a1a2e; border-radius: 50%; animation: spin 0.8s linear infinite; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .amz-loading-text { font-size: 16px; color: #666; }
+
+    /* Reviews */
+    .amz-review-card { border: 1px solid #f0f0f0; border-radius: 10px; padding: 16px 20px; }
+    .amz-review-header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 6px; flex-wrap: wrap; gap: 8px; }
+    .amz-review-user { font-size: 13px; font-weight: 700; color: #1a1a2e; }
+    .amz-review-date { font-size: 12px; color: #aaa; }
+    .amz-review-title { font-size: 14px; font-weight: 600; color: #1a1a1a; margin: 4px 0; }
+    .amz-review-text { font-size: 13px; color: #555; line-height: 1.65; margin: 0; }
+    .amz-review-verified { font-size: 11px; color: #16a34a; font-weight: 600; }
+    .amz-bar-row { display: flex; align-items: center; gap: 8px; font-size: 12px; color: #555; }
+    .amz-bar-track { flex: 1; height: 8px; background: #e5e7eb; border-radius: 4px; overflow: hidden; }
+    .amz-bar-fill { height: 100%; background: #F59E0B; border-radius: 4px; }
+
+    /* Variaciones */
+    .amz-variants { margin-bottom: 16px; }
+    .amz-variant-group { margin-bottom: 12px; }
+    .amz-variant-dim-label { font-size: 12px; font-weight: 700; color: #888; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 8px; }
+    .amz-variant-btns { display: flex; flex-wrap: wrap; gap: 8px; }
+    .amz-variant-btn { padding: 7px 16px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 13px; font-weight: 500; cursor: pointer; background: #fff; color: #1a1a1a; transition: all 0.15s; font-family: inherit; white-space: nowrap; }
+    .amz-variant-btn:hover:not(:disabled) { border-color: #1a1a2e; color: #1a1a2e; }
+    .amz-variant-btn.active { border-color: #1a1a2e; background: #1a1a2e; color: #fff; }
+    .amz-variant-btn:disabled { opacity: 0.5; cursor: default; }
+
+    /* Empty */
+    .amz-empty { display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 60vh; gap: 16px; text-align: center; }
+    .amz-empty h2 { font-size: 22px; font-weight: 700; color: #1a1a2e; margin: 0; }
+    .amz-empty p { font-size: 15px; color: #777; margin: 0; }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header class="amz-header">
+    <a href="Pagina%20de%20inicio%20Adaptado%20a%20worpress.html" class="amz-logo">Cubo</a>
+    <a href="Pagina%20de%20inicio%20Adaptado%20a%20worpress.html" class="amz-header-back">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="15 18 9 12 15 6"/></svg>
+      Volver al inicio
+    </a>
+  </header>
+
+  <main class="amz-page">
+
+    <!-- Loading -->
+    <div id="amz-loading" class="amz-loading">
+      <div class="amz-spinner"></div>
+      <p class="amz-loading-text">Cargando producto...</p>
+    </div>
+
+    <!-- Vacío / error -->
+    <div id="amz-empty" class="amz-empty" style="display:none;">
+      <h2>No hay producto para mostrar</h2>
+      <p>Buscá un producto desde la página de inicio pegando un link de Amazon.</p>
+      <a href="Pagina%20de%20inicio%20Adaptado%20a%20worpress.html" class="amz-btn-secondary" style="max-width:260px;margin-top:8px;">Ir al inicio</a>
+    </div>
+
+    <!-- Contenido del producto -->
+    <div id="amz-content" style="display:none;">
+
+      <div class="amz-breadcrumb">
+        <a href="Pagina%20de%20inicio%20Adaptado%20a%20worpress.html">Inicio</a>
+        <span>›</span>
+        <span>Amazon USA</span>
+        <span>›</span>
+        <span id="amz-breadcrumb-title" style="color:#1a1a2e;font-weight:600;max-width:300px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;"></span>
+      </div>
+
+      <div class="amz-product-grid">
+
+        <!-- Galería -->
+        <div class="amz-gallery">
+          <div class="amz-thumbs" id="amz-thumbs"></div>
+          <div class="amz-main-img-wrap">
+            <img id="amz-main-img" class="amz-main-img" src="" alt="" />
+          </div>
+        </div>
+
+        <!-- Info -->
+        <div class="amz-info">
+          <div class="amz-source-badge">🔗 Producto de Amazon USA</div>
+          <h1 id="amz-title" class="amz-title"></h1>
+
+          <div class="amz-rating" id="amz-rating" style="display:none;">
+            <div class="amz-stars" id="amz-stars"></div>
+            <span class="amz-rating-text" id="amz-rating-text"></span>
+          </div>
+
+          <div class="amz-variants" id="amz-variants" style="display:none;"></div>
+
+          <div class="amz-price-box">
+            <div>
+              <span class="amz-price-main" id="amz-price"></span>
+              <span class="amz-price-orig" id="amz-price-orig" style="display:none;"></span>
+              <span class="amz-discount-badge" id="amz-discount" style="display:none;"></span>
+            </div>
+            <div class="amz-prime" id="amz-prime" style="display:none;">
+              <span class="amz-prime-badge">prime</span>
+              <span class="amz-prime-text">Envío gratis incluido</span>
+            </div>
+          </div>
+
+          <div class="amz-specs" id="amz-specs"></div>
+
+          <div class="amz-divider"></div>
+
+          <a id="amz-btn-amazon" href="#" target="_blank" rel="noopener" class="amz-btn-amazon">Ver en Amazon →</a>
+          <a href="Pagina%20de%20inicio%20Adaptado%20a%20worpress.html" class="amz-btn-secondary">← Buscar otro producto</a>
+
+          <p style="margin-top:14px;font-size:11px;color:#aaa;text-align:center;">Datos obtenidos de Amazon.com · ASIN: <span id="amz-asin-text">—</span></p>
+        </div>
+      </div>
+
+      <!-- Descripción completa -->
+      <div class="amz-description" id="amz-description" style="display:none;">
+        <h2 class="amz-desc-title">Descripción del Producto</h2>
+        <p class="amz-desc-text" id="amz-desc-text" style="display:none;"></p>
+        <ul class="amz-bullets" id="amz-bullets"></ul>
+        <div id="amz-extra-info" style="margin-top:20px;display:flex;gap:24px;flex-wrap:wrap;"></div>
+      </div>
+
+      <!-- Reseñas -->
+      <div class="amz-description" id="amz-reviews" style="display:none;">
+        <h2 class="amz-desc-title">Reseñas de clientes</h2>
+        <div style="display:flex;align-items:flex-start;gap:32px;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid #f0f0f0;flex-wrap:wrap;">
+          <div style="text-align:center;flex-shrink:0;">
+            <div id="amz-avg-big" style="font-size:52px;font-weight:800;color:#1a1a2e;line-height:1;"></div>
+            <div id="amz-avg-stars" style="margin:6px 0;"></div>
+            <div id="amz-total-ratings" style="font-size:12px;color:#888;"></div>
+          </div>
+          <div id="amz-rating-bars" style="flex:1;min-width:200px;display:flex;flex-direction:column;gap:5px;"></div>
+        </div>
+        <div id="amz-reviews-list" style="display:flex;flex-direction:column;gap:20px;"></div>
+      </div>
+
+    </div>
+  </main>
+
+  <script>
+  (function() {
+    var RAINFOREST_KEY = '21BF5F6CAE1241418B91D06C08A8DBF9';
+
+    var SCRAPER_KEY = 'f02e5fd22d34bdf68ec9b66ae37ff118';
+    var CACHE_TTL = 60 * 60 * 1000; // 1 hora
+
+    function getCached(asin) {
+      try {
+        var c = JSON.parse(localStorage.getItem('cubo_vcache') || '{}');
+        var e = c[asin];
+        if (e && (Date.now() - e.ts) < CACHE_TTL) return e.data;
+      } catch(e) {}
+      return null;
+    }
+
+    function setCached(asin, data) {
+      try {
+        var c = JSON.parse(localStorage.getItem('cubo_vcache') || '{}');
+        c[asin] = { ts: Date.now(), data: data };
+        var keys = Object.keys(c);
+        if (keys.length > 30) delete c[keys[0]];
+        localStorage.setItem('cubo_vcache', JSON.stringify(c));
+      } catch(e) {}
+    }
+
+    function fetchRainforest(asin) {
+      var cached = getCached(asin);
+      if (cached) return Promise.resolve(cached);
+
+      var rainforestUrl = 'https://api.rainforestapi.com/request?api_key=' + RAINFOREST_KEY + '&type=product&asin=' + asin + '&amazon_domain=amazon.com';
+      var enc = encodeURIComponent(rainforestUrl);
+
+      var scraperUrl      = 'https://api.scraperapi.com/?api_key=' + SCRAPER_KEY + '&url=' + enc;
+      var scraperProxyUrl = 'https://corsproxy.io/?' + encodeURIComponent(scraperUrl);
+
+      var fastUrls = [
+        rainforestUrl,
+        'https://cors.sh/' + rainforestUrl,
+        'https://api.allorigins.win/raw?url=' + enc,
+        'https://corsproxy.io/?' + enc,
+        'https://api.codetabs.com/v1/proxy?quest=' + enc
+      ];
+
+      function parseData(text) {
+        if (text.trim()[0] !== '{' && text.trim()[0] !== '[') throw new Error('html');
+        var d = JSON.parse(text);
+        if (!d.product || !d.product.title) throw new Error('sin datos');
+        return d;
+      }
+
+      return new Promise(function(resolve, reject) {
+        var done = false;
+        var fastErrors = 0;
+        var scraperStarted = false;
+        var scraperCtrl = new AbortController();
+
+        function startScraper() {
+          if (scraperStarted || done) return;
+          scraperStarted = true;
+          fetch(scraperProxyUrl, { signal: scraperCtrl.signal })
+            .then(function(r) { return r.text(); })
+            .then(function(text) {
+              if (done) return;
+              console.log('[CUBO] ScraperAPI respuesta:', text.slice(0, 300));
+              if (text.trim()[0] !== '{' && text.trim()[0] !== '[') throw new Error('El proxy devolvió HTML — posible bloqueo de red.');
+              var d = JSON.parse(text);
+              if (!d.product || !d.product.title) throw new Error('Sin datos de producto. Verifica créditos en scraperapi.com/dashboard');
+              done = true; setCached(asin, d); resolve(d);
+            })
+            .catch(function(e) {
+              if (!done) { done = true; reject(e); }
+            });
+        }
+
+        // ScraperAPI arranca a los 2s o enseguida si todos los rápidos fallan
+        var scraperTimer = setTimeout(startScraper, 2000);
+
+        fastUrls.forEach(function(url) {
+          fetch(url)
+            .then(function(r) { return r.text(); })
+            .then(function(text) {
+              if (done) return;
+              var d = parseData(text);
+              done = true;
+              clearTimeout(scraperTimer);
+              try { scraperCtrl.abort(); } catch(e) {}
+              setCached(asin, d); resolve(d);
+            })
+            .catch(function() {
+              fastErrors++;
+              if (fastErrors === fastUrls.length) { clearTimeout(scraperTimer); startScraper(); }
+            });
+        });
+      });
+    }
+
+    var raw = localStorage.getItem('cubo_amazon_product');
+    var loadingEl  = document.getElementById('amz-loading');
+    var contentEl  = document.getElementById('amz-content');
+    var emptyEl    = document.getElementById('amz-empty');
+
+    function show(el) { el.style.display = ''; }
+    function hide(el) { el.style.display = 'none'; }
+
+    if (!raw) { hide(loadingEl); show(emptyEl); return; }
+
+    var p;
+    try { p = JSON.parse(raw); } catch(e) { hide(loadingEl); show(emptyEl); return; }
+    localStorage.removeItem('cubo_amazon_product');
+
+
+    var asin = p._asin || p.asin || '';
+
+    function starsHtml(r, sz) {
+      var h = '';
+      for (var i = 1; i <= 5; i++)
+        h += '<span style="color:' + (i <= Math.round(r) ? '#F59E0B' : '#DDD') + ';font-size:' + (sz||17) + 'px;">&#9733;</span>';
+      return h;
+    }
+
+    // Título (Rainforest: p.title)
+    var titleEl = document.getElementById('amz-title');
+    if (titleEl) titleEl.textContent = p.title || 'Producto Amazon';
+    if (p.title) document.title = p.title + ' - Cubo';
+    var bcTitle = document.getElementById('amz-breadcrumb-title');
+    if (bcTitle) bcTitle.textContent = p.title || '';
+
+    // Rating (Rainforest: p.rating, p.ratings_total)
+    var rating = p.rating;
+    var totalRatings = p.ratings_total || 0;
+    if (rating) {
+      document.getElementById('amz-stars').innerHTML = starsHtml(rating);
+      document.getElementById('amz-rating-text').textContent = rating + ' / 5 · ' + totalRatings.toLocaleString() + ' reseñas';
+      show(document.getElementById('amz-rating'));
+    }
+
+    // Precios (Rainforest: p.buybox_winner.price.value = número)
+    var bw = p.buybox_winner || {};
+    var price = bw.price ? bw.price.value : null;
+    var orig  = bw.rrp   ? bw.rrp.value   : null;
+    var priceEl = document.getElementById('amz-price');
+    var origEl  = document.getElementById('amz-price-orig');
+    var discEl  = document.getElementById('amz-discount');
+    var displayPrice = price || orig;
+    if (priceEl) {
+      if (displayPrice) {
+        priceEl.textContent = 'USD $' + displayPrice.toFixed(2);
+      } else {
+        priceEl.innerHTML = '💲 Precio disponible en Amazon';
+        priceEl.style.fontSize = '18px';
+      }
+    }
+    if (price && orig && orig > price) {
+      if (origEl) { origEl.textContent = 'USD $' + orig.toFixed(2); show(origEl); }
+      var pct = Math.round((1 - price / orig) * 100);
+      if (discEl && pct > 0) { discEl.textContent = '-' + pct + '%'; show(discEl); }
+    }
+
+    // Prime (Rainforest: p.buybox_winner.is_prime)
+    if (bw.is_prime) show(document.getElementById('amz-prime'));
+
+    // Specs
+    var brand = p.brand ? p.brand.replace(/^Visit the\s+/i, '').replace(/\s+Store$/i, '') : '';
+    var specsEl = document.getElementById('amz-specs');
+    var specItems = [];
+    if (brand) specItems.push('Marca: ' + brand);
+    if (asin)  specItems.push('ASIN: ' + asin);
+    var soldBy = bw.fulfillment && bw.fulfillment.sold_by;
+    if (soldBy) specItems.push('Vendido por: ' + soldBy);
+    specItems.forEach(function(text) {
+      var d = document.createElement('div');
+      d.className = 'amz-spec';
+      d.innerHTML = '<div class="amz-spec-dot"></div><span class="amz-spec-text">' + text + '</span>';
+      specsEl.appendChild(d);
+    });
+
+    // Botón Amazon
+    var btnEl = document.getElementById('amz-btn-amazon');
+    if (btnEl) btnEl.href = asin ? 'https://www.amazon.com/dp/' + asin : 'https://www.amazon.com/s?k=' + encodeURIComponent(p.title || '');
+
+    // ASIN text
+    var asinText = document.getElementById('amz-asin-text');
+    if (asinText) asinText.textContent = asin || '—';
+
+    // Variaciones
+    var variants = p.variants || [];
+    if (variants.length > 1) {
+      var variantsEl = document.getElementById('amz-variants');
+
+      // Para productos sin dimensions (calzado/ropa), parsear el título
+      function synthesizeDimensions(title) {
+        if (!title) return [];
+        var m = title.match(/^([\d.]+(?:\s+(?:Little\s+Kid|Big\s+Kid|Toddler|M\s+US|W\s+US|Men|Women|Girls?|Boys?|Youth|Infant|Baby|Adults?))?)\s+(.+)$/i);
+        if (m) return [{name: 'Size', value: m[1].trim()}, {name: 'Color', value: m[2].trim()}];
+        return [{name: 'Style', value: title}];
+      }
+
+      // Normalizar variantes: usar dimensions si existen, sino parsear título
+      var normVariants = variants.map(function(v) {
+        var dims = (v.dimensions && v.dimensions.length > 0) ? v.dimensions : synthesizeDimensions(v.title);
+        return { asin: v.asin, title: v.title, is_current: !!v.is_current_product, image: v.main_image || null, dimensions: dims };
+      });
+
+      // Construir grupos por dimensión
+      var dimGroups = {}, dimOrder = [];
+      normVariants.forEach(function(v) {
+        v.dimensions.forEach(function(d) {
+          if (!dimGroups[d.name]) { dimGroups[d.name] = []; dimOrder.push(d.name); }
+          if (!dimGroups[d.name].some(function(x) { return x.value === d.value; })) {
+            dimGroups[d.name].push({ value: d.value, image: v.image });
+          }
+        });
+      });
+      dimOrder = dimOrder.filter(function(v, i) { return dimOrder.indexOf(v) === i; });
+
+      // Selección actual
+      var currentDims = {};
+      normVariants.forEach(function(v) {
+        if (v.is_current) v.dimensions.forEach(function(d) { currentDims[d.name] = d.value; });
+      });
+
+      // Mejor variante para una selección dada
+      function findBestVariant(selection) {
+        var best = null, bestScore = -1;
+        normVariants.forEach(function(v) {
+          var score = 0;
+          v.dimensions.forEach(function(d) { if (selection[d.name] === d.value) score++; });
+          if (score > bestScore) { bestScore = score; best = v; }
+        });
+        return best;
+      }
+
+      var hasGroups = false;
+      dimOrder.forEach(function(dim) {
+        var options = dimGroups[dim];
+        if (!options || options.length < 2) return;
+        hasGroups = true;
+
+        var group = document.createElement('div');
+        group.className = 'amz-variant-group';
+
+        var currentVal = currentDims[dim] || '';
+        var lbl = document.createElement('div');
+        lbl.className = 'amz-variant-dim-label';
+        lbl.textContent = dim + (currentVal ? ': ' + currentVal : ':');
+        group.appendChild(lbl);
+
+        var btnsRow = document.createElement('div');
+        btnsRow.className = 'amz-variant-btns';
+
+        options.forEach(function(opt) {
+          var isActive = (opt.value === currentVal);
+          var btn = document.createElement('button');
+          btn.className = 'amz-variant-btn' + (isActive ? ' active' : '');
+          if (opt.image && dim.toLowerCase() === 'color') {
+            btn.innerHTML = '<img src="' + opt.image + '" style="width:20px;height:20px;object-fit:cover;border-radius:3px;vertical-align:middle;margin-right:5px;">' + opt.value;
+          } else {
+            btn.textContent = opt.value;
+          }
+
+          if (!isActive) {
+            (function(dimName, dimValue) {
+              btn.addEventListener('click', function() {
+                var newSel = {};
+                Object.keys(currentDims).forEach(function(k) { newSel[k] = currentDims[k]; });
+                newSel[dimName] = dimValue;
+                var target = findBestVariant(newSel);
+                if (!target || target.is_current) return;
+
+                variantsEl.querySelectorAll('.amz-variant-btn').forEach(function(b) { b.disabled = true; });
+                btn.textContent = '⏳';
+
+                fetchRainforest(target.asin)
+                  .then(function(data) {
+                    var prod = data.product;
+                    prod._asin = target.asin;
+                    localStorage.setItem('cubo_amazon_product', JSON.stringify(prod));
+                    window.location.reload();
+                  })
+                  .catch(function(err) {
+                    variantsEl.querySelectorAll('.amz-variant-btn').forEach(function(b) { b.disabled = false; });
+                    btn.textContent = dimValue;
+                    var errDiv = document.getElementById('amz-variant-error');
+                    if (!errDiv) {
+                      errDiv = document.createElement('div');
+                      errDiv.id = 'amz-variant-error';
+                      errDiv.style.cssText = 'color:#c0392b;font-size:13px;margin-top:8px;';
+                      variantsEl.appendChild(errDiv);
+                    }
+                    errDiv.textContent = err.message || 'Error al cargar variante. Intentá de nuevo.';
+                    setTimeout(function(){ errDiv.textContent = ''; }, 5000);
+                  });
+              });
+            })(dim, opt.value);
+          }
+          btnsRow.appendChild(btn);
+        });
+
+        group.appendChild(btnsRow);
+        variantsEl.appendChild(group);
+      });
+      if (hasGroups) show(variantsEl);
+    }
+
+    // Galería (Rainforest: p.images[].link)
+    var allImgs = [];
+    if (p.images && p.images.length) {
+      p.images.forEach(function(img) {
+        var url = img.link || img;
+        if (url && allImgs.indexOf(url) === -1) allImgs.push(url);
+      });
+    }
+    if (!allImgs.length && p.main_image) allImgs.push(p.main_image.link || p.main_image);
+    var mainImgEl = document.getElementById('amz-main-img');
+    var thumbsEl  = document.getElementById('amz-thumbs');
+    if (allImgs.length && mainImgEl) {
+      mainImgEl.src = allImgs[0];
+      mainImgEl.alt = p.title || '';
+      allImgs.forEach(function(url, idx) {
+        var t = document.createElement('img');
+        t.className = 'amz-thumb' + (idx === 0 ? ' active' : '');
+        t.src = url; t.alt = 'Vista ' + (idx + 1);
+        t.addEventListener('click', function() {
+          mainImgEl.src = url;
+          thumbsEl.querySelectorAll('.amz-thumb').forEach(function(th) { th.classList.remove('active'); });
+          t.classList.add('active');
+        });
+        thumbsEl.appendChild(t);
+      });
+    }
+
+    // Descripción
+    var hasDesc = (p.description || (p.feature_bullets && p.feature_bullets.length));
+    if (hasDesc) {
+      var descTextEl = document.getElementById('amz-desc-text');
+      if (p.description && descTextEl) { descTextEl.textContent = p.description; show(descTextEl); }
+      var bulletsEl = document.getElementById('amz-bullets');
+      if (p.feature_bullets && bulletsEl) {
+        p.feature_bullets.forEach(function(b) {
+          var li = document.createElement('li'); li.className = 'amz-bullet'; li.textContent = b;
+          bulletsEl.appendChild(li);
+        });
+      }
+      var extraEl = document.getElementById('amz-extra-info');
+      if (rating) { var dR = document.createElement('div'); dR.style.cssText='font-size:13px;color:#555;'; dR.innerHTML='<strong style="color:#1a1a2e;">Valoración:</strong> ' + rating + '/5 (' + totalRatings.toLocaleString() + ' reseñas)'; extraEl.appendChild(dR); }
+      if (brand)  { var dB = document.createElement('div'); dB.style.cssText='font-size:13px;color:#555;'; dB.innerHTML='<strong style="color:#1a1a2e;">Marca:</strong> ' + brand; extraEl.appendChild(dB); }
+      if (asin)   { var dA = document.createElement('div'); dA.style.cssText='font-size:13px;color:#555;'; dA.innerHTML='<strong style="color:#1a1a2e;">ASIN:</strong> ' + asin; extraEl.appendChild(dA); }
+      show(document.getElementById('amz-description'));
+    }
+
+    // Reseñas (Rainforest: p.top_reviews[])
+    var reviews = p.top_reviews || [];
+    if (reviews.length) {
+      var avgBig   = document.getElementById('amz-avg-big');
+      var avgStars = document.getElementById('amz-avg-stars');
+      var totalRat = document.getElementById('amz-total-ratings');
+      if (avgBig)   avgBig.textContent = rating ? rating.toFixed(1) : '—';
+      if (avgStars) avgStars.innerHTML = rating ? starsHtml(rating, 16) : '';
+      if (totalRat) totalRat.textContent = totalRatings.toLocaleString() + ' calificaciones';
+      var barsEl = document.getElementById('amz-rating-bars');
+      if (barsEl && p.rating_breakdown) {
+        var rb = p.rating_breakdown;
+        var starMap = { 5: rb.five_star, 4: rb.four_star, 3: rb.three_star, 2: rb.two_star, 1: rb.one_star };
+        [5,4,3,2,1].forEach(function(s) {
+          var pct2 = (starMap[s] && starMap[s].percentage) ? starMap[s].percentage : 0;
+          var row = document.createElement('div'); row.className = 'amz-bar-row';
+          row.innerHTML = '<span style="min-width:36px;">' + s + ' &#9733;</span><div class="amz-bar-track"><div class="amz-bar-fill" style="width:' + pct2 + '%;"></div></div><span style="min-width:36px;color:#888;">' + pct2 + '%</span>';
+          barsEl.appendChild(row);
+        });
+      }
+      var listEl = document.getElementById('amz-reviews-list');
+      if (listEl) {
+        reviews.forEach(function(r) {
+          var card = document.createElement('div'); card.className = 'amz-review-card';
+          var userName = (r.profile && r.profile.name) ? r.profile.name : 'Usuario';
+          var dateStr  = (r.date && r.date.raw) ? r.date.raw : '';
+          card.innerHTML =
+            '<div class="amz-review-header">' +
+              '<span class="amz-review-user">' + userName + '</span>' +
+              '<span class="amz-review-date">' + dateStr + '</span>' +
+            '</div>' +
+            '<div>' + starsHtml(r.rating, 14) + (r.verified_purchase ? ' <span class="amz-review-verified">&#10003; Verified Purchase</span>' : '') + '</div>' +
+            '<p class="amz-review-title">' + (r.title || '') + '</p>' +
+            '<p class="amz-review-text">' + (r.body || '') + '</p>';
+          listEl.appendChild(card);
+        });
+      }
+      show(document.getElementById('amz-reviews'));
+    }
+
+    hide(loadingEl);
+    show(contentEl);
+  })();
+  </script>
+</body>
+</html>

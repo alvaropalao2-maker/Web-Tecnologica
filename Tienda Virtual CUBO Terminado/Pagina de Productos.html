@@ -1,0 +1,2398 @@
+<!DOCTYPE html>
+<!-- This site was created in Webflow. https://webflow.com -->
+<!-- Last Published: Fri Apr 24 2026 07:15:21 GMT+0000 (Coordinated Universal Time) -->
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <link href="https://cdn.prod.website-files.com" rel="preconnect" crossorigin="anonymous" />
+    <title>Micrófono de Streaming - Cubo - Tienda de Tecnología</title>
+    <meta content="Audio cristalino para podcasters, streamers y creadores de contenido. Conéctalo y listo — sin interfaz de audio necesaria." name="description" />
+    <meta content="Micrófono de Streaming - Cubo - Tienda de Tecnología" property="og:title" />
+    <meta content="Audio cristalino para podcasters, streamers y creadores de contenido. Conéctalo y listo — sin interfaz de audio necesaria." property="og:description" />
+    <meta content="https://cdn.prod.website-files.com/69897f171f2e445fc490c5da/69d4d151f7875f8bf47d1d7d_4.avif" property="og:image" />
+    <meta content="Micrófono de Streaming - Cubo - Tienda de Tecnología" name="twitter:title" />
+    <meta content="Audio cristalino para podcasters, streamers y creadores de contenido. Conéctalo y listo — sin interfaz de audio necesaria." name="twitter:description" />
+    <meta content="https://cdn.prod.website-files.com/69897f171f2e445fc490c5da/69d4d151f7875f8bf47d1d7d_4.avif" name="twitter:image" />
+    <meta property="og:type" content="website" />
+    <meta content="summary_large_image" name="twitter:card" />
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
+    <link href="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/css/givolt.webflow.shared.5760b6763.css" rel="stylesheet" type="text/css" integrity="sha384-V2C2djvxxziWa7AKqPy91Lol0US1O2lFztCd1JXn/6epS3aFFinQRLOLJIYza0L9" crossorigin="anonymous" />
+  <style>
+    /* Favoritos rotación */
+    .favorites-viewport { overflow: hidden; }
+    .favorites-track { display: flex; gap: 24px; will-change: transform; }
+    .favorites-track .new-product { flex: 0 0 calc((100% - 48px) / 3); min-width: 0; }
+    @media (max-width: 991px) and (min-width: 768px) { .favorites-track .new-product { flex: 0 0 calc((100% - 24px) / 2); } }
+    @media (max-width: 767px) { .favorites-track .new-product { flex: 0 0 100%; } }
+
+    /* Review tabs */
+    .review-tab-pane { display: none; }
+    .review-tab-pane.w--tab-active { display: block; }
+    .review-tab-link { opacity: 0.4; transition: opacity 0.3s; }
+    .review-tab-link.w--current { opacity: 1; }
+
+    /* Dropdown */
+    .cat-dropdown { position: relative; }
+    .cat-dropdown-content { display: none; position: absolute; top: 100%; left: 0; z-index: 1000; background: #fff; border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); min-width: 220px; padding: 8px 0; }
+    .cat-dropdown-content.open { display: block; }
+
+    /* Mobile menu */
+    .mobile-menu { display: none; }
+    .mobile-menu.open { display: flex; }
+
+    /* Search */
+    .search-form-box { display: none; }
+    .search-form-box.open { display: block; }
+    .bg.menu-bg { display: none; }
+    .bg.menu-bg.open { display: block; }
+
+    /* Cart */
+    .w-commerce-commercecartcontainerwrapper { display: none !important; }
+    .cart-button { cursor: pointer; border: none; text-align: center; display: block; }
+    .w-commerce-commercecartcontainerwrapper.open { display: flex !important; }
+
+    /* Video modal */
+    #video-modal { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.85); z-index: 9999; align-items: center; justify-content: center; }
+    #video-modal.open { display: flex; }
+    #video-modal iframe { width: 90vw; max-width: 940px; height: 528px; border: none; }
+    #video-modal-close { position: absolute; top: 20px; right: 30px; color: white; font-size: 2rem; cursor: pointer; background: none; border: none; }
+
+    /* Nav layout: 3-column grid for true centering */
+    .header-main-box { display: grid !important; grid-template-columns: 1fr auto 1fr; align-items: center; }
+    .header-left-group { display: flex; align-items: center; gap: 28px; }
+    .header-left-group .header-menu-box { flex: 1; display: flex; justify-content: center; }
+    .header-btn-box { display: flex !important; align-items: center; justify-content: flex-end; }
+    /* Grupo central */
+    .header-center-group { display: flex; align-items: center; gap: 16px; }
+    /* Nav search bar */
+    .nav-search-form { flex: 0 0 600px; margin: 0; }
+    .nav-search-wrap { display: flex; align-items: center; background: #fff; border-radius: 50px; padding: 5px 5px 5px 22px; gap: 8px; }
+    .nav-search-input { flex: 1; background: transparent; border: none; outline: none; color: #1a1a1a; font-family: inherit; font-size: 14px; min-width: 0; }
+    .nav-search-input::placeholder { color: rgba(0,0,0,0.42); }
+    .nav-search-btn { display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; background: #1a1a1a; border: none; border-radius: 50%; cursor: pointer; flex-shrink: 0; transition: background 0.2s; }
+    .nav-search-btn:hover { background: #333; }
+    .nav-search-btn img { filter: invert(1); width: 16px; height: 16px; }
+    .header-login-btn { display: flex; align-items: center; gap: 8px; opacity: 0.9; transition: opacity 0.2s; text-decoration: none; color: #fff; }
+    .header-login-btn:hover { opacity: 1; }
+    .header-login-text { display: flex; flex-direction: column; line-height: 1.2; }
+    .header-login-title { font-size: 14px; font-weight: 600; color: inherit; white-space: nowrap; }
+    .header-login-sub { font-size: 12px; font-weight: 400; color: inherit; opacity: 0.75; white-space: nowrap; }
+    @media (max-width: 1280px) {
+      .nav-search-form { flex: 0 0 420px; }
+    }
+    @media (max-width: 991px) {
+      .header-main-box { grid-template-columns: 1fr auto auto; }
+      .header-left-group { flex: 0 0 auto; }
+      .header-menu-box { display: none; }
+      .nav-search-form { flex: 1; min-width: 0; }
+      .header-login-text { display: none; }
+      .header-login-btn { gap: 0; }
+      .header-btn-box { flex: 0 0 auto !important; justify-content: flex-end; }
+      .mobile-menu-open-btn { display: flex; align-items: center; cursor: pointer; }
+    }
+    @media (max-width: 767px) {
+      .header-main-box { grid-template-columns: auto 1fr auto; }
+      .header-center-group { justify-content: flex-end; gap: 12px; }
+      .header-btn-box { flex: 0 0 auto !important; }
+      .header-left-group { display: flex !important; }
+      .header-left-group .logo-box { display: flex !important; }
+      .header-left-group .site-logo { display: block !important; }
+    }
+    /* Fix cat-content alignment across all category cards */
+    .cat-content.two { display: flex; flex-direction: column; justify-content: space-between; }
+    .cat-content.two .cat-title { flex: 1; }
+
+    /* Navbar hide/show on scroll */
+    .main-header { position: sticky; top: 0; z-index: 999; transition: transform 0.3s ease; background-color: #1a1a2e; color: #fff; }
+    .main-header .header-left-group { display: flex !important; }
+    .main-header .header-left-group .logo-box { display: flex !important; }
+    .main-header .header-left-group .site-logo { display: block !important; width: auto !important; height: auto !important; opacity: 1 !important; visibility: visible !important; }
+    .main-header.nav-hidden { transform: translateY(-100%); }
+    /* Navbar white text/icons */
+    .main-header .header-menu, .main-header .header-menu-hover, .main-header .header-menu-link { color: #fff !important; }
+    .main-header .menu-icon, .main-header .shopping-cart-icon, .main-header .mobile-menu-icon { filter: invert(1); }
+    .main-header .w-commerce-commercecartopenlinkcount { color: #fff; }
+    .mobile-menu-open-btn { display: none; }
+    /* Login Modal */
+    .login-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); z-index: 9999; align-items: center; justify-content: center; }
+    .login-modal-overlay.open { display: flex; }
+    .login-modal-card { background: #fff; border-radius: 16px; padding: 40px 36px 36px; width: 100%; max-width: 440px; position: relative; box-shadow: 0 24px 64px rgba(0,0,0,0.25); display: flex; flex-direction: column; align-items: center; gap: 14px; }
+    .login-modal-close { position: absolute; top: 16px; right: 16px; background: none; border: none; cursor: pointer; color: #999; display: flex; align-items: center; padding: 4px; border-radius: 50%; transition: color 0.2s; }
+    .login-modal-close:hover { color: #1a1a1a; }
+    .login-modal-logo { height: 36px; width: auto; margin-bottom: 4px; }
+    .login-modal-title { font-size: 22px; font-weight: 700; color: #0f0f0f; margin: 0; text-align: center; }
+    .login-modal-subtitle { font-size: 14px; color: #777; margin: 0 0 6px; text-align: center; }
+    .login-btn-primary { display: block; width: 100%; padding: 14px; background: #1a1a2e; color: #fff; border-radius: 8px; text-align: center; font-size: 15px; font-weight: 600; text-decoration: none; transition: background 0.2s; }
+    .login-btn-primary:hover { background: #333; }
+    .login-btn-secondary { display: block; width: 100%; padding: 13px; background: transparent; color: #1a1a1a; border: 1.5px solid #d1d5db; border-radius: 8px; text-align: center; font-size: 15px; font-weight: 600; text-decoration: none; transition: border-color 0.2s; }
+    .login-btn-secondary:hover { border-color: #999; }
+    .login-divider { width: 100%; display: flex; align-items: center; gap: 12px; color: #aaa; font-size: 12px; font-weight: 500; letter-spacing: 0.05em; }
+    .login-divider::before, .login-divider::after { content: ''; flex: 1; height: 1px; background: #e5e7eb; }
+    .login-btn-google { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 13px; background: transparent; color: #1a1a1a; border: 1.5px solid #d1d5db; border-radius: 8px; font-size: 15px; font-weight: 600; text-decoration: none; transition: border-color 0.2s; }
+    .login-btn-google:hover { border-color: #999; }
+    @media (max-width: 480px) { .login-modal-card { margin: 16px; padding: 32px 24px 28px; } }
+    /* Vista email en modal */
+    #login-view-main, #login-view-email { display: flex; flex-direction: column; align-items: center; gap: 14px; width: 100%; }
+    .login-email-input { width: 100%; padding: 13px 16px; border: 1.5px solid #d1d5db; border-radius: 8px; font-size: 15px; font-family: inherit; color: #1a1a1a; outline: none; box-sizing: border-box; transition: border-color 0.2s; }
+    .login-email-input:focus { border-color: #0f0f0f; }
+    .login-email-input::placeholder { color: #aaa; }
+    .login-btn-primary { border: none; cursor: pointer; }
+    .login-btn-secondary { cursor: pointer; }
+    /* Botón atrás */
+    .login-modal-back { position: absolute; top: 16px; left: 16px; background: none; border: none; cursor: pointer; color: #999; display: flex; align-items: center; padding: 4px; border-radius: 50%; transition: color 0.2s; }
+    .login-modal-back:hover { color: #1a1a1a; }
+    /* Vista código */
+    #login-view-code { display: flex; flex-direction: column; align-items: center; gap: 14px; width: 100%; }
+    .login-code-badge { width: 56px; height: 56px; border-radius: 50%; background: #eef2ff; display: flex; align-items: center; justify-content: center; color: #4f6ef7; margin-bottom: 4px; }
+    .login-otp-wrap { display: flex; gap: 10px; justify-content: center; width: 100%; }
+    .login-otp-input { width: 44px; height: 52px; border: 1.5px solid #d1d5db; border-radius: 8px; text-align: center; font-size: 22px; font-family: inherit; color: #1a1a1a; outline: none; transition: border-color 0.2s; }
+    .login-otp-input:focus { border-color: #0f0f0f; }
+    .login-btn-text { background: none; border: none; cursor: pointer; color: #999; font-size: 14px; font-family: inherit; padding: 4px 8px; transition: color 0.2s; }
+    .login-btn-text:hover { color: #1a1a1a; }
+    #login-view-password { display: flex; flex-direction: column; align-items: center; gap: 14px; width: 100%; }
+    .login-pw-wrap { position: relative; width: 100%; }
+    .login-pw-wrap .login-email-input { padding-right: 44px; width: 100%; box-sizing: border-box; }
+    .login-pw-toggle { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: #aaa; padding: 4px; display: flex; align-items: center; transition: color 0.2s; }
+    .login-pw-toggle:hover { color: #1a1a1a; }
+    #login-view-forgot, #login-view-register, #login-view-reg-code, #login-view-reg-pw, #login-view-forgot-code, #login-view-forgot-pw { display: flex; flex-direction: column; align-items: center; gap: 20px; width: 100%; }
+
+    /* Account Modal */
+    .account-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); z-index: 9999; align-items: center; justify-content: center; }
+    .account-modal-overlay.open { display: flex; }
+    .account-modal-card { background: #fff; border-radius: 16px; width: 100%; max-width: 850px; position: relative; box-shadow: 0 24px 64px rgba(0,0,0,0.25); overflow: hidden; }
+    .account-modal-header { background: #1a1a2e; padding: 28px 40px; display: flex; align-items: center; gap: 14px; }
+    .account-modal-avatar { width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; color: #fff; flex-shrink: 0; }
+    .account-modal-user { flex: 1; min-width: 0; }
+    .account-modal-name { font-size: 16px; font-weight: 700; color: #fff; margin: 0; }
+    .account-modal-email-label { font-size: 13px; color: rgba(255,255,255,0.65); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .account-modal-close { background: none; border: none; cursor: pointer; color: rgba(255,255,255,0.65); display: flex; padding: 4px; border-radius: 50%; transition: color 0.2s; flex-shrink: 0; }
+    .account-modal-close:hover { color: #fff; }
+    .account-tabs { display: flex; border-bottom: 1.5px solid #e5e7eb; padding: 0 40px; }
+    .account-tab { padding: 14px 0; margin-right: 28px; font-size: 14px; font-weight: 600; color: #999; cursor: pointer; border: none; border-bottom: 2px solid transparent; margin-bottom: -1.5px; background: none; font-family: inherit; transition: color 0.2s, border-color 0.2s; }
+    .account-tab.active { color: #1a1a2e; border-bottom-color: #1a1a2e; }
+    .account-tab-content { display: none; padding: 32px 40px 40px; max-height: 70vh; overflow-y: auto; }
+    .account-tab-content.active { display: block; }
+    .account-form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+    .account-form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .account-form-label { font-size: 13px; font-weight: 600; color: #374151; }
+    .account-form-input { width: 100%; padding: 11px 14px; border: 1.5px solid #d1d5db; border-radius: 8px; font-size: 14px; font-family: inherit; color: #1a1a1a; outline: none; box-sizing: border-box; transition: border-color 0.2s; }
+    .account-form-input:focus { border-color: #1a1a2e; }
+    .account-form-input::placeholder { color: #aaa; }
+    .account-form-select { width: 100%; padding: 11px 36px 11px 14px; border: 1.5px solid #d1d5db; border-radius: 8px; font-size: 14px; font-family: inherit; color: #1a1a1a; outline: none; background: #fff url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2.5'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E") no-repeat right 14px center; appearance: none; cursor: pointer; box-sizing: border-box; transition: border-color 0.2s; }
+    .account-form-select:focus { border-color: #1a1a2e; }
+    .account-save-btn { width: 100%; padding: 13px; background: #1a1a2e; color: #fff; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: inherit; transition: background 0.2s; margin-top: 4px; }
+    .account-save-btn:hover { background: #2d2d4e; }
+    .account-orders-empty { text-align: center; padding: 48px 0 32px; color: #bbb; }
+    .account-orders-empty p { font-size: 15px; margin: 12px 0 0; color: #999; }
+    /* Direcciones */
+    .acc-dir-empty { text-align: center; padding: 48px 0 32px; }
+    .acc-dir-empty p { font-size: 15px; color: #999; margin: 12px 0 20px; }
+    .acc-dir-add-btn { display: inline-block; padding: 12px 28px; background: #1a1a2e; color: #fff; border: none; border-radius: 8px; font-size: 14px; font-weight: 600; font-family: inherit; cursor: pointer; transition: background 0.2s; }
+    .acc-dir-add-btn:hover { background: #2d2d4e; }
+    .acc-dir-form { display: none; }
+    .acc-dir-form.visible { display: block; }
+    .acc-form-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 13px; }
+    .acc-form-grid-3 select, .acc-form-grid-3 input { min-width: 0; width: 100%; box-sizing: border-box; }
+    .acc-toggle-wrap { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; margin-top: 4px; }
+    .acc-toggle { position: relative; width: 44px; height: 24px; flex-shrink: 0; }
+    .acc-toggle input { opacity: 0; width: 0; height: 0; position: absolute; }
+    .acc-toggle-slider { position: absolute; cursor: pointer; inset: 0; background: #d1d5db; border-radius: 24px; transition: background 0.2s; }
+    .acc-toggle-slider:before { content: ''; position: absolute; width: 18px; height: 18px; left: 3px; top: 3px; background: #fff; border-radius: 50%; transition: transform 0.2s; box-shadow: 0 1px 3px rgba(0,0,0,0.2); }
+    .acc-toggle input:checked + .acc-toggle-slider { background: #1a1a2e; }
+    .acc-toggle input:checked + .acc-toggle-slider:before { transform: translateX(20px); }
+    .acc-toggle-label { font-size: 14px; color: #374151; font-weight: 500; }
+    .acc-dir-form-btns { display: flex; gap: 12px; margin-top: 4px; }
+    .acc-dir-cancel-btn { flex: 1; padding: 13px; background: transparent; color: #1a1a1a; border: 1.5px solid #d1d5db; border-radius: 8px; font-size: 14px; font-weight: 600; font-family: inherit; cursor: pointer; transition: border-color 0.2s; }
+    .acc-dir-cancel-btn:hover { border-color: #999; }
+    /* Seguridad — toggle ver contraseña */
+    .acc-pass-toggle { position: absolute; right: 12px; bottom: 10px; background: none; border: none; padding: 0; cursor: pointer; color: #9ca3af; display: flex; align-items: center; }
+    .acc-pass-toggle:hover { color: #374151; }
+    /* Barra de fortaleza */
+    .acc-pass-strength { display: flex; align-items: center; gap: 10px; margin: 6px 0 0; }
+    .acc-pass-strength-bar { flex: 1; height: 5px; background: #e5e7eb; border-radius: 4px; overflow: hidden; }
+    .acc-pass-strength-fill { height: 100%; border-radius: 4px; transition: width 0.3s, background 0.3s; width: 0%; }
+    .acc-pass-strength-label { font-size: 12px; font-weight: 600; white-space: nowrap; }
+    @media (max-width: 580px) { .acc-form-grid-3 { grid-template-columns: 1fr; } }
+    @media (max-width: 580px) { .account-modal-card { margin: 16px; } .account-tabs { padding: 0 20px; } .account-tab-content { padding: 20px 20px 24px; } .account-modal-header { padding: 20px; } .account-form-row { grid-template-columns: 1fr; } }
+
+    /* Deals sticky left box */
+    .deal-offer-box { position: sticky; top: 90px; align-self: start; }
+
+    /* Scroll animation */
+    .anim-hidden { opacity: 0; transform: translateY(30px); }
+    .anim-visible { opacity: 1 !important; transform: translateY(0) !important; transition: opacity 0.6s ease, transform 0.6s ease; }
+
+    /* Instagram parallax columns */
+    .column-gallery-about { overflow: hidden; height: 700px; }
+    .inside-gallery-about { display: flex; flex-direction: column; gap: 16px; }
+
+    /* Marquee */
+    @keyframes marquee-left { from { transform: translateX(0); } to { transform: translateX(-33.33%); } }
+    @keyframes marquee-right { from { transform: translateX(-33.33%); } to { transform: translateX(0); } }
+    .marquee-inner.one { animation: marquee-left 30s linear infinite; }
+    .marquee-inner.two { animation: marquee-right 30s linear infinite; }
+    @keyframes marquee-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .marquee-inner-two.one { animation: marquee-scroll 20s linear infinite; }
+    .marquee-inner-two.two { animation: marquee-scroll 20s linear infinite reverse; }
+
+    /* Galería de producto — miniaturas izquierda + imagen principal derecha */
+    .pdp-gallery-wrap { display: flex; gap: 12px; align-items: flex-start; width: 100%; }
+    .pdp-gallery-thumbs { display: flex; flex-direction: column; gap: 10px; flex-shrink: 0; }
+    .pdp-gallery-thumb { width: 76px; height: 76px; object-fit: cover; border-radius: 8px; border: 2px solid transparent; cursor: pointer; transition: border-color 0.2s, box-shadow 0.2s; background: #f5f5f5; }
+    .pdp-gallery-thumb:hover { border-color: #1a1a2e; }
+    .pdp-gallery-thumb.active { border-color: #1a1a2e; box-shadow: 0 0 0 3px rgba(26,26,46,0.12); }
+    .pdp-gallery-main { flex: 1; overflow: hidden; border-radius: 12px; background: #f5f5f5; display: flex; align-items: center; justify-content: center; }
+    .pdp-gallery-main .product-detail-image { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.35s ease; }
+    .pdp-gallery-main:hover .product-detail-image { transform: scale(1.05); }
+    @media (max-width: 767px) {
+      .pdp-gallery-wrap { flex-direction: column-reverse; }
+      .pdp-gallery-thumbs { flex-direction: row; }
+      .pdp-gallery-thumb { width: 64px; height: 64px; }
+    }
+
+    /* Boton compartir producto */
+    .pdp-title-row { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 10px; }
+    .pdp-title-row .product-detail-title { margin: 0; flex: 1; }
+    .pdp-share-btn { flex-shrink: 0; background: none; border: 1.5px solid #e5e7eb; border-radius: 50%; width: 38px; height: 38px; display: flex; align-items: center; justify-content: center; cursor: pointer; color: #888; transition: color 0.2s, border-color 0.2s; margin-top: 4px; }
+    .pdp-share-btn:hover { color: #1a1a2e; border-color: #1a1a2e; }
+    .pdp-share-toast { position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%) translateY(20px); background: #1a1a2e; color: #fff; padding: 10px 22px; border-radius: 50px; font-size: 14px; font-weight: 600; opacity: 0; pointer-events: none; transition: opacity 0.3s, transform 0.3s; z-index: 9999; white-space: nowrap; }
+    .pdp-share-toast.show { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+    /* Items del carrito */
+    #cart-items-list { display: flex; flex-direction: column; padding: 0 16px; max-height: 360px; overflow-y: auto; }
+    .cart-item { display: flex; align-items: center; gap: 10px; padding: 12px 0; border-bottom: 1px solid #f0f0f0; }
+    .cart-item:last-child { border-bottom: none; }
+    .cart-item-img { width: 58px; height: 58px; object-fit: cover; border-radius: 8px; background: #f5f5f5; flex-shrink: 0; }
+    .cart-item-info { flex: 1; min-width: 0; }
+    .cart-item-name { font-size: 13px; font-weight: 600; color: #1a1a1a; margin: 0 0 3px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .cart-item-qty { font-size: 12px; color: #888; margin: 0 0 3px; }
+    .cart-item-price { font-size: 13px; font-weight: 700; color: #1a1a2e; margin: 0; }
+    .cart-item-remove { background: none; border: none; cursor: pointer; color: #bbb; font-size: 18px; line-height: 1; padding: 2px 4px; transition: color 0.2s; flex-shrink: 0; }
+    .cart-item-remove:hover { color: #e11d48; }
+    .cart-item-qty-row { display: flex; align-items: center; gap: 8px; margin: 4px 0; }
+    .cart-item-qty-btn { width: 24px; height: 24px; background: #f0f0f0; border: none; border-radius: 50%; cursor: pointer; font-size: 14px; display: flex; align-items: center; justify-content: center; line-height: 1; font-weight: 700; color: #333; transition: background 0.15s; }
+    .cart-item-qty-btn:hover { background: #1a1a2e; color: #fff; }
+    .cart-item-qty-val { font-size: 14px; font-weight: 700; min-width: 20px; text-align: center; color: #1a1a1a; }
+  
+    /* --- Logo Cubo: oculta imagen SVG, muestra texto --- */
+    img.site-logo,
+    .main-header .header-left-group img.site-logo,
+    .header-left-group img.site-logo { display: none !important; visibility: hidden !important; opacity: 0 !important; width: 0 !important; height: 0 !important; margin: 0 !important; padding: 0 !important; }
+    a.logo-box { display: inline-flex !important; align-items: center !important; text-decoration: none !important; }
+    a.logo-box::after { content: "Cubo"; font-size: 22px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px; font-family: inherit; line-height: 1; }
+    .copyright-box a { text-decoration: none !important; border: none !important; }
+    .copyright-box a.w-inline-block img { display: none !important; visibility: hidden !important; }
+    .copyright-box a.w-inline-block::after { content: "Cubo"; font-size: 22px; font-weight: 800; color: #ffffff !important; font-family: inherit; }
+    .copyright-box .copyright-text-link::after { content: none !important; }
+    .copyright-line { display: none !important; }
+    img.login-modal-logo { display: none !important; visibility: hidden !important; width: 0 !important; height: 0 !important; }
+    #login-view-main::before { content: "Cubo"; display: block; font-size: 28px; font-weight: 800; color: #1a1a2e; text-align: center; letter-spacing: -0.5px; margin-bottom: 4px; font-family: inherit; }
+</style>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous" />
+    <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript">
+    </script>
+    <script type="text/javascript">
+      WebFont.load({  google: {    families: [&#34;Antonio:300,400,500,600,700&#34;,&#34;DM Sans:300,400,500,600,700&#34;,&#34;Host Grotesk:300,400,500,600,700&#34;,&#34;Manrope:300,400,500,600,700&#34;,&#34;Outfit:300,400,500,600,700&#34;,&#34;Plus Jakarta Sans:300,400,500,600,700&#34;,&#34;Space Grotesk:300,400,500,600,700&#34;,&#34;Syne:300,400,500,600,700&#34;]  }});
+    </script>
+    <script type="text/javascript">
+      !function(o,c){var n=c.documentElement,t=&#34; w-mod-&#34;;n.className+=t+&#34;js&#34;,(&#34;ontouchstart&#34;in o||o.DocumentTouch&amp;&amp;c instanceof DocumentTouch)&amp;&amp;(n.className+=t+&#34;touch&#34;)}(window,document);
+    </script>
+    <link href="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/69d4da7bec912f7377bc97fe_svgviewer-output%20(1).svg" rel="icon" type="image/png" sizes="32x32" media="(prefers-color-scheme: light)" />
+    <link href="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/69d4da7bec912f7377bc97fe_svgviewer-output%20(1).svg" rel="icon" type="image/png" sizes="32x32" media="(prefers-color-scheme: dark)" />
+    <link href="https://cdn.prod.website-files.com/img/webclip.png" rel="apple-touch-icon" />
+    <script type="application/ld+json">
+      {
+  &#34;@context&#34;: &#34;https://schema.org&#34;,
+  &#34;@type&#34;: &#34;Product&#34;,
+  &#34;name&#34;: &#34;Micrófono de Streaming&#34;,
+  &#34;description&#34;: &#34;Audio cristalino para podcasters, streamers y creadores de contenido. Conéctalo y listo — sin interfaz de audio necesaria.&#34;,
+  &#34;url&#34;: &#34;/product/streaming-microphone&#34;,
+  &#34;sku&#34;: &#34;&#34;,
+  &#34;image&#34;: &#34;https://cdn.prod.website-files.com/69897f171f2e445fc490c5da/69d4d151f7875f8bf47d1d7d_4.avif&#34;,
+  &#34;offers&#34;: {
+    &#34;@type&#34;: &#34;Offer&#34;,
+    &#34;price&#34;: &#34;$ 89.99 USD&#34;,
+    &#34;priceCurrency&#34;: &#34;USD&#34;,
+    &#34;availability&#34;: &#34;https://schema.org/InStock&#34;,
+    &#34;url&#34;: &#34;/product/streaming-microphone&#34;
+  },
+  &#34;brand&#34;: {
+    &#34;@type&#34;: &#34;Brand&#34;,
+    &#34;name&#34;: &#34;Cubo&#34;
+  },
+  &#34;category&#34;: &#34;Physical&#34;,
+  &#34;weight&#34;: {
+    &#34;@type&#34;: &#34;QuantitativeValue&#34;,
+    &#34;value&#34;: &#34;&#34;
+  },
+  &#34;width&#34;: {
+    &#34;@type&#34;: &#34;QuantitativeValue&#34;,
+    &#34;value&#34;: &#34;&#34;
+  },
+  &#34;height&#34;: {
+    &#34;@type&#34;: &#34;QuantitativeValue&#34;,
+    &#34;value&#34;: &#34;&#34;
+  },
+  &#34;depth&#34;: {
+    &#34;@type&#34;: &#34;QuantitativeValue&#34;,
+    &#34;value&#34;: &#34;&#34;
+  }
+}
+    </script>
+    <script type="text/javascript">
+      window.__WEBFLOW_CURRENCY_SETTINGS = {&#34;currencyCode&#34;:&#34;USD&#34;,&#34;symbol&#34;:&#34;$&#34;,&#34;decimal&#34;:&#34;.&#34;,&#34;fractionDigits&#34;:2,&#34;group&#34;:&#34;,&#34;,&#34;template&#34;:&#34;{{wf {\&#34;path\&#34;:\&#34;symbol\&#34;,\&#34;type\&#34;:\&#34;PlainText\&#34;} }} {{wf {\&#34;path\&#34;:\&#34;amount\&#34;,\&#34;type\&#34;:\&#34;CommercePrice\&#34;} }} {{wf {\&#34;path\&#34;:\&#34;currencyCode\&#34;,\&#34;type\&#34;:\&#34;PlainText\&#34;} }}&#34;,&#34;hideDecimalForWholeNumbers&#34;:false};
+    </script>
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+  <body>
+    <div class="page-wrapper">
+
+  <!-- ========== HEADER ========== -->
+  <header class="main-header">
+    <div class="w-layout-blockcontainer container w-container">
+      <div class="header-main-box">
+
+        <!-- Grupo Izquierdo: Logo + Nav -->
+        <div class="header-left-group">
+          <a href="Pagina%20de%20inicio%20Adaptado%20a%20worpress.html" class="logo-box w-inline-block w--current">
+            <img loading="lazy" src="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/69cfa642d519614f2c137ab9_0.svg" alt="Cubo Logo" class="site-logo" />
+          </a>
+          <div class="header-menu-box">
+            <div class="cat-dropdown w-dropdown" id="cat-dropdown-desktop">
+              <div class="cat-toggle w-dropdown-toggle" id="cat-toggle-desktop">
+                <a href="#" class="header-menu-link w-inline-block" onclick="return false;">
+                  <p class="header-menu">Categorías</p>
+                  <p class="header-menu-hover">Categorías</p>
+                </a>
+                <img src="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/69d0cd30e7cb43d5d656127e_arrow-down.png" loading="lazy" alt="flecha" class="menu-icon" />
+              </div>
+              <nav class="cat-dropdown-content w-dropdown-list" id="cat-dropdown-list">
+                <div class="cat-list-box">
+                  <a href="Pagina%20de%20categoria%20por%20producto.html" class="cat-link">Teléfonos Inteligentes</a>
+                  <a href="Pagina%20de%20categoria%20laptops.html" class="cat-link">Laptops</a>
+                  <a href="Pagina%20de%20categoria%20hogar%20inteligente.html" class="cat-link">Hogar Inteligente</a>
+                  <a href="Pagina%20de%20categoria%20audio%20y%20sonido.html" class="cat-link">Audio y Sonido</a>
+                  <a href="Pagina%20de%20categoria%20gaming.html" class="cat-link">Accesorios Gaming</a>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+
+        <!-- Grupo central: Búsqueda + Login -->
+        <div class="header-center-group">
+          <form action="/buscar" class="nav-search-form" role="search">
+            <div class="nav-search-wrap">
+              <input class="nav-search-input" type="search" name="query" placeholder="Buscar productos..." maxlength="256" aria-label="Buscar productos" />
+              <button type="submit" class="nav-search-btn" aria-label="Buscar">
+                <img src="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/6992c7e52a0ead73746b2828_Vector.svg" alt="" width="16" height="16" />
+              </button>
+            </div>
+          </form>
+
+          <a href="#" id="login-open-btn" class="header-login-btn w-inline-block" aria-label="Iniciar sesión">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="8" r="4"/>
+              <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+            </svg>
+            <div class="header-login-text">
+              <span class="header-login-title">Iniciar sesión/Registrarse</span>
+              <span class="header-login-sub">Mi cuenta</span>
+            </div>
+          </a>
+
+          <!-- Carrito -->
+          <div class="w-commerce-commercecartwrapper shopping-cart">
+            <a class="w-commerce-commercecartopenlink shopping-cart-btn w-inline-block" id="cart-open-btn" role="button" aria-label="Abrir carrito" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="shopping-cart-icon">
+              <circle cx="9" cy="21" r="1" fill="#000" stroke="#000"/>
+              <circle cx="20" cy="21" r="1" fill="#000" stroke="#000"/>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+            </svg>
+              <div class="w-commerce-commercecartopenlinkcount shopping-cart-quantity">0</div>
+            </a>
+            <div class="w-commerce-commercecartcontainerwrapper w-commerce-commercecartcontainerwrapper--cartType-rightSidebar" id="cart-container">
+              <div role="dialog" class="w-commerce-commercecartcontainer cart-container">
+                <div class="w-commerce-commercecartheader">
+                  <h3 class="w-commerce-commercecartheading cart-title">Tu Carrito</h3>
+                  <a class="w-commerce-commercecartcloselink close-button w-inline-block" id="cart-close-btn" role="button" aria-label="Cerrar carrito">
+                    <svg width="16px" height="16px" viewBox="0 0 16 16"><g fill-rule="nonzero" fill="#333333"><polygon points="6.23223305 8 0.616116524 13.6161165 2.38388348 15.3838835 8 9.76776695 13.6161165 15.3838835 15.3838835 13.6161165 9.76776695 8 15.3838835 2.38388348 13.6161165 0.616116524 8 6.23223305 2.38388348 0.616116524 0.616116524 2.38388348 6.23223305 8"></polygon></g></svg>
+                  </a>
+                </div>
+                <div class="w-commerce-commercecartformwrapper">
+                  <div class="w-commerce-commercecartemptystate cart-empty-state">
+                    <div aria-live="polite">No hay productos en tu carrito.</div>
+                  </div>
+                  <div id="cart-items-list"></div>
+                  <div class="w-commerce-commercecartfooter cart-footer" style="display:none">
+                    <div class="w-commerce-commercecartlineitem">
+                      <div class="cart-product-text">Subtotal</div>
+                      <p class="cart-total-price">$0.00</p>
+                    </div>
+                    <button class="cart-button full-width" onclick="window.location.href='checkout.html'">Continuar al pago</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Botones Header -->
+        <div class="header-btn-box">
+          <!-- Menú móvil -->
+          <div class="mobile-menu-open-btn" id="mobile-menu-open-btn">
+            <img loading="lazy" src="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/6992c5fd8e233bfbd96ceb5f_menu.png" alt="menú" class="mobile-menu-icon" />
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Menú Móvil -->
+    <div class="mobile-menu" id="mobile-menu">
+      <div class="mobile-logo-box">
+        <a href="Pagina%20de%20inicio%20Adaptado%20a%20worpress.html" class="logo-box w-inline-block w--current">
+          <img loading="lazy" src="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/69cfa642d519614f2c137ab9_0.svg" alt="Cubo Logo" class="site-logo" />
+        </a>
+        <img id="mobile-menu-close-btn" loading="lazy" alt="cerrar" src="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/6992c5fd8e233bfbd96ceb52_close%20(2).png" class="mobile-menu-close-btn" />
+      </div>
+      <div class="mobile-menu-box">
+        <div class="cat-dropdown w-dropdown">
+          <div class="mobile-dropdown-link w-dropdown-toggle" id="mobile-cat-toggle">
+            <div class="mobile-dropdown-title">Colección</div>
+            <img src="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/69d0cd30e7cb43d5d656127e_arrow-down.png" loading="lazy" alt="flecha" class="menu-icon" />
+          </div>
+          <nav class="cat-dropdown-content w-dropdown-list" id="mobile-cat-list">
+            <div class="cat-list-box">
+              <a href="Pagina%20de%20categoria%20por%20producto.html" class="mobile-dropdown-link two w-inline-block"><div class="mobile-dropdown-title">Teléfonos</div></a>
+              <a href="Pagina%20de%20categoria%20laptops.html" class="mobile-dropdown-link two w-inline-block"><div class="mobile-dropdown-title">Laptops</div></a>
+              <a href="Pagina%20de%20categoria%20hogar%20inteligente.html" class="mobile-dropdown-link two w-inline-block"><div class="mobile-dropdown-title">Hogar Inteligente</div></a>
+              <a href="Pagina%20de%20categoria%20audio%20y%20sonido.html" class="mobile-dropdown-link two w-inline-block"><div class="mobile-dropdown-title">Audio y Sonido</div></a>
+              <a href="Pagina%20de%20categoria%20gaming.html" class="mobile-dropdown-link two w-inline-block"><div class="mobile-dropdown-title">Accesorios Gaming</div></a>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+
+    <!-- Búsqueda -->
+    <div class="search-form-box" id="search-form-box">
+      <div class="w-layout-blockcontainer container w-container">
+        <form action="/buscar" class="search-form w-form">
+          <input class="search-input w-input" autofocus maxlength="256" name="query" placeholder="Buscá productos, marcas y más" type="search" id="search" required />
+          <input type="submit" class="search-btn w-button" value="" />
+        </form>
+        <img id="search-close-btn" loading="lazy" alt="cerrar búsqueda" src="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/6992c5fd8e233bfbd96ceb5a_679274e26348659b0fc56c38_close.png" class="search-close-btn" />
+      </div>
+    </div>
+    <div class="bg menu-bg" id="menu-bg"></div>
+  </header>
+  <!-- ========== FIN HEADER ========== -->
+
+      <section class="product-detail pb-zero">
+        <div class="w-layout-blockcontainer container w-container">
+          <div class="product-detail-box">
+            <div id="w-node-aee20916-58a4-ae1d-0a7d-2695c159a4c0-56e948b3" class="product-detail-image-box">
+              <div class="pdp-gallery-wrap">
+                <div class="pdp-gallery-thumbs">
+                  <img class="pdp-gallery-thumb active" src="https://cdn.prod.website-files.com/69897f171f2e445fc490c5da/69d4d151f7875f8bf47d1d7d_4.avif" alt="Vista 1" />
+                  <img class="pdp-gallery-thumb" src="https://cdn.prod.website-files.com/69897f171f2e445fc490c5da/69d4a94dcbcca23bde74e4e6_1.avif" alt="Vista 2" />
+                  <img class="pdp-gallery-thumb" src="https://cdn.prod.website-files.com/69897f171f2e445fc490c5da/69d4a96fdce0c394ea839ed9_2.avif" alt="Vista 3" />
+                  <img class="pdp-gallery-thumb" src="https://cdn.prod.website-files.com/69897f171f2e445fc490c5da/69d4a98a3e5dfb5e699e47b4_3.avif" alt="Vista 4" />
+                </div>
+                <div class="pdp-gallery-main">
+                  <img id="pdp-main-img" loading="lazy" src="https://cdn.prod.website-files.com/69897f171f2e445fc490c5da/69d4d151f7875f8bf47d1d7d_4.avif" alt="Micrófono de Streaming" class="product-detail-image" />
+                </div>
+              </div>
+            </div>
+            <div class="product-detail-content-box">
+              <div class="product-detail-content">
+                <div class="product-detail-title-box">
+                  <img src="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/6992c43f6ade0abf82fa71c8_star%20star%20star%20star%20star.svg" loading="lazy" alt="" class="product-detail-stars" />
+                  <div class="pdp-title-row">
+                    <h3 class="product-detail-title">
+                      Micrófono de Streaming
+                    </h3>
+                    <button class="pdp-share-btn" id="pdp-share-btn" title="Compartir producto" aria-label="Compartir enlace del producto">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+                        <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/>
+                        <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+                      </svg>
+                    </button>
+                  </div>
+                  <p class="product-detail-text">
+                    Audio cristalino para podcasters, streamers y creadores de contenido. Conéctalo y listo — sin interfaz de audio necesaria.
+                  </p>
+                  <div class="product-detail-price-box">
+                    <p class="product-detail-price">
+                      USD $129.99
+                    </p>
+                    <p class="product-detail-discount">
+                      USD $89.99
+                    </p>
+                  </div>
+                  <div>
+                    <form data-node-type="commerce-add-to-cart-form" data-commerce-sku-id="69d4d19caccea4c510ede301" data-loading-text="Agregando..." data-commerce-product-id="69d4d19b6f7b2faffebf2812" class="w-commerce-commerceaddtocartform cart-default two">
+                      <input type="number" pattern="^[0-9]+$" inputmode="numeric" id="quantity-394ff6d60ac091c42d8cd309f95292b6" name="commerce-add-to-cart-quantity-input" min="1" class="w-commerce-commerceaddtocartquantityinput cart-quantity" value="1" />
+                      <input type="submit" data-node-type="commerce-add-to-cart-button" data-loading-text="Agregando..." aria-busy="false" aria-haspopup="dialog" class="w-commerce-commerceaddtocartbutton cart-button" value="Agregar al Carrito" />
+                    </form>
+                    <div style="display:none" class="w-commerce-commerceaddtocartoutofstock cart-out-of-stock" tabindex="0">
+                      <div>
+                        Este producto está agotado.
+                      </div>
+                    </div>
+                    <div aria-live="assertive" data-node-type="commerce-add-to-cart-error" style="display:none" class="w-commerce-commerceaddtocarterror cart-out-of-stock">
+                      <div data-node-type="commerce-add-to-cart-error" data-w-add-to-cart-quantity-error="Producto no disponible en esa cantidad." data-w-add-to-cart-general-error="Ocurrió un error al agregar el producto." data-w-add-to-cart-mixed-cart-error="You can’t purchase another product with a subscription." data-w-add-to-cart-buy-now-error="Ocurrió un error al procesar la compra." data-w-add-to-cart-checkout-disabled-error="El checkout no está disponible." data-w-add-to-cart-select-all-options-error="Seleccioná una opción en cada conjunto.">
+                        Producto no disponible en esa cantidad.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="product-list-box">
+                  <div class="product-list">
+                    <div class="product-list-dot">
+                    </div>
+                    <p class="product-list-text">
+                      Disponibilidad: En stock
+                    </p>
+                  </div>
+                  <div class="product-list">
+                    <div class="product-list-dot">
+                    </div>
+                    <p class="product-list-text">
+                      SKU: MIC-USB-001
+                    </p>
+                  </div>
+                  <div class="product-list">
+                    <div class="product-list-dot">
+                    </div>
+                    <p class="product-list-text">
+                      Envío Gratis y Devoluciones
+                    </p>
+                  </div>
+                </div>
+                <div class="product-rich-text-box">
+                  <div class="product-rich-text w-richtext">
+                    <h3>
+                      Descripción del Producto
+                    </h3>
+                    <p>
+                      Step into the future of gaming with the ProX Gaming Console, designed for gamers who demand speed, performance, and immersive experiences. Whether you’re a casual gamer or a competitive esports player, the ProX delivers cutting-edge technology and seamless gameplay like never before.
+                    </p>
+                    <p>
+                      El control de ganancia integrado permite ajustar el nivel de entrada en tiempo real. Compatible con OBS, Audacity, Adobe Audition y cualquier software de grabación — simplemente conecta y graba.
+                    </p>
+                    <p>
+                      El monitoreo de auriculares a través del conector de 3.5mm ofrece retroalimentación en tiempo real sin latencia, ideal para grabar voces con precisión máxima.
+                    </p>
+                    <ul role="list">
+                      <li>
+                        Almacenamiento SSD de alta velocidad para carga instantánea
+                      </li>
+                      <li>
+                        Compatibilidad total con PC y Mac (plug-and-play)
+                      </li>
+                      <li>
+                        Monitoreo de auriculares conector 3.5mm (sin latencia)
+                      </li>
+                      <li>
+                        Soporte articulado incluido para montaje flexible
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+                <div class="product-specs-wrap">
+                  <h3 class="product-specs-title">
+                    Especificaciones del Producto
+                  </h3>
+                  <div class="product-specs-box">
+                    <div class="product-specs">
+                      <p class="product-specs-text">
+                        Tipo de Micrófono:
+                      </p>
+                      <p class="product-specs-text-two">
+                        Condenser
+                      </p>
+                    </div>
+                    <div class="product-specs">
+                      <p class="product-specs-text">
+                        Patrón Polar:
+                      </p>
+                      <p class="product-specs-text-two">
+                        Cardioid
+                      </p>
+                    </div>
+                    <div class="product-specs">
+                      <p class="product-specs-text">
+                        Frecuencia de Muestreo:
+                      </p>
+                      <p class="product-specs-text-two">
+                        192kHz / 24-bit
+                      </p>
+                    </div>
+                    <div class="product-specs">
+                      <p class="product-specs-text">
+                        Conectividad:
+                      </p>
+                      <p class="product-specs-text-two">
+                        USB-C
+                      </p>
+                    </div>
+                  </div>
+                </div>
+                <div class="product-specs-wrap delivery">
+                  <h3 class="product-specs-title">
+                    Entrega y Devoluciones
+                  </h3>
+                  <p class="delivery-text">
+                    This is a digital product — no shipping, no returns. You’ll receive it within a few minutes of purchase. If you’d like a printed version for someone special, let us know after checkout — we’ll send you a printable PDF.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+      <section class="product-section">
+        <div class="w-layout-blockcontainer container w-container">
+          <div class="section-title-box">
+            <div class="section-subtitle-box">
+              <div class="section-subtitle-dot">
+              </div>
+              <p class="section-subtitle">
+                Últimas adiciones
+              </p>
+            </div>
+            <h2 class="section-title">
+              Productos Relacionados
+            </h2>
+          </div>
+          <div class="w-dyn-list">
+            <div role="list" class="product-cms-two w-dyn-items">
+              <div role="listitem" class="w-dyn-item">
+                <div data-w-id="3a03cfa1-c50b-3fd3-9c58-e17dda8fd7e9" class="new-product">
+                  <a href="Pagina%20de%20Productos.html" aria-current="page" class="new-product-image-box w-inline-block w--current">                  <img loading="lazy" style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" data-wf-sku-bindings="%5B%7B%22from%22%3A%22f_main_image_4dr%22%2C%22to%22%3A%22src%22%7D%5D" alt="" src="https://cdn.prod.website-files.com/69897f171f2e445fc490c5da/69d4d151f7875f8bf47d1d7d_4.avif" class="product-image" />
+</a>
+                  <div class="new-product-content">
+                    <div class="new-product-title-box">
+                      <img src="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/6992c43f6ade0abf82fa71c8_star%20star%20star%20star%20star.svg" loading="lazy" alt="" class="new-product-stars" />
+                      <a href="Pagina%20de%20Productos.html" aria-current="page" class="new-product-title-link w-inline-block w--current">                      <h3 class="new-product-title">
+                        Micrófono de Streaming
+                      </h3>
+</a>
+                    </div>
+                    <div class="product-price-box">
+                      <p class="product-price">
+                        USD $129.99
+                      </p>
+                      <div>
+                        <form data-node-type="commerce-add-to-cart-form" data-commerce-sku-id="69d4d19caccea4c510ede301" data-loading-text="Agregando..." data-commerce-product-id="69d4d19b6f7b2faffebf2812" class="w-commerce-commerceaddtocartform cart-default">
+                          <input type="submit" data-node-type="commerce-add-to-cart-button" data-loading-text="Agregando..." aria-busy="false" aria-haspopup="dialog" class="w-commerce-commerceaddtocartbutton product-btn-two" value="Agregar al Carrito" />
+                          <a data-node-type="commerce-buy-now-button" aria-busy="false" aria-haspopup="false" data-default-text="Buy now" data-subscription-text="Subscribe now" style="display:none" class="w-commerce-commercebuynowbutton" href="checkout.html">                          Buy now
+</a>
+                        </form>
+                        <div style="display:none" class="w-commerce-commerceaddtocartoutofstock" tabindex="0">
+                          <div>
+                            Este producto está agotado.
+                          </div>
+                        </div>
+                        <div aria-live="assertive" data-node-type="commerce-add-to-cart-error" style="display:none" class="w-commerce-commerceaddtocarterror">
+                          <div data-node-type="commerce-add-to-cart-error" data-w-add-to-cart-quantity-error="Producto no disponible en esa cantidad." data-w-add-to-cart-general-error="Ocurrió un error al agregar el producto." data-w-add-to-cart-mixed-cart-error="You can’t purchase another product with a subscription." data-w-add-to-cart-buy-now-error="Ocurrió un error al procesar la compra." data-w-add-to-cart-checkout-disabled-error="El checkout no está disponible." data-w-add-to-cart-select-all-options-error="Seleccioná una opción en cada conjunto.">
+                            Producto no disponible en esa cantidad.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div role="listitem" class="w-dyn-item">
+                <div data-w-id="3a03cfa1-c50b-3fd3-9c58-e17dda8fd7e9" class="new-product">
+                  <a href="Pagina%20de%20Productos.html" class="new-product-image-box w-inline-block">                  <img loading="lazy" style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" data-wf-sku-bindings="%5B%7B%22from%22%3A%22f_main_image_4dr%22%2C%22to%22%3A%22src%22%7D%5D" alt="" src="https://cdn.prod.website-files.com/69897f171f2e445fc490c5da/69d4a94dcbcca23bde74e4e6_1.avif" class="product-image" />
+</a>
+                  <div class="new-product-content">
+                    <div class="new-product-title-box">
+                      <img src="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/6992c43f6ade0abf82fa71c8_star%20star%20star%20star%20star.svg" loading="lazy" alt="" class="new-product-stars" />
+                      <a href="Pagina%20de%20Productos.html" class="new-product-title-link w-inline-block">                      <h3 class="new-product-title">
+                        Mechanical Keyboard
+                      </h3>
+</a>
+                    </div>
+                    <div class="product-price-box">
+                      <p class="product-price">
+                        USD $109.99
+                      </p>
+                      <div>
+                        <form data-node-type="commerce-add-to-cart-form" data-commerce-sku-id="6992cc5d6ce16e41d510b5d0" data-loading-text="Agregando..." data-commerce-product-id="6992cc5b7048ec13ec3aa019" class="w-commerce-commerceaddtocartform cart-default">
+                          <input type="submit" data-node-type="commerce-add-to-cart-button" data-loading-text="Agregando..." aria-busy="false" aria-haspopup="dialog" class="w-commerce-commerceaddtocartbutton product-btn-two" value="Agregar al Carrito" />
+                          <a data-node-type="commerce-buy-now-button" aria-busy="false" aria-haspopup="false" data-default-text="Buy now" data-subscription-text="Subscribe now" style="display:none" class="w-commerce-commercebuynowbutton" href="checkout.html">                          Buy now
+</a>
+                        </form>
+                        <div style="display:none" class="w-commerce-commerceaddtocartoutofstock" tabindex="0">
+                          <div>
+                            Este producto está agotado.
+                          </div>
+                        </div>
+                        <div aria-live="assertive" data-node-type="commerce-add-to-cart-error" style="display:none" class="w-commerce-commerceaddtocarterror">
+                          <div data-node-type="commerce-add-to-cart-error" data-w-add-to-cart-quantity-error="Producto no disponible en esa cantidad." data-w-add-to-cart-general-error="Ocurrió un error al agregar el producto." data-w-add-to-cart-mixed-cart-error="You can’t purchase another product with a subscription." data-w-add-to-cart-buy-now-error="Ocurrió un error al procesar la compra." data-w-add-to-cart-checkout-disabled-error="El checkout no está disponible." data-w-add-to-cart-select-all-options-error="Seleccioná una opción en cada conjunto.">
+                            Producto no disponible en esa cantidad.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div role="listitem" class="w-dyn-item">
+                <div data-w-id="3a03cfa1-c50b-3fd3-9c58-e17dda8fd7e9" class="new-product">
+                  <a href="Pagina%20de%20Productos.html" class="new-product-image-box w-inline-block">                  <img loading="lazy" style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" data-wf-sku-bindings="%5B%7B%22from%22%3A%22f_main_image_4dr%22%2C%22to%22%3A%22src%22%7D%5D" alt="" src="https://cdn.prod.website-files.com/69897f171f2e445fc490c5da/69d4a96fdce0c394ea839ed9_2.avif" class="product-image" />
+</a>
+                  <div class="new-product-content">
+                    <div class="new-product-title-box">
+                      <img src="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/6992c43f6ade0abf82fa71c8_star%20star%20star%20star%20star.svg" loading="lazy" alt="" class="new-product-stars" />
+                      <a href="Pagina%20de%20Productos.html" class="new-product-title-link w-inline-block">                      <h3 class="new-product-title">
+                        Gaming Chair
+                      </h3>
+</a>
+                    </div>
+                    <div class="product-price-box">
+                      <p class="product-price">
+                        USD $219.99
+                      </p>
+                      <div>
+                        <form data-node-type="commerce-add-to-cart-form" data-commerce-sku-id="6992bd1cc2844562e4fa6957" data-loading-text="Agregando..." data-commerce-product-id="6992bd1c006c9256c62d3c6a" class="w-commerce-commerceaddtocartform cart-default">
+                          <input type="submit" data-node-type="commerce-add-to-cart-button" data-loading-text="Agregando..." aria-busy="false" aria-haspopup="dialog" class="w-commerce-commerceaddtocartbutton product-btn-two" value="Agregar al Carrito" />
+                          <a data-node-type="commerce-buy-now-button" aria-busy="false" aria-haspopup="false" data-default-text="Buy now" data-subscription-text="Subscribe now" style="display:none" class="w-commerce-commercebuynowbutton" href="checkout.html">                          Buy now
+</a>
+                        </form>
+                        <div style="display:none" class="w-commerce-commerceaddtocartoutofstock" tabindex="0">
+                          <div>
+                            Este producto está agotado.
+                          </div>
+                        </div>
+                        <div aria-live="assertive" data-node-type="commerce-add-to-cart-error" style="display:none" class="w-commerce-commerceaddtocarterror">
+                          <div data-node-type="commerce-add-to-cart-error" data-w-add-to-cart-quantity-error="Producto no disponible en esa cantidad." data-w-add-to-cart-general-error="Ocurrió un error al agregar el producto." data-w-add-to-cart-mixed-cart-error="You can’t purchase another product with a subscription." data-w-add-to-cart-buy-now-error="Ocurrió un error al procesar la compra." data-w-add-to-cart-checkout-disabled-error="El checkout no está disponible." data-w-add-to-cart-select-all-options-error="Seleccioná una opción en cada conjunto.">
+                            Producto no disponible en esa cantidad.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div role="listitem" class="w-dyn-item">
+                <div data-w-id="3a03cfa1-c50b-3fd3-9c58-e17dda8fd7e9" class="new-product">
+                  <a href="Pagina%20de%20Productos.html" class="new-product-image-box w-inline-block">                  <img loading="lazy" style="-webkit-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-moz-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);-ms-transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0);transform:translate3d(0, 0, 0) scale3d(1, 1, 1) rotateX(0) rotateY(0) rotateZ(0) skew(0, 0)" data-wf-sku-bindings="%5B%7B%22from%22%3A%22f_main_image_4dr%22%2C%22to%22%3A%22src%22%7D%5D" alt="" src="https://cdn.prod.website-files.com/69897f171f2e445fc490c5da/69d4a98a3e5dfb5e699e47b4_3.avif" class="product-image" />
+</a>
+                  <div class="new-product-content">
+                    <div class="new-product-title-box">
+                      <img src="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/6992c43f6ade0abf82fa71c8_star%20star%20star%20star%20star.svg" loading="lazy" alt="" class="new-product-stars" />
+                      <a href="Pagina%20de%20Productos.html" class="new-product-title-link w-inline-block">                      <h3 class="new-product-title">
+                        Laptop Cooling Pad
+                      </h3>
+</a>
+                    </div>
+                    <div class="product-price-box">
+                      <p class="product-price">
+                        USD $34.99
+                      </p>
+                      <div>
+                        <form data-node-type="commerce-add-to-cart-form" data-commerce-sku-id="6992bcdf24bcd711e0f23c91" data-loading-text="Agregando..." data-commerce-product-id="6992bcde5e3360f0167b21a8" class="w-commerce-commerceaddtocartform cart-default">
+                          <input type="submit" data-node-type="commerce-add-to-cart-button" data-loading-text="Agregando..." aria-busy="false" aria-haspopup="dialog" class="w-commerce-commerceaddtocartbutton product-btn-two" value="Agregar al Carrito" />
+                          <a data-node-type="commerce-buy-now-button" aria-busy="false" aria-haspopup="false" data-default-text="Buy now" data-subscription-text="Subscribe now" style="display:none" class="w-commerce-commercebuynowbutton" href="checkout.html">                          Buy now
+</a>
+                        </form>
+                        <div style="display:none" class="w-commerce-commerceaddtocartoutofstock" tabindex="0">
+                          <div>
+                            Este producto está agotado.
+                          </div>
+                        </div>
+                        <div aria-live="assertive" data-node-type="commerce-add-to-cart-error" style="display:none" class="w-commerce-commerceaddtocarterror">
+                          <div data-node-type="commerce-add-to-cart-error" data-w-add-to-cart-quantity-error="Producto no disponible en esa cantidad." data-w-add-to-cart-general-error="Ocurrió un error al agregar el producto." data-w-add-to-cart-mixed-cart-error="You can’t purchase another product with a subscription." data-w-add-to-cart-buy-now-error="Ocurrió un error al procesar la compra." data-w-add-to-cart-checkout-disabled-error="El checkout no está disponible." data-w-add-to-cart-select-all-options-error="Seleccioná una opción en cada conjunto.">
+                            Producto no disponible en esa cantidad.
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+  <section class="main-footer">
+    <div class="footer-widgets">
+      <div class="w-layout-blockcontainer container w-container">
+        <div class="w-layout-grid footer-grid">
+          <div class="footer-title-box">
+            <h3 class="footer-title">Accedé a Ofertas Exclusivas Antes que Nadie</h3>
+            <p class="footer-text">Registrate hoy y recibí acceso anticipado a descuentos, ofertas limitadas y novedades exclusivas.</p>
+            <div class="newsletter-form-block w-form">
+              <form id="email-form" name="email-form" method="get" class="newsletter-form">
+                <input class="newsletter-input w-input" maxlength="256" name="email" placeholder="Ingresá tu email." type="email" id="email" required />
+                <input type="submit" class="primary-button newsletter-btn w-button" value="Obtener Acceso" />
+              </form>
+              <div class="form-success blue w-form-done" style="display:none"><div>¡Gracias! Tu suscripción fue registrada exitosamente.</div></div>
+              <div class="w-form-fail" style="display:none"><div>¡Ups! Algo salió mal al enviar el formulario.</div></div>
+            </div>
+          </div>
+          <div class="footer-links-wrap">
+            <div>
+              <h6 class="footer-title-two">Categorías</h6>
+              <div class="footer-links-box">
+                <a href="nosotros.html" class="footer-link">Nosotros</a>
+                <a href="contacto.html" class="footer-link">Contacto</a>
+              </div>
+            </div>
+            <div>
+              <h6 class="footer-title-two">Atención al cliente</h6>
+              <div class="footer-links-box">
+                <a href="devolucion.html" class="footer-link">Política de devolución y reembolso</a>
+                <a href="propiedad-intelectual.html" class="footer-link">Política de propiedad intelectual</a>
+                <a href="envio.html" class="footer-link">Información de envío</a>
+                <a href="actividad-sospechosa.html" class="footer-link">Reportar actividad sospechosa</a>
+              </div>
+            </div>
+            <div>
+              <h6 class="footer-title-two">Ayuda</h6>
+              <div class="footer-links-box">
+                <a href="faq.html" class="footer-link">Centro de ayuda y preguntas frecuentes</a>
+                <a href="seguridad.html" class="footer-link">Centro de seguridad</a>
+                <a href="proteccion-compras.html" class="footer-link">Protección de compras de Cubo</a>
+                <a href="asociate.html" class="footer-link">Asóciate a Cubo</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="w-layout-blockcontainer container w-container">
+        <div class="footer-bottom-inner">
+          <div class="copyright-box">
+            <a href="/" class="w-inline-block w--current"><img loading="lazy" src="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/69cfa684789fe8d974b2bca8_Givolt..svg" alt="Cubo" /></a>
+            <div class="copyright-line"></div>
+            <p class="copyright-text">© Copyright - <a href="/" class="copyright-text-link">Cubo</a> | Diseñado por Polplab | Desarrollado por Polplab</p>
+          </div>
+          <div class="footer-social-box">
+            <a href="https://www.facebook.com/" target="_blank" class="footer-social w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/69969e280586c4a4a900c548_1.svg" alt="Facebook" class="footer-social-icon" /></a>
+            <a href="https://x.com/" target="_blank" class="footer-social w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/69969e2845dfd4faac2ce0e3_2.svg" alt="X/Twitter" class="footer-social-icon" /></a>
+            <a href="http://linkedin.com/" target="_blank" class="footer-social w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/69969e28dbe79657e2f510c7_3.svg" alt="LinkedIn" class="footer-social-icon" /></a>
+            <a href="https://www.instagram.com/" target="_blank" class="footer-social w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/69969e2868879ee03dd9660f_4.svg" alt="Instagram" class="footer-social-icon" /></a>
+            <a href="https://www.youtube.com/" target="_blank" class="footer-social w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/69969e296dca1183fd217937_6.svg" alt="YouTube" class="footer-social-icon" /></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- ========== FIN FOOTER ========== -->
+
+</div><!-- fin .page-wrapper -->
+
+
+<!-- Modal Login -->
+<div id="login-modal" class="login-modal-overlay">
+  <div class="login-modal-card">
+    <button class="login-modal-back" id="login-modal-back" aria-label="Volver" style="display:none">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button class="login-modal-close" id="login-modal-close" aria-label="Cerrar">
+      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+    </button>
+
+    <!-- Vista 1: opciones de login -->
+    <div id="login-view-main">
+      <img src="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/69cfa642d519614f2c137ab9_0.svg" alt="Cubo" class="login-modal-logo" />
+      <h2 class="login-modal-title">¡Bienvenido!</h2>
+      <p class="login-modal-subtitle">Ingresá para comprar y ver tus pedidos</p>
+      <button id="login-email-btn" class="login-btn-primary">Ingresar con Email</button>
+      <button id="login-password-btn" class="login-btn-secondary">Usar Contraseña</button>
+      <div class="login-divider"><span>O CONTINUÁ CON</span></div>
+      <button type="button" id="login-google-btn" class="login-btn-google">
+        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 48 48">
+          <path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.2l6.7-6.7C35.7 2.5 30.2 0 24 0 14.6 0 6.6 5.5 2.8 13.5l7.8 6C12.5 13.2 17.8 9.5 24 9.5z"/>
+          <path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.7c-.5 2.9-2.2 5.4-4.7 7l7.3 5.7c4.3-4 6.8-9.9 6.8-16.7z"/>
+          <path fill="#FBBC05" d="M10.6 28.5A14.6 14.6 0 0 1 9.5 24c0-1.6.3-3.1.8-4.5l-7.8-6A23.9 23.9 0 0 0 0 24c0 3.9.9 7.5 2.5 10.8l8.1-6.3z"/>
+          <path fill="#34A853" d="M24 48c6.2 0 11.4-2 15.2-5.5l-7.3-5.7c-2 1.4-4.6 2.2-7.9 2.2-6.2 0-11.5-3.7-13.4-9L2.5 36.2C6.3 42.8 14.6 48 24 48z"/>
+        </svg>
+        Google
+      </button>
+    </div>
+
+    <!-- Vista 2: input email -->
+    <div id="login-view-email" style="display:none">
+      <h2 class="login-modal-title" style="margin-bottom:4px">Ingresá tu email</h2>
+      <p class="login-modal-subtitle">Te enviaremos un código para acceder</p>
+      <input id="login-email-input" class="login-email-input" type="email" placeholder="tucorreo@email.com" autocomplete="email" />
+      <button id="login-send-btn" class="login-btn-primary">Enviar código</button>
+      <button id="login-cancel-btn" class="login-btn-secondary">Cancelar</button>
+      <p id="login-send-error" style="display:none; color:#e53e3e; font-size:13px; margin:0; text-align:center;">No se pudo enviar el código. Intentá de nuevo.</p>
+    </div>
+
+    <!-- Vista 3: verificación código -->
+    <div id="login-view-code" style="display:none">
+      <div class="login-code-badge">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg>
+      </div>
+      <h2 class="login-modal-title">Verificación</h2>
+      <p class="login-modal-subtitle">Ingresá el código enviado a<br><strong id="login-code-email" style="color:#1a1a1a"></strong></p>
+      <div class="login-otp-wrap">
+        <input class="login-otp-input" type="text" inputmode="numeric" maxlength="1" />
+        <input class="login-otp-input" type="text" inputmode="numeric" maxlength="1" />
+        <input class="login-otp-input" type="text" inputmode="numeric" maxlength="1" />
+        <input class="login-otp-input" type="text" inputmode="numeric" maxlength="1" />
+        <input class="login-otp-input" type="text" inputmode="numeric" maxlength="1" />
+        <input class="login-otp-input" type="text" inputmode="numeric" maxlength="1" />
+      </div>
+      <button id="login-verify-btn" class="login-btn-primary">Ingresar</button>
+      <p id="login-code-error" style="display:none; color:#e53e3e; font-size:13px; margin:0; text-align:center;">Código incorrecto. Intentá de nuevo.</p>
+      <button id="login-code-cancel-btn" class="login-btn-text">Cancelar</button>
+    </div>
+
+    <!-- Vista 4: contraseña -->
+    <div id="login-view-password" style="display:none">
+      <h2 class="login-modal-title" style="margin-bottom:4px">Ingresar con contraseña</h2>
+      <p class="login-modal-subtitle">Ingresá tu email y contraseña</p>
+      <input id="login-pw-email" class="login-email-input" type="email" placeholder="tucorreo@email.com" autocomplete="email" />
+      <div class="login-pw-wrap">
+        <input id="login-pw-input" class="login-email-input" type="password" placeholder="Contraseña" autocomplete="current-password" />
+        <button type="button" id="login-pw-toggle" class="login-pw-toggle" aria-label="Mostrar contraseña">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </button>
+      </div>
+      <button id="login-pw-submit-btn" class="login-btn-primary">Ingresar</button>
+      <p id="login-pw-error" style="display:none; color:#e53e3e; font-size:13px; margin:0; text-align:center;">Completá tu email y contraseña.</p>
+      <button id="login-forgot-btn" class="login-btn-text" style="font-size:13px; color:#1a1a2e; font-weight:600; text-decoration:underline; text-underline-offset:3px;">¿Olvidaste tu contraseña?</button>
+      <p style="margin:0; font-size:13px; color:#777; text-align:center;">¿No tenés cuenta? <button id="login-register-btn" style="background:none; border:none; cursor:pointer; padding:0; color:#1a1a2e; font-weight:700; font-size:13px; font-family:inherit; text-decoration:underline; text-underline-offset:3px;">Registrate gratis</button></p>
+      <button id="login-pw-cancel-btn" class="login-btn-text">Cancelar</button>
+    </div>
+
+    <!-- Vista 5: recuperar contraseña — paso 1 email -->
+    <div id="login-view-forgot" style="display:none">
+      <div class="login-code-badge">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </div>
+      <h2 class="login-modal-title">Recuperar contraseña</h2>
+      <p class="login-modal-subtitle">Ingresá tu email y te enviamos un código</p>
+      <input id="login-forgot-email" class="login-email-input" type="email" placeholder="tucorreo@email.com" autocomplete="email" />
+      <button id="login-forgot-submit-btn" class="login-btn-primary">Enviar código</button>
+      <p id="login-forgot-error" style="display:none; color:#e53e3e; font-size:13px; margin:0; text-align:center;">Ingresá un email válido.</p>
+      <button id="login-forgot-cancel-btn" class="login-btn-text">Cancelar</button>
+    </div>
+
+    <!-- Vista 5b: recuperar contraseña — paso 2 código -->
+    <div id="login-view-forgot-code" style="display:none">
+      <div class="login-code-badge">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg>
+      </div>
+      <h2 class="login-modal-title">Verificá tu email</h2>
+      <p class="login-modal-subtitle">Ingresá el código enviado a<br><strong id="login-forgot-code-email" style="color:#1a1a1a"></strong></p>
+      <div class="login-otp-wrap">
+        <input class="login-otp-input forgot-otp-input" type="text" inputmode="numeric" maxlength="1" />
+        <input class="login-otp-input forgot-otp-input" type="text" inputmode="numeric" maxlength="1" />
+        <input class="login-otp-input forgot-otp-input" type="text" inputmode="numeric" maxlength="1" />
+        <input class="login-otp-input forgot-otp-input" type="text" inputmode="numeric" maxlength="1" />
+        <input class="login-otp-input forgot-otp-input" type="text" inputmode="numeric" maxlength="1" />
+        <input class="login-otp-input forgot-otp-input" type="text" inputmode="numeric" maxlength="1" />
+      </div>
+      <button id="login-forgot-verify-btn" class="login-btn-primary">Verificar</button>
+      <p id="login-forgot-code-error" style="display:none; color:#e53e3e; font-size:13px; margin:0; text-align:center;">Código incorrecto. Intentá de nuevo.</p>
+      <button id="login-forgot-code-cancel-btn" class="login-btn-text">Cancelar</button>
+    </div>
+
+    <!-- Vista 5c: recuperar contraseña — paso 3 nueva contraseña -->
+    <div id="login-view-forgot-pw" style="display:none">
+      <h2 class="login-modal-title" style="margin-bottom:4px">Nueva contraseña</h2>
+      <p class="login-modal-subtitle">Creá tu nueva contraseña</p>
+      <div class="login-pw-wrap">
+        <input id="login-forgot-pw" class="login-email-input" type="password" placeholder="Nueva contraseña" autocomplete="new-password" />
+        <button type="button" id="login-forgot-pw-toggle" class="login-pw-toggle" aria-label="Mostrar contraseña">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </button>
+      </div>
+      <div class="login-pw-wrap">
+        <input id="login-forgot-pw2" class="login-email-input" type="password" placeholder="Confirmar contraseña" autocomplete="new-password" />
+        <button type="button" id="login-forgot-pw2-toggle" class="login-pw-toggle" aria-label="Mostrar contraseña">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </button>
+      </div>
+      <button id="login-forgot-pw-submit-btn" class="login-btn-primary">Guardar contraseña</button>
+      <p id="login-forgot-pw-error" style="display:none; color:#e53e3e; font-size:13px; margin:0; text-align:center;"></p>
+    </div>
+
+    <!-- Vista 6a: registro — paso 1 email -->
+    <div id="login-view-register" style="display:none">
+      <h2 class="login-modal-title" style="margin-bottom:4px">Crear cuenta</h2>
+      <p class="login-modal-subtitle">Ingresá tu email para comenzar</p>
+      <input id="login-reg-email" class="login-email-input" type="email" placeholder="tucorreo@email.com" autocomplete="email" />
+      <button id="login-reg-send-btn" class="login-btn-primary">Enviar código</button>
+      <p id="login-reg-send-error" style="display:none; color:#e53e3e; font-size:13px; margin:0; text-align:center;">Ingresá un email válido.</p>
+      <p style="margin:0; font-size:13px; color:#777; text-align:center;">¿Ya tenés cuenta? <button id="login-reg-back-btn" style="background:none; border:none; cursor:pointer; padding:0; color:#1a1a2e; font-weight:700; font-size:13px; font-family:inherit; text-decoration:underline; text-underline-offset:3px;">Ingresá aquí</button></p>
+    </div>
+
+    <!-- Vista 6b: registro — paso 2 código -->
+    <div id="login-view-reg-code" style="display:none">
+      <div class="login-code-badge">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg>
+      </div>
+      <h2 class="login-modal-title">Verificá tu email</h2>
+      <p class="login-modal-subtitle">Ingresá el código enviado a<br><strong id="login-reg-code-email" style="color:#1a1a1a"></strong></p>
+      <div class="login-otp-wrap">
+        <input class="login-otp-input reg-otp-input" type="text" inputmode="numeric" maxlength="1" />
+        <input class="login-otp-input reg-otp-input" type="text" inputmode="numeric" maxlength="1" />
+        <input class="login-otp-input reg-otp-input" type="text" inputmode="numeric" maxlength="1" />
+        <input class="login-otp-input reg-otp-input" type="text" inputmode="numeric" maxlength="1" />
+        <input class="login-otp-input reg-otp-input" type="text" inputmode="numeric" maxlength="1" />
+        <input class="login-otp-input reg-otp-input" type="text" inputmode="numeric" maxlength="1" />
+      </div>
+      <button id="login-reg-verify-btn" class="login-btn-primary">Verificar</button>
+      <p id="login-reg-code-error" style="display:none; color:#e53e3e; font-size:13px; margin:0; text-align:center;">Código incorrecto. Intentá de nuevo.</p>
+      <button id="login-reg-code-cancel-btn" class="login-btn-text">Cancelar</button>
+    </div>
+
+    <!-- Vista 6c: registro — paso 3 contraseña -->
+    <div id="login-view-reg-pw" style="display:none">
+      <h2 class="login-modal-title" style="margin-bottom:4px">Crear contraseña</h2>
+      <p class="login-modal-subtitle">Ya casi terminás</p>
+      <input id="login-reg-name" class="login-email-input" type="text" placeholder="Nombre completo" autocomplete="name" />
+      <div class="login-pw-wrap">
+        <input id="login-reg-pw" class="login-email-input" type="password" placeholder="Contraseña" autocomplete="new-password" />
+        <button type="button" id="login-reg-pw-toggle" class="login-pw-toggle" aria-label="Mostrar contraseña">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </button>
+      </div>
+      <div class="login-pw-wrap">
+        <input id="login-reg-pw2" class="login-email-input" type="password" placeholder="Confirmar contraseña" autocomplete="new-password" />
+        <button type="button" id="login-reg-pw2-toggle" class="login-pw-toggle" aria-label="Mostrar contraseña">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+        </button>
+      </div>
+      <button id="login-reg-submit-btn" class="login-btn-primary">Crear cuenta</button>
+      <p id="login-reg-error" style="display:none; color:#e53e3e; font-size:13px; margin:0; text-align:center;"></p>
+    </div>
+
+  </div>
+</div>
+
+<!-- Account Modal -->
+<div id="account-modal" class="account-modal-overlay">
+  <div class="account-modal-card">
+    <div class="account-modal-header">
+      <div class="account-modal-avatar">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+      </div>
+      <div class="account-modal-user">
+        <p class="account-modal-name">Mi Cuenta</p>
+        <p class="account-modal-email-label" id="account-display-email"></p>
+      </div>
+      <button id="account-logout-btn" style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);color:#fff;padding:7px 14px;border-radius:7px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:background 0.2s;margin-right:8px;">Cerrar sesión</button>
+      <button class="account-modal-close" id="account-modal-close" aria-label="Cerrar">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div class="account-tabs">
+      <button class="account-tab active" data-tab="pedidos">Mis Pedidos</button>
+      <button class="account-tab" data-tab="perfil">Mi Perfil</button>
+      <button class="account-tab" data-tab="direcciones">Mis Direcciones</button>
+      <button class="account-tab" data-tab="seguridad">Seguridad</button>
+    </div>
+    <div id="account-tab-pedidos" class="account-tab-content active">
+      <div class="account-orders-empty">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg>
+        <p>Aún no tenés pedidos realizados.</p>
+      </div>
+    </div>
+    <div id="account-tab-perfil" class="account-tab-content">
+      <div class="account-form-row">
+        <div class="account-form-group">
+          <label class="account-form-label" for="acc-nombre">Nombre</label>
+          <input type="text" class="account-form-input" id="acc-nombre" placeholder="Tu nombre" />
+        </div>
+        <div class="account-form-group">
+          <label class="account-form-label" for="acc-apellido">Apellido</label>
+          <input type="text" class="account-form-input" id="acc-apellido" placeholder="Tu apellido" />
+        </div>
+      </div>
+      <div class="account-form-group">
+        <label class="account-form-label" for="acc-doc-tipo">Tipo de documento</label>
+        <select class="account-form-select" id="acc-doc-tipo">
+          <option value="">Seleccioná...</option>
+          <option value="dni">DNI</option>
+          <option value="carnet">Carnet de Extranjería</option>
+          <option value="ruc">RUC</option>
+        </select>
+      </div>
+      <div class="account-form-group">
+        <label class="account-form-label" for="acc-doc-nro">Nro de documento</label>
+        <input type="text" class="account-form-input" id="acc-doc-nro" placeholder="Número de documento" />
+      </div>
+      <div class="account-form-group">
+        <label class="account-form-label" for="acc-email">Correo electrónico</label>
+        <input type="email" class="account-form-input" id="acc-email" placeholder="tucorreo@email.com" />
+      </div>
+      <div class="account-form-group">
+        <label class="account-form-label" for="acc-telefono">Teléfono</label>
+        <input type="tel" class="account-form-input" id="acc-telefono" placeholder="+51 999 999 999" />
+      </div>
+      <button class="account-save-btn">Guardar cambios</button>
+    </div>
+    <div id="account-tab-direcciones" class="account-tab-content">
+      <!-- Estado vacío -->
+      <div id="acc-dir-empty-state" class="acc-dir-empty">
+        <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="#ccc" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 7-9 13-9 13S3 17 3 10a9 9 0 1 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        <p>No tenés direcciones guardadas.</p>
+        <button class="acc-dir-add-btn" id="acc-dir-show-form-btn">Agregar ahora</button>
+      </div>
+      <!-- Formulario -->
+      <div id="acc-dir-form" class="acc-dir-form">
+        <div class="account-form-row" style="margin-bottom:16px">
+          <div class="account-form-group" style="margin-bottom:0">
+            <label class="account-form-label" for="acc-dir-alias">Dirección (alias)</label>
+            <input type="text" class="account-form-input" id="acc-dir-alias" placeholder="Ej: Mi Casa, Oficina Centro..." />
+          </div>
+          <div class="account-form-group" style="margin-bottom:0">
+            <label class="account-form-label" for="acc-dir-receptor">Persona que recibe</label>
+            <input type="text" class="account-form-input" id="acc-dir-receptor" placeholder="Nombre completo" />
+          </div>
+        </div>
+        <div class="account-form-group">
+          <label class="account-form-label" for="acc-dir-celular">Celular</label>
+          <input type="tel" class="account-form-input" id="acc-dir-celular" placeholder="999 888 777" />
+        </div>
+        <div class="acc-form-grid-3" style="margin-bottom:16px">
+          <div class="account-form-group" style="margin-bottom:0">
+            <label class="account-form-label" for="acc-dir-depto">Departamento</label>
+            <select class="account-form-select" id="acc-dir-depto">
+              <option value="">Seleccione...</option>
+              <option>Amazonas</option><option>Áncash</option><option>Apurímac</option><option>Arequipa</option><option>Ayacucho</option><option>Cajamarca</option><option>Callao</option><option>Cusco</option><option>Huancavelica</option><option>Huánuco</option><option>Ica</option><option>Junín</option><option>La Libertad</option><option>Lambayeque</option><option>Lima</option><option>Loreto</option><option>Madre de Dios</option><option>Moquegua</option><option>Pasco</option><option>Piura</option><option>Puno</option><option>San Martín</option><option>Tacna</option><option>Tumbes</option><option>Ucayali</option>
+            </select>
+          </div>
+          <div class="account-form-group" style="margin-bottom:0">
+            <label class="account-form-label" for="acc-dir-prov">Provincia</label>
+            <select class="account-form-select" id="acc-dir-prov" disabled>
+              <option value="">Seleccione departamento...</option>
+            </select>
+          </div>
+          <div class="account-form-group" style="margin-bottom:0">
+            <label class="account-form-label" for="acc-dir-dist">Distrito</label>
+            <select class="account-form-select" id="acc-dir-dist" disabled>
+              <option value="">Seleccione provincia...</option>
+            </select>
+          </div>
+        </div>
+        <div class="account-form-group">
+          <label class="account-form-label" for="acc-dir-calle">Dirección</label>
+          <input type="text" class="account-form-input" id="acc-dir-calle" placeholder="Ej: Av. Javier Prado Este 1234, Mz C Lote 4..." />
+        </div>
+        <div class="account-form-group">
+          <label class="account-form-label" for="acc-dir-nro">Número / Departamento / Interior</label>
+          <input type="text" class="account-form-input" id="acc-dir-nro" placeholder="Ej: 123, Int 401" />
+        </div>
+        <div class="account-form-group">
+          <label class="account-form-label" for="acc-dir-ref">Referencia (opcional)</label>
+          <input type="text" class="account-form-input" id="acc-dir-ref" placeholder="Ej: Portón negro, al costado de la farmacia..." />
+        </div>
+        <div class="acc-toggle-wrap">
+          <label class="acc-toggle">
+            <input type="checkbox" id="acc-dir-default" />
+            <span class="acc-toggle-slider"></span>
+          </label>
+          <span class="acc-toggle-label">Establecer como dirección predeterminada</span>
+        </div>
+        <div class="acc-dir-form-btns">
+          <button class="acc-dir-cancel-btn" id="acc-dir-cancel-btn">Cancelar</button>
+          <button class="account-save-btn" id="acc-dir-save-btn" style="flex:2">Guardar dirección</button>
+        </div>
+      </div>
+    </div>
+    <div id="account-tab-seguridad" class="account-tab-content">
+      <p style="font-size:14px; color:#555; margin:0 0 24px;">Cambiá tu contraseña de acceso. Usá al menos 8 caracteres.</p>
+      <div class="account-form-group" style="position:relative">
+        <label class="account-form-label" for="acc-pass-new">Nueva contraseña</label>
+        <input type="password" class="account-form-input" id="acc-pass-new" placeholder="Mínimo 8 caracteres" autocomplete="new-password" />
+        <button type="button" class="acc-pass-toggle" data-target="acc-pass-new" aria-label="Mostrar contraseña">
+          <svg class="eye-icon eye-show" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          <svg class="eye-icon eye-hide" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+        </button>
+      </div>
+      <div id="acc-pass-strength" class="acc-pass-strength" style="display:none">
+        <div class="acc-pass-strength-bar"><div id="acc-pass-strength-fill" class="acc-pass-strength-fill"></div></div>
+        <span id="acc-pass-strength-label" class="acc-pass-strength-label"></span>
+      </div>
+      <div class="account-form-group" style="position:relative; margin-top:8px">
+        <label class="account-form-label" for="acc-pass-confirm">Confirmar nueva contraseña</label>
+        <input type="password" class="account-form-input" id="acc-pass-confirm" placeholder="Repetí la contraseña" autocomplete="new-password" />
+        <button type="button" class="acc-pass-toggle" data-target="acc-pass-confirm" aria-label="Mostrar contraseña">
+          <svg class="eye-icon eye-show" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          <svg class="eye-icon eye-hide" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" style="display:none"><path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24"/><line x1="1" y1="1" x2="23" y2="23"/></svg>
+        </button>
+      </div>
+      <p id="acc-pass-error" style="display:none; color:#e53e3e; font-size:13px; margin:4px 0 0;"></p>
+      <p id="acc-pass-success" style="display:none; color:#22863a; font-size:13px; margin:4px 0 0;">✓ Contraseña actualizada correctamente.</p>
+      <button class="account-save-btn" id="acc-pass-save-btn" style="margin-top:20px">Guardar contraseña</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script src="https://cdn.prod.website-files.com/gsap/3.15.0/gsap.min.js" type="text/javascript"></script>
+<script src="https://cdn.prod.website-files.com/gsap/3.15.0/SplitText.min.js" type="text/javascript"></script>
+<script>
+(function() {
+  /* ── MOBILE MENU ── */
+  const mobileMenu     = document.getElementById('mobile-menu');
+  const mobileOpenBtn  = document.getElementById('mobile-menu-open-btn');
+  const mobileCloseBtn = document.getElementById('mobile-menu-close-btn');
+  if (mobileOpenBtn)  mobileOpenBtn.addEventListener('click',  () => mobileMenu.classList.add('open'));
+  if (mobileCloseBtn) mobileCloseBtn.addEventListener('click', () => mobileMenu.classList.remove('open'));
+
+  /* ── DROPDOWN CATEGORÍAS DESKTOP ── */
+  const catToggle = document.getElementById('cat-toggle-desktop');
+  const catList   = document.getElementById('cat-dropdown-list');
+  if (catToggle && catList) {
+    catToggle.addEventListener('mouseenter', () => catList.classList.add('open'));
+    document.getElementById('cat-dropdown-desktop').addEventListener('mouseleave', () => catList.classList.remove('open'));
+  }
+
+  /* ── DROPDOWN MÓVIL ── */
+  const mobileCatToggle = document.getElementById('mobile-cat-toggle');
+  const mobileCatList   = document.getElementById('mobile-cat-list');
+  if (mobileCatToggle && mobileCatList) {
+    mobileCatToggle.addEventListener('click', () => mobileCatList.classList.toggle('open'));
+  }
+
+  /* ── BÚSQUEDA ── */
+  const searchOpenBtn  = document.getElementById('search-open-btn');
+  const searchCloseBtn = document.getElementById('search-close-btn');
+  const searchFormBox  = document.getElementById('search-form-box');
+  const menuBg         = document.getElementById('menu-bg');
+  function openSearch()  { searchFormBox.classList.add('open'); menuBg.classList.add('open'); }
+  function closeSearch() { searchFormBox.classList.remove('open'); menuBg.classList.remove('open'); }
+  if (searchOpenBtn)  searchOpenBtn.addEventListener('click', openSearch);
+  if (searchCloseBtn) searchCloseBtn.addEventListener('click', closeSearch);
+  if (menuBg)         menuBg.addEventListener('click', closeSearch);
+
+  /* ── CARRITO ── */
+  const cartOpenBtn  = document.getElementById('cart-open-btn');
+  const cartCloseBtn = document.getElementById('cart-close-btn');
+  const cartContainer = document.getElementById('cart-container');
+  if (cartOpenBtn)  cartOpenBtn.addEventListener('click', (e) => { e.preventDefault(); cartContainer.classList.toggle('open'); });
+  if (cartCloseBtn) cartCloseBtn.addEventListener('click', () => cartContainer.classList.remove('open'));
+
+  /* ── FAVORITES AUTO-ROTATE ── */
+  (function () {
+    var track = document.getElementById('favorites-track');
+    if (!track) return;
+    var cards = track.querySelectorAll('.new-product');
+    var origCount = 6;
+    var current = 0;
+    var busy = false;
+
+    function stepPx() { return cards[0].offsetWidth + 24; }
+
+    function snap(idx) {
+      track.style.transition = 'none';
+      track.style.transform = 'translateX(-' + (idx * stepPx()) + 'px)';
+      track.offsetHeight; // force reflow
+    }
+
+    function slide(idx) {
+      track.style.transition = 'transform 0.6s ease';
+      track.style.transform = 'translateX(-' + (idx * stepPx()) + 'px)';
+    }
+
+    track.addEventListener('transitionend', function () {
+      if (current >= origCount) {
+        current -= origCount;
+        snap(current);
+      }
+      busy = false;
+    });
+
+    setInterval(function () {
+      if (busy) return;
+      busy = true;
+      current++;
+      slide(current);
+    }, 3500);
+  })();
+
+  /* ── REVIEW TABS ── */
+  const tabLinks = document.querySelectorAll('.review-tab-link');
+  const tabPanes = document.querySelectorAll('.review-tab-pane');
+  tabLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      e.preventDefault();
+      const idx = link.getAttribute('data-tab');
+      tabLinks.forEach(l => l.classList.remove('w--current'));
+      tabPanes.forEach(p => p.classList.remove('w--tab-active'));
+      link.classList.add('w--current');
+      document.querySelector('.review-tab-pane[data-tab="' + idx + '"]').classList.add('w--tab-active');
+    });
+  });
+
+  /* ── COUNTDOWN TIMER ── */
+  const endDate = new Date('2026-07-10T23:59:59').getTime();
+  function updateCountdown() {
+    const diff = endDate - Date.now();
+    if (diff <= 0) return;
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+    document.querySelectorAll('.days').forEach(el => el.textContent    = String(d).padStart(2,'0'));
+    document.querySelectorAll('.hours').forEach(el => el.textContent   = String(h).padStart(2,'0'));
+    document.querySelectorAll('.minutes').forEach(el => el.textContent = String(m).padStart(2,'0'));
+    document.querySelectorAll('.seconds').forEach(el => el.textContent = String(s).padStart(2,'0'));
+  }
+  setInterval(updateCountdown, 1000);
+  updateCountdown();
+
+  /* ── VIDEO MODAL ── */
+  const videoOpenBtn   = document.getElementById('video-open-btn');
+  const videoModal     = document.getElementById('video-modal');
+  const videoModalClose = document.getElementById('video-modal-close');
+  const videoIframe    = document.getElementById('video-iframe');
+  const YT_URL = 'https://www.youtube.com/embed/bhoybya39QU?autoplay=1';
+  if (videoOpenBtn) {
+    videoOpenBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      videoIframe.src = YT_URL;
+      videoModal.classList.add('open');
+    });
+  }
+  function closeVideoModal() {
+    videoModal.classList.remove('open');
+    videoIframe.src = '';
+  }
+  if (videoModalClose) videoModalClose.addEventListener('click', closeVideoModal);
+  if (videoModal) videoModal.addEventListener('click', (e) => { if (e.target === videoModal) closeVideoModal(); });
+
+  /* ── NEWSLETTER FORM ── */
+  const newsletterForm = document.getElementById('email-form');
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      newsletterForm.style.display = 'none';
+      const success = newsletterForm.closest('.w-form').querySelector('.w-form-done');
+      if (success) success.style.display = 'block';
+    });
+  }
+
+  /* ── SCROLL ANIMATIONS (IntersectionObserver) ── */
+  const animEls = document.querySelectorAll('.anim-hidden');
+  if ('IntersectionObserver' in window) {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('anim-visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+    animEls.forEach(el => observer.observe(el));
+  } else {
+    animEls.forEach(el => el.classList.add('anim-visible'));
+  }
+
+  /* ── HERO PARALLAX: 4 imágenes convergentes hacia imagen 3 ── */
+  const heroImg1 = document.querySelector('.hero-image-box._1');
+  const heroImg2 = document.querySelector('.hero-image-box._2');
+  const heroImg4 = document.querySelector('.hero-image-box._4');
+  const heroImg5 = document.querySelector('.hero-image-box._5');
+  if (heroImg1 && heroImg2 && heroImg4 && heroImg5) {
+    [heroImg1, heroImg2, heroImg4, heroImg5].forEach(el => el.style.willChange = 'transform');
+
+    const MAX_OFFSET = 80;
+    const FACTOR = 0.20;
+    const EASE   = 0.07;
+    let current = 0;
+    let target  = 0;
+
+    window.addEventListener('scroll', () => {
+      target = Math.min(window.scrollY * FACTOR, MAX_OFFSET);
+    }, { passive: true });
+
+    function tickParallax() {
+      current += (target - current) * EASE;
+      if (Math.abs(target - current) > 0.05) {
+        const val = current.toFixed(2);
+        heroImg2.style.transform = `translate3d(0, -${val}px, 0)`;
+        heroImg5.style.transform = `translate3d(0, -${val}px, 0)`;
+        heroImg1.style.transform = `translate3d(0, ${val}px, 0)`;
+        heroImg4.style.transform = `translate3d(0, ${val}px, 0)`;
+      }
+      requestAnimationFrame(tickParallax);
+    }
+    tickParallax();
+  }
+
+  /* ── HERO: GSAP SplitText blur-fade-in (igual al original Cubo) ── */
+  window.addEventListener('load', () => {
+    const titleEl = document.querySelector('.hero-title');
+    const textEl  = document.querySelector('.hero-text');
+    const btnEl   = document.querySelector('.hero-btn-box');
+    if (!titleEl) return;
+
+    if (typeof gsap !== 'undefined' && typeof SplitText !== 'undefined') {
+      const split = new SplitText(titleEl, { type: 'words' });
+
+      gsap.set(split.words,   { y: 30, filter: 'blur(12px)', opacity: 0 });
+      gsap.set([textEl, btnEl], { y: 24, filter: 'blur(8px)',  opacity: 0 });
+
+      gsap.to(split.words, {
+        y: 0, filter: 'blur(0px)', opacity: 1,
+        duration: 1.3, stagger: 0.07, ease: 'power3.out', delay: 0.15
+      });
+      gsap.to(textEl, { y: 0, filter: 'blur(0px)', opacity: 1, duration: 1.1, ease: 'power3.out', delay: 0.75 });
+      gsap.to(btnEl,  { y: 0, filter: 'blur(0px)', opacity: 1, duration: 1.0, ease: 'power3.out', delay: 0.8 });
+    } else {
+      [titleEl, textEl, btnEl].forEach((el, i) => {
+        if (!el) return;
+        setTimeout(() => {
+          el.style.transition = 'opacity 0.7s ease, transform 0.7s ease';
+          el.style.opacity = '1';
+          el.style.transform = 'translateY(0)';
+        }, 200 + i * 180);
+      });
+    }
+  });
+
+  /* ── SECTION TITLES/SUBTITLES: Blur Fade-In + Fade Up (scroll-triggered) ── */
+  (function() {
+    if (typeof gsap === 'undefined') return;
+    const sectionEls = document.querySelectorAll('.section-title, .section-subtitle');
+    if (!sectionEls.length) return;
+
+    gsap.set(sectionEls, { y: 20, filter: 'blur(8px)', opacity: 0 });
+
+    function animateEl(el) {
+      if (el.classList.contains('section-title') && typeof SplitText !== 'undefined') {
+        // Blur en el padre (1 sola capa GPU) — palabras solo y+opacity (sin filter por palabra = sin jitter)
+        gsap.set(el, { opacity: 1, y: 0, filter: 'blur(8px)' });
+        const split = new SplitText(el, { type: 'words' });
+        gsap.set(split.words, { y: 20, opacity: 0 });
+        gsap.to(split.words, { y: 0, opacity: 1, duration: 1.1, stagger: 0.06, ease: 'power3.out' });
+        gsap.to(el, { filter: 'blur(0px)', duration: 0.8, ease: 'power2.out',
+          onComplete: function() { el.style.filter = ''; }
+        });
+      } else {
+        gsap.to(el, { y: 0, opacity: 1, duration: 0.9, ease: 'power3.out' });
+        gsap.to(el, { filter: 'blur(0px)', duration: 0.6, ease: 'power2.out',
+          onComplete: function() { el.style.filter = ''; }
+        });
+      }
+    }
+
+    if ('IntersectionObserver' in window) {
+      const obs = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (!entry.isIntersecting) return;
+          obs.unobserve(entry.target);
+          animateEl(entry.target);
+        });
+      }, { threshold: 0.2 });
+      sectionEls.forEach(el => obs.observe(el));
+    } else {
+      sectionEls.forEach(el => animateEl(el));
+    }
+  })();
+
+  // Navbar hide on scroll down, show on scroll up
+  (function() {
+    const header = document.querySelector('.main-header');
+    let lastY = 0;
+    window.addEventListener('scroll', function() {
+      const currentY = window.scrollY;
+      if (currentY > lastY && currentY > 80) {
+        header.classList.add('nav-hidden');
+      } else {
+        header.classList.remove('nav-hidden');
+      }
+      lastY = currentY;
+    }, { passive: true });
+  })();
+
+  // Login Modal
+  emailjs.init({ publicKey: 'NsfhcxqtJENlNs5P2' });
+
+  const loginModal       = document.getElementById('login-modal');
+  const loginOpenBtn     = document.getElementById('login-open-btn');
+  const loginCloseBtn    = document.getElementById('login-modal-close');
+  const loginBackBtn     = document.getElementById('login-modal-back');
+  const loginEmailBtn    = document.getElementById('login-email-btn');
+  const loginCancelBtn   = document.getElementById('login-cancel-btn');
+  const loginSendBtn     = document.getElementById('login-send-btn');
+  const loginVerifyBtn   = document.getElementById('login-verify-btn');
+  const loginCodeCancel  = document.getElementById('login-code-cancel-btn');
+  const viewMain         = document.getElementById('login-view-main');
+  const viewEmail        = document.getElementById('login-view-email');
+  const viewCode         = document.getElementById('login-view-code');
+  const emailInput       = document.getElementById('login-email-input');
+  const codeEmailLabel   = document.getElementById('login-code-email');
+  const otpInputs        = document.querySelectorAll('.login-otp-input');
+  const sendError        = document.getElementById('login-send-error');
+  const codeError        = document.getElementById('login-code-error');
+  const viewPassword     = document.getElementById('login-view-password');
+  const loginPasswordBtn = document.getElementById('login-password-btn');
+  const loginPwEmail     = document.getElementById('login-pw-email');
+  const loginPwInput     = document.getElementById('login-pw-input');
+  const loginPwToggle    = document.getElementById('login-pw-toggle');
+  const loginPwSubmit    = document.getElementById('login-pw-submit-btn');
+  const loginPwCancel    = document.getElementById('login-pw-cancel-btn');
+  const pwError          = document.getElementById('login-pw-error');
+  const viewForgot       = document.getElementById('login-view-forgot');
+  const loginForgotBtn   = document.getElementById('login-forgot-btn');
+  const loginForgotEmail = document.getElementById('login-forgot-email');
+  const loginForgotSubmit= document.getElementById('login-forgot-submit-btn');
+  const loginForgotCancel= document.getElementById('login-forgot-cancel-btn');
+  const forgotError          = document.getElementById('login-forgot-error');
+  const viewForgotCode       = document.getElementById('login-view-forgot-code');
+  const viewForgotPw         = document.getElementById('login-view-forgot-pw');
+  const loginForgotCodeEmail = document.getElementById('login-forgot-code-email');
+  const forgotOtpInputs      = document.querySelectorAll('.forgot-otp-input');
+  const loginForgotVerifyBtn = document.getElementById('login-forgot-verify-btn');
+  const loginForgotCodeError = document.getElementById('login-forgot-code-error');
+  const loginForgotCodeCancel= document.getElementById('login-forgot-code-cancel-btn');
+  const loginForgotPw        = document.getElementById('login-forgot-pw');
+  const loginForgotPw2       = document.getElementById('login-forgot-pw2');
+  const loginForgotPwToggle  = document.getElementById('login-forgot-pw-toggle');
+  const loginForgotPw2Toggle = document.getElementById('login-forgot-pw2-toggle');
+  const loginForgotPwSubmit  = document.getElementById('login-forgot-pw-submit-btn');
+  const forgotPwError        = document.getElementById('login-forgot-pw-error');
+  const viewRegister          = document.getElementById('login-view-register');
+  const viewRegCode       = document.getElementById('login-view-reg-code');
+  const viewRegPw         = document.getElementById('login-view-reg-pw');
+  const loginRegisterBtn  = document.getElementById('login-register-btn');
+  const loginRegEmail     = document.getElementById('login-reg-email');
+  const loginRegSendBtn   = document.getElementById('login-reg-send-btn');
+  const loginRegSendError = document.getElementById('login-reg-send-error');
+  const loginRegCodeEmail = document.getElementById('login-reg-code-email');
+  const regOtpInputs      = document.querySelectorAll('.reg-otp-input');
+  const loginRegVerifyBtn = document.getElementById('login-reg-verify-btn');
+  const loginRegCodeError = document.getElementById('login-reg-code-error');
+  const loginRegCodeCancel= document.getElementById('login-reg-code-cancel-btn');
+  const loginRegName      = document.getElementById('login-reg-name');
+  const loginRegPw        = document.getElementById('login-reg-pw');
+  const loginRegPw2       = document.getElementById('login-reg-pw2');
+  const loginRegPwToggle  = document.getElementById('login-reg-pw-toggle');
+  const loginRegPw2Toggle = document.getElementById('login-reg-pw2-toggle');
+  const loginRegSubmit    = document.getElementById('login-reg-submit-btn');
+  const loginRegBackBtn   = document.getElementById('login-reg-back-btn');
+  const regError          = document.getElementById('login-reg-error');
+
+  var isLoggedIn = false;
+  var currentUserEmail = '';
+
+  function setLoggedIn(email) {
+    isLoggedIn = true;
+    currentUserEmail = email;
+    var titleEl = document.querySelector('#login-open-btn .header-login-title');
+    var subEl   = document.querySelector('#login-open-btn .header-login-sub');
+    if (titleEl) titleEl.textContent = 'Hola, ' + email.substring(0, 6) + '...';
+    if (subEl)   subEl.textContent   = 'Ver mi cuenta';
+    loginOpenBtn.setAttribute('aria-label', 'Mi cuenta');
+  }
+
+  function showView(view) {
+    viewMain.style.display = 'none';
+    viewEmail.style.display = 'none';
+    viewCode.style.display = 'none';
+    viewPassword.style.display = 'none';
+    viewForgot.style.display = 'none';
+    viewRegister.style.display = 'none';
+    viewRegCode.style.display = 'none';
+    viewRegPw.style.display = 'none';
+    viewForgotCode.style.display = 'none';
+    viewForgotPw.style.display = 'none';
+    view.style.display = '';
+    loginBackBtn.style.display = (view === viewMain) ? 'none' : '';
+    if (sendError)         sendError.style.display         = 'none';
+    if (codeError)         codeError.style.display         = 'none';
+    if (pwError)           pwError.style.display           = 'none';
+    if (forgotError)       forgotError.style.display       = 'none';
+    if (loginForgotCodeError) loginForgotCodeError.style.display = 'none';
+    if (forgotPwError)     forgotPwError.style.display     = 'none';
+    if (regError)          regError.style.display          = 'none';
+  }
+
+  function closeModal() {
+    loginModal.classList.remove('open');
+    document.body.style.overflow = '';
+    showView(viewMain);
+    emailInput.value = '';
+    if (loginPwEmail)  loginPwEmail.value  = '';
+    if (loginPwInput)  loginPwInput.value  = '';
+    if (loginForgotEmail) loginForgotEmail.value = '';
+    if (loginRegEmail)  loginRegEmail.value  = '';
+    if (loginRegName)   loginRegName.value   = '';
+    if (loginRegPw)     loginRegPw.value     = '';
+    if (loginRegPw2)    loginRegPw2.value    = '';
+    regOtpInputs.forEach(function(i) { i.value = ''; });
+    sessionStorage.removeItem('reg_code');
+    sessionStorage.removeItem('reg_code_expires');
+    forgotOtpInputs.forEach(function(i) { i.value = ''; });
+    if (loginForgotPw)  loginForgotPw.value  = '';
+    if (loginForgotPw2) loginForgotPw2.value = '';
+    sessionStorage.removeItem('forgot_code');
+    sessionStorage.removeItem('forgot_code_expires');
+    otpInputs.forEach(function(i) { i.value = ''; });
+    sessionStorage.removeItem('login_code');
+    sessionStorage.removeItem('login_code_expires');
+  }
+
+  // OTP auto-advance
+  otpInputs.forEach(function(input, idx) {
+    input.addEventListener('input', function() {
+      this.value = this.value.replace(/\D/g, '');
+      if (codeError) codeError.style.display = 'none';
+      if (this.value && idx < otpInputs.length - 1) otpInputs[idx + 1].focus();
+    });
+    input.addEventListener('keydown', function(e) {
+      if (e.key === 'Backspace' && !this.value && idx > 0) otpInputs[idx - 1].focus();
+    });
+  });
+
+  if (loginOpenBtn && loginModal) {
+    loginOpenBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      if (isLoggedIn) { openAccountModal(currentUserEmail); return; }
+      loginModal.classList.add('open');
+      document.body.style.overflow = 'hidden';
+      showView(viewMain);
+    });
+    loginCloseBtn.addEventListener('click', closeModal);
+    loginModal.addEventListener('click', function(e) {
+      if (e.target === loginModal) closeModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && loginModal.classList.contains('open')) closeModal();
+    });
+    loginBackBtn.addEventListener('click', function() {
+      if (viewCode.style.display !== 'none') showView(viewEmail);
+      else if (viewRegCode.style.display !== 'none') showView(viewRegister);
+      else if (viewRegPw.style.display !== 'none') showView(viewRegCode);
+      else if (viewForgotCode.style.display !== 'none') showView(viewForgot);
+      else if (viewForgotPw.style.display !== 'none') showView(viewForgotCode);
+      else showView(viewMain);
+    });
+    loginEmailBtn.addEventListener('click', function() {
+      showView(viewEmail);
+      emailInput.focus();
+    });
+    loginCancelBtn.addEventListener('click', function() { showView(viewMain); });
+    loginCodeCancel.addEventListener('click', closeModal);
+
+    loginPasswordBtn.addEventListener('click', function() {
+      showView(viewPassword);
+      loginPwEmail.focus();
+    });
+    loginPwCancel.addEventListener('click', function() { showView(viewMain); });
+    loginPwToggle.addEventListener('click', function() {
+      var isText = loginPwInput.type === 'text';
+      loginPwInput.type = isText ? 'password' : 'text';
+      this.style.color = isText ? '#aaa' : '#1a1a2e';
+    });
+    loginPwSubmit.addEventListener('click', function() {
+      var email = loginPwEmail.value.trim();
+      var pw    = loginPwInput.value;
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) || !pw) {
+        if (pwError) pwError.style.display = '';
+        return;
+      }
+      closeModal();
+      setLoggedIn(email);
+    });
+
+    // Olvidaste tu contraseña — paso 1: email
+    loginForgotBtn.addEventListener('click', function() {
+      showView(viewForgot);
+      loginForgotEmail.focus();
+    });
+    loginForgotCancel.addEventListener('click', function() { showView(viewMain); });
+    loginForgotSubmit.addEventListener('click', function() {
+      var email = loginForgotEmail.value.trim();
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        if (forgotError) forgotError.style.display = '';
+        return;
+      }
+      var code = Math.floor(100000 + Math.random() * 900000).toString();
+      sessionStorage.setItem('forgot_code', code);
+      sessionStorage.setItem('forgot_code_expires', (Date.now() + 10 * 60 * 1000).toString());
+      if (loginForgotCodeEmail) loginForgotCodeEmail.textContent = email;
+      showView(viewForgotCode);
+      // BYPASS TEMPORAL — mostrar código en pantalla
+      var bypassDiv = document.createElement('div');
+      bypassDiv.style.cssText = 'margin-top:12px;padding:10px;background:#fff3cd;border:1px solid #ffc107;border-radius:6px;text-align:center;font-size:14px;color:#333;';
+      bypassDiv.innerHTML = '<b>Código (modo prueba):</b> <span style="font-size:20px;letter-spacing:4px;font-weight:bold;color:#1a1a2e">' + code + '</span>';
+      var existing = document.getElementById('forgot-dev-code-display');
+      if (existing) existing.replaceWith(bypassDiv); else viewForgotCode.appendChild(bypassDiv);
+      bypassDiv.id = 'forgot-dev-code-display';
+    });
+
+    // Olvidaste tu contraseña — paso 2: OTP auto-avance
+    forgotOtpInputs.forEach(function(input, idx) {
+      input.addEventListener('input', function() {
+        this.value = this.value.replace(/\D/g, '');
+        if (loginForgotCodeError) loginForgotCodeError.style.display = 'none';
+        if (this.value && idx < forgotOtpInputs.length - 1) forgotOtpInputs[idx + 1].focus();
+      });
+      input.addEventListener('keydown', function(e) {
+        if (e.key === 'Backspace' && !this.value && idx > 0) forgotOtpInputs[idx - 1].focus();
+      });
+    });
+
+    // Olvidaste tu contraseña — paso 2: verificar código
+    loginForgotVerifyBtn.addEventListener('click', function() {
+      var entered = Array.from(forgotOtpInputs).map(function(i) { return i.value; }).join('');
+      if (entered.length < 6) { forgotOtpInputs[0].focus(); return; }
+      var stored  = sessionStorage.getItem('forgot_code');
+      var expires = parseInt(sessionStorage.getItem('forgot_code_expires') || '0');
+      if (!stored || Date.now() > expires) { showView(viewForgot); return; }
+      if (entered === stored) {
+        sessionStorage.removeItem('forgot_code');
+        sessionStorage.removeItem('forgot_code_expires');
+        showView(viewForgotPw);
+        loginForgotPw.focus();
+      } else {
+        if (loginForgotCodeError) loginForgotCodeError.style.display = '';
+        forgotOtpInputs.forEach(function(i) { i.value = ''; });
+        forgotOtpInputs[0].focus();
+      }
+    });
+    loginForgotCodeCancel.addEventListener('click', closeModal);
+
+    // Olvidaste tu contraseña — paso 3: nueva contraseña
+    loginForgotPwToggle.addEventListener('click', function() {
+      var isText = loginForgotPw.type === 'text';
+      loginForgotPw.type = isText ? 'password' : 'text';
+      this.style.color = isText ? '#aaa' : '#1a1a2e';
+    });
+    loginForgotPw2Toggle.addEventListener('click', function() {
+      var isText = loginForgotPw2.type === 'text';
+      loginForgotPw2.type = isText ? 'password' : 'text';
+      this.style.color = isText ? '#aaa' : '#1a1a2e';
+    });
+    loginForgotPwSubmit.addEventListener('click', function() {
+      var email = loginForgotCodeEmail ? loginForgotCodeEmail.textContent : '';
+      var pw    = loginForgotPw.value;
+      var pw2   = loginForgotPw2.value;
+      if (!pw) {
+        forgotPwError.textContent = 'Completá todos los campos.';
+        forgotPwError.style.display = '';
+        return;
+      }
+      if (pw !== pw2) {
+        forgotPwError.textContent = 'Las contraseñas no coinciden.';
+        forgotPwError.style.display = '';
+        return;
+      }
+      if (pw.length < 6) {
+        forgotPwError.textContent = 'La contraseña debe tener al menos 6 caracteres.';
+        forgotPwError.style.display = '';
+        return;
+      }
+      closeModal();
+      setLoggedIn(email);
+    });
+
+    // Registrate gratis — paso 1: email
+    loginRegisterBtn.addEventListener('click', function() {
+      showView(viewRegister);
+      loginRegEmail.focus();
+    });
+    loginRegBackBtn.addEventListener('click', function() { showView(viewPassword); });
+    loginRegSendBtn.addEventListener('click', function() {
+      var email = loginRegEmail.value.trim();
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        if (loginRegSendError) loginRegSendError.style.display = '';
+        return;
+      }
+      var code = Math.floor(100000 + Math.random() * 900000).toString();
+      sessionStorage.setItem('reg_code', code);
+      sessionStorage.setItem('reg_code_expires', (Date.now() + 10 * 60 * 1000).toString());
+      if (loginRegCodeEmail) loginRegCodeEmail.textContent = email;
+      showView(viewRegCode);
+      // BYPASS TEMPORAL — mostrar código en pantalla
+      var bypassDiv = document.createElement('div');
+      bypassDiv.style.cssText = 'margin-top:12px;padding:10px;background:#fff3cd;border:1px solid #ffc107;border-radius:6px;text-align:center;font-size:14px;color:#333;';
+      bypassDiv.innerHTML = '<b>Código (modo prueba):</b> <span style="font-size:20px;letter-spacing:4px;font-weight:bold;color:#1a1a2e">' + code + '</span>';
+      var existing = document.getElementById('reg-dev-code-display');
+      if (existing) existing.replaceWith(bypassDiv); else viewRegCode.appendChild(bypassDiv);
+      bypassDiv.id = 'reg-dev-code-display';
+    });
+
+    // OTP auto-advance para registro
+    regOtpInputs.forEach(function(input, idx) {
+      input.addEventListener('input', function() {
+        this.value = this.value.replace(/\D/g, '');
+        if (loginRegCodeError) loginRegCodeError.style.display = 'none';
+        if (this.value && idx < regOtpInputs.length - 1) regOtpInputs[idx + 1].focus();
+      });
+      input.addEventListener('keydown', function(e) {
+        if (e.key === 'Backspace' && !this.value && idx > 0) regOtpInputs[idx - 1].focus();
+      });
+    });
+
+    // Registrate gratis — paso 2: verificar código
+    loginRegVerifyBtn.addEventListener('click', function() {
+      var entered = Array.from(regOtpInputs).map(function(i) { return i.value; }).join('');
+      if (entered.length < 6) { regOtpInputs[0].focus(); return; }
+      var stored  = sessionStorage.getItem('reg_code');
+      var expires = parseInt(sessionStorage.getItem('reg_code_expires') || '0');
+      if (!stored || Date.now() > expires) { showView(viewRegister); return; }
+      if (entered === stored) {
+        sessionStorage.removeItem('reg_code');
+        sessionStorage.removeItem('reg_code_expires');
+        showView(viewRegPw);
+        loginRegName.focus();
+      } else {
+        if (loginRegCodeError) loginRegCodeError.style.display = '';
+        regOtpInputs.forEach(function(i) { i.value = ''; });
+        regOtpInputs[0].focus();
+      }
+    });
+    loginRegCodeCancel.addEventListener('click', closeModal);
+
+    // Registrate gratis — paso 3: crear contraseña
+    loginRegPwToggle.addEventListener('click', function() {
+      var isText = loginRegPw.type === 'text';
+      loginRegPw.type = isText ? 'password' : 'text';
+      this.style.color = isText ? '#aaa' : '#1a1a2e';
+    });
+    loginRegPw2Toggle.addEventListener('click', function() {
+      var isText = loginRegPw2.type === 'text';
+      loginRegPw2.type = isText ? 'password' : 'text';
+      this.style.color = isText ? '#aaa' : '#1a1a2e';
+    });
+    loginRegSubmit.addEventListener('click', function() {
+      var name  = loginRegName.value.trim();
+      var email = loginRegCodeEmail ? loginRegCodeEmail.textContent : '';
+      var pw    = loginRegPw.value;
+      var pw2   = loginRegPw2.value;
+      if (!name || !pw) {
+        regError.textContent = 'Completá todos los campos.';
+        regError.style.display = '';
+        return;
+      }
+      if (pw !== pw2) {
+        regError.textContent = 'Las contraseñas no coinciden.';
+        regError.style.display = '';
+        return;
+      }
+      if (pw.length < 6) {
+        regError.textContent = 'La contraseña debe tener al menos 6 caracteres.';
+        regError.style.display = '';
+        return;
+      }
+      closeModal();
+      setLoggedIn(email);
+    });
+
+    // Google Sign-In
+    var googleTokenClient = null;
+    var loginGoogleBtn = document.getElementById('login-google-btn');
+    if (loginGoogleBtn) {
+      loginGoogleBtn.addEventListener('click', function() {
+        if (typeof google === 'undefined' || !google.accounts || !google.accounts.oauth2) {
+          alert('Google Sign-In no está disponible. Verificá tu conexión a internet.');
+          return;
+        }
+        if (!googleTokenClient) {
+          googleTokenClient = google.accounts.oauth2.initTokenClient({
+            // ⚠️ REEMPLAZÁ con tu Client ID de Google Cloud Console
+            client_id: 'TU_CLIENT_ID.apps.googleusercontent.com',
+            scope: 'email profile openid',
+            callback: function(tokenResponse) {
+              if (!tokenResponse || !tokenResponse.access_token) return;
+              loginGoogleBtn.disabled = true;
+              loginGoogleBtn.textContent = 'Conectando...';
+              fetch('https://www.googleapis.com/oauth2/v3/userinfo', {
+                headers: { Authorization: 'Bearer ' + tokenResponse.access_token }
+              })
+              .then(function(r) { return r.json(); })
+              .then(function(data) {
+                loginGoogleBtn.disabled = false;
+                loginGoogleBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.2l6.7-6.7C35.7 2.5 30.2 0 24 0 14.6 0 6.6 5.5 2.8 13.5l7.8 6C12.5 13.2 17.8 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.7c-.5 2.9-2.2 5.4-4.7 7l7.3 5.7c4.3-4 6.8-9.9 6.8-16.7z"/><path fill="#FBBC05" d="M10.6 28.5A14.6 14.6 0 0 1 9.5 24c0-1.6.3-3.1.8-4.5l-7.8-6A23.9 23.9 0 0 0 0 24c0 3.9.9 7.5 2.5 10.8l8.1-6.3z"/><path fill="#34A853" d="M24 48c6.2 0 11.4-2 15.2-5.5l-7.3-5.7c-2 1.4-4.6 2.2-7.9 2.2-6.2 0-11.5-3.7-13.4-9L2.5 36.2C6.3 42.8 14.6 48 24 48z"/></svg> Google';
+                if (data.email) {
+                  closeModal();
+                  setLoggedIn(data.email);
+                }
+              })
+              .catch(function() {
+                loginGoogleBtn.disabled = false;
+                loginGoogleBtn.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.2l6.7-6.7C35.7 2.5 30.2 0 24 0 14.6 0 6.6 5.5 2.8 13.5l7.8 6C12.5 13.2 17.8 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.7c-.5 2.9-2.2 5.4-4.7 7l7.3 5.7c4.3-4 6.8-9.9 6.8-16.7z"/><path fill="#FBBC05" d="M10.6 28.5A14.6 14.6 0 0 1 9.5 24c0-1.6.3-3.1.8-4.5l-7.8-6A23.9 23.9 0 0 0 0 24c0 3.9.9 7.5 2.5 10.8l8.1-6.3z"/><path fill="#34A853" d="M24 48c6.2 0 11.4-2 15.2-5.5l-7.3-5.7c-2 1.4-4.6 2.2-7.9 2.2-6.2 0-11.5-3.7-13.4-9L2.5 36.2C6.3 42.8 14.6 48 24 48z"/></svg> Google';
+              });
+            }
+          });
+        }
+        googleTokenClient.requestAccessToken({ prompt: 'select_account' });
+      });
+    }
+
+    // Enviar código vía EmailJS
+    loginSendBtn.addEventListener('click', function() {
+      var email = emailInput.value.trim();
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { emailInput.focus(); return; }
+
+      var code = Math.floor(100000 + Math.random() * 900000).toString();
+      sessionStorage.setItem('login_code', code);
+      sessionStorage.setItem('login_code_expires', (Date.now() + 10 * 60 * 1000).toString());
+
+      if (codeEmailLabel) codeEmailLabel.textContent = email;
+      showView(viewCode);
+
+      // BYPASS TEMPORAL — mostrar código en pantalla
+      var bypassDiv = document.getElementById('dev-code-display') || document.createElement('div');
+      bypassDiv.id = 'dev-code-display';
+      bypassDiv.style.cssText = 'margin-top:12px;padding:10px;background:#fff3cd;border:1px solid #ffc107;border-radius:6px;text-align:center;font-size:14px;color:#333;';
+      bypassDiv.innerHTML = '<b>Código (modo prueba):</b> <span style="font-size:20px;letter-spacing:4px;font-weight:bold;color:#1a1a2e">' + code + '</span>';
+      var viewCodeEl = document.getElementById('login-view-code');
+      var existing = document.getElementById('dev-code-display');
+      if (existing) existing.replaceWith(bypassDiv);
+      else if (viewCodeEl) viewCodeEl.appendChild(bypassDiv);
+    });
+
+    // Verificar código
+    loginVerifyBtn.addEventListener('click', function() {
+      var entered = Array.from(otpInputs).map(function(i) { return i.value; }).join('');
+      if (entered.length < 6) { otpInputs[0].focus(); return; }
+      var stored = sessionStorage.getItem('login_code');
+      var expires = parseInt(sessionStorage.getItem('login_code_expires') || '0');
+      if (!stored || Date.now() > expires) { showView(viewEmail); return; }
+      if (entered === stored) {
+        sessionStorage.removeItem('login_code');
+        sessionStorage.removeItem('login_code_expires');
+        var userEmail = codeEmailLabel.textContent;
+        closeModal();
+        setLoggedIn(userEmail);
+      } else {
+        if (codeError) codeError.style.display = '';
+        otpInputs.forEach(function(i) { i.value = ''; });
+        otpInputs[0].focus();
+      }
+    });
+  }
+
+  // Account Modal
+  const accountModal      = document.getElementById('account-modal');
+  const accountCloseBtn   = document.getElementById('account-modal-close');
+  const accountDisplayEmail = document.getElementById('account-display-email');
+  const accountTabs       = document.querySelectorAll('.account-tab');
+  const accountTabPanels  = document.querySelectorAll('.account-tab-content');
+
+  function openAccountModal(email) {
+    if (accountDisplayEmail) accountDisplayEmail.textContent = email || '';
+    var accEmail = document.getElementById('acc-email');
+    if (accEmail) accEmail.value = email || '';
+    accountModal.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeAccountModal() {
+    accountModal.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+
+  function logout() {
+    isLoggedIn = false;
+    currentUserEmail = '';
+    sessionStorage.removeItem('login_code');
+    sessionStorage.removeItem('login_code_expires');
+    var titleEl = document.querySelector('#login-open-btn .header-login-title');
+    var subEl   = document.querySelector('#login-open-btn .header-login-sub');
+    if (titleEl) titleEl.textContent = 'Iniciar sesión';
+    if (subEl)   subEl.textContent   = 'Accede a tu cuenta';
+    loginOpenBtn.setAttribute('aria-label', 'Iniciar sesión');
+    closeAccountModal();
+  }
+
+  if (accountModal) {
+    var logoutBtn = document.getElementById('account-logout-btn');
+    if (logoutBtn) logoutBtn.addEventListener('click', logout);
+    accountCloseBtn.addEventListener('click', closeAccountModal);
+    accountModal.addEventListener('click', function(e) {
+      if (e.target === accountModal) closeAccountModal();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && accountModal.classList.contains('open')) closeAccountModal();
+    });
+    accountTabs.forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        var target = this.dataset.tab;
+        accountTabs.forEach(function(t) { t.classList.remove('active'); });
+        accountTabPanels.forEach(function(p) { p.classList.remove('active'); });
+        this.classList.add('active');
+        document.getElementById('account-tab-' + target).classList.add('active');
+      });
+    });
+
+    // Direcciones — mostrar/ocultar formulario
+    var dirShowBtn   = document.getElementById('acc-dir-show-form-btn');
+    var dirForm      = document.getElementById('acc-dir-form');
+    var dirEmptyState = document.getElementById('acc-dir-empty-state');
+    var dirCancelBtn = document.getElementById('acc-dir-cancel-btn');
+
+    if (dirShowBtn) {
+      dirShowBtn.addEventListener('click', function() {
+        dirEmptyState.style.display = 'none';
+        dirForm.classList.add('visible');
+      });
+    }
+    if (dirCancelBtn) {
+      dirCancelBtn.addEventListener('click', function() {
+        dirForm.classList.remove('visible');
+        dirEmptyState.style.display = '';
+      });
+    }
+
+    // Cascada Departamento → Provincia → Distrito
+    var peruData = {
+      'Amazonas': {'Chachapoyas':['Chachapoyas','Asunción','Balsas','Cheto','Chiliquín','Chuquibamba','Granada','Huancas','La Jalca','Leimebamba','Levanto','Magdalena','Mariscal Castilla','Molinopampa','Montevideo','Olleros','Quinjalca','San Francisco de Daguas','San Isidro de Maino','Soloco','Sonche'],'Bagua':['Bagua','Aramango','Copallin','El Parco','Imaza','La Peca'],'Bongará':['Jumbilla','Chinata','Corosha','Cuispes','Florida','Jazán','Recta','San Carlos','Shipasbamba','Valera','Yambrasbamba'],'Condorcanqui':['Nieva','El Cenepa','Río Santiago'],'Luya':['Lamud','Camporredondo','Cocabamba','Colcamar','Conila','Inguilpata','Longuita','Lonya Chico','Luya','Luya Viejo','María','Ocalli','Ocumal','Pisuquia','Providencia','San Cristóbal','San Francisco del Yeso','San Jerónimo','San Juan de Lopecancha','Santa Catalina','Santo Tomás','Tingo','Trita'],'Rodríguez de Mendoza':['San Nicolás','Chirimoto','Cochamal','Huambo','Limabamba','Longar','Mariscal Benavides','Milpuc','Omia','Santa Rosa','Totora','Vista Alegre'],'Utcubamba':['Bagua Grande','Cajaruro','Cumba','El Milagro','Jamalca','Lonya Grande','Yamón']},
+      'Áncash': {'Huaraz':['Huaraz','Cochabamba','Colcabamba','Huanchay','Independencia','Jangas','La Libertad','Olleros','Pampas','Paucará','Pira','Tarica'],'Aija':['Aija','Coris','Huacllán','La Merced','Succha'],'Antonio Raymondi':['Llamellín','Aczo','Chaccho','Chingas','Mirgas','San Juan de Rontoy'],'Asunción':['Chacas','Acochaca'],'Bolognesi':['Chiquián','Abelardo Pardo Lezameta','Antonio Raymondi','Aquia','Cajacay','Canis','Colquioc','Huallanca','Huasta','Huayllacayán','La Primavera','Mangas','Pacllon','San Miguel de Corpanqui','Ticllos'],'Carhuaz':['Carhuaz','Acopampa','Amashca','Anta','Ataquero','Marcará','Pamparak','San Miguel de Aco','Shilla','Tinco','Yungar'],'Carlos F. Fitzcarrald':['San Luis','San Nicolás','Yauya'],'Casma':['Casma','Buena Vista Alta','Comandante Noel','Yaután'],'Corongo':['Corongo','Aco','Bambas','Cusca','La Pampa','Ponto','Yanac'],'Huari':['Huari','Anra','Cajay','Chavín de Huántar','Huacachi','Huacchis','Huachis','Huantar','Masin','Paucas','Ponto','Rahuapampa','Rapayan','San Marcos','San Pedro de Chana','Uco'],'Huarmey':['Huarmey','Cochapeti','Culebras','Huayan','Malvas'],'Huaylas':['Caraz','Huallanca','Huata','Huaylas','Mato','Pamparomás','Pueblo Libre','Santa Cruz','Santo Toribio','Yuracmarca'],'Mariscal Luzuriaga':['Piscobamba','Casca','Eleazar Guzmán Barrón','Fidel Olivas Escudero','Llama','Llumpa','Lucma','Musga'],'Ocros':['Ocros','Acas','Cajamarquilla','Carhuapampa','Cochas','Congas','Llipa','San Cristóbal de Rajón','San Pedro','Santiago de Chilcas'],'Pallasca':['Cabana','Bolognesi','Conchucos','Huacaschuque','Huandoval','Lacabamba','Llapo','Pallasca','Pampas','Santa Rosa','Tauca'],'Pomabamba':['Pomabamba','Huaylán','Parobamba','Quinuabamba'],'Recuay':['Recuay','Catac','Cotaparaco','Huayllapampa','Llacllin','Marca','Pampas Chico','Pampas Grande','Pátap','Punta Callán','Tapacocha','Ticapampa'],'Santa':['Chimbote','Cáceres del Perú','Coishco','Macate','Moro','Nepeña','Samanco','Santa','Vinzos'],'Sihuas':['Sihuas','Acobamba','Alfonso Ugarte','Cashapampa','Chingalpo','Huayllabamba','Quiches','Ragash','San Juan','Sicsibamba'],'Yungay':['Yungay','Cascapara','Mancos','Matacoto','Quillo','Ranrahirca','Shupluy','Yanama']},
+      'Apurímac': {'Abancay':['Abancay','Chacoche','Circa','Curahuasi','Huanipaca','Lambrama','Pichirhua','San Pedro de Cachora','Tamburco'],'Andahuaylas':['Andahuaylas','Andarapa','Chiara','Huancarama','Huancaray','Huayana','Kishuara','Pacobamba','Pacucha','Pampachiri','Pomacocha','San Antonio de Cachi','San Jerónimo','San Miguel de Chaccrampa','Santa María de Chicmo','Talavera','Tumay Huaraca','Turpo','Kaquiabamba','José María Arguedas'],'Antabamba':['Antabamba','El Oro','Huaquirca','Juan Espinoza Medrano','Oropesa','Pachaconas','Sabaino'],'Aymaraes':['Chalhuanca','Capaya','Caraybamba','Chapimarca','Colcabamba','Cotaruse','Huayllo','Justo Apu Sahuaraura','Lucre','Pocohuanca','San Juan de Chacña','Sañayca','Soraya','Tapairihua','Tintay','Toraya','Yanaca'],'Cotabambas':['Tambobamba','Cotabambas','Coyllurqui','Haquira','Mara','Challhuahuacho'],'Chincheros':['Chincheros','Anco-Huallo','Cocharcas','Huaccana','Ocobamba','Ongoy','Uranmarca','Ranracancha'],'Grau':['Chuquibambilla','Curpahuasi','Gamarra','Huayllati','Mamara','Micaela Bastidas','Pataypampa','Progreso','San Antonio','Santa Rosa','Turpay','Vilcabamba','Virundo','Curasco']},
+      'Arequipa': {'Arequipa':['Arequipa','Alto Selva Alegre','Cayma','Cerro Colorado','Characato','Chiguata','Jacobo Hunter','José Luis Bustamante y Rivero','La Joya','Mariano Melgar','Miraflores','Mollebaya','Paucarpata','Pocsi','Polobaya','Quequeña','Sabandía','Sachaca','San Juan de Siguas','San Juan de Tarucani','Santa Isabel de Siguas','Santa Rita de Siguas','Socabaya','Tiabaya','Tigre','Uchumayo','Vitor','Yanahuara','Yarabamba','Yura'],'Camaná':['Camaná','José María Quimper','Mariano Nicolás Valcárcel','Mariscal Cáceres','Nicolás de Piérola','Ocoña','Quilca','Samuel Pastor'],'Caravelí':['Caravelí','Acarí','Atico','Atiquipa','Bella Unión','Cahuacho','Chala','Chaparra','Huanuhuanu','Jaqui','Lomas','Quicacha','Yauca'],'Castilla':['Aplao','Andagua','Ayo','Chachas','Chilcaymarca','Choco','Huancarqui','Machaguay','Orcopampa','Pampacolca','Tipán','Uñon','Uraca','Viraco'],'Caylloma':['Chivay','Achoma','Cabanaconde','Callalli','Caylloma','Coporaque','Huambo','Huanca','Ichupampa','Lari','Lluta','Maca','Madrigal','San Antonio de Chuca','Sibayo','Tapay','Tisco','Tuti','Yanque','Majes'],'Condesuyos':['Chuquibamba','Andaray','Cayarani','Chichas','Iray','Río Grande','Salamanca','Yanaquihua'],'Islay':['Mollendo','Cocachacra','Dean Valdivia','Islay','Mejía','Punta de Bombón'],'La Unión':['Cotahuasi','Alca','Charcana','Huaynacotas','Pampamarca','Puyca','Quechualla','Sayla','Tauria','Tomepampa','Toro']},
+      'Ayacucho': {'Huamanga':['Ayacucho','Acocro','Acos Vinchos','Carmen Alto','Chiara','Jesús Nazareno','Ocros','Pacaycasa','Quinua','San José de Ticllas','San Juan Bautista','Santiago de Pischa','Socos','Tambillo','Vinchos'],'Cangallo':['Cangallo','Chuschi','Los Morochucos','María Parado de Bellido','Paras','Totos'],'Huanca Sancos':['Sancos','Carapo','Sacsamarca'],'Huanta':['Huanta','Ayahuanco','Huamanguilla','Iguaín','Llochegua','Luricocha','Santillana','Sivia','Uchuraccay'],'La Mar':['San Miguel','Anco','Ayna','Chilcas','Chungui','Luis Carranza','Santa Rosa','Tambo','Samugari','Anchihuay'],'Lucanas':['Puquio','Aucara','Cabana','Carmen Salcedo','Chaviña','Chipao','Huac-Huas','Laramate','Leoncio Prado','Llauta','Lucanas','Ocaña','Otoca','Saisa','San Cristóbal','San Juan','San Pedro','San Pedro de Palco','Sancos','Santa Ana de Huaycahuacho','Santa Lucía'],'Parinacochas':['Coracora','Chumpi','Coronel Castañeda','Pacapausa','Pullo','Puyusca','San Francisco de Rivacayco','Upahuacho'],'Páucar del Sara Sara':['Pausa','Colta','Corculla','Lampa','Marcabamba','Oyolo','Pararca','San Javier de Alpabamba','San José de Ushua','Sara Sara'],'Sucre':['Querobamba','Belén','Chalcos','Chilcayoc','Huacaña','Morcolla','Paico','San Salvador de Quije','Santiago de Paucaray','Soras'],'Víctor Fajardo':['Huancapi','Alcamenca','Apongo','Asquipata','Canaria','Cayara','Colca','Huaya','Huancaraylla','Sarhua','Vilcanchos'],'Vilcas Huamán':['Vilcas Huamán','Accomarca','Carhuanca','Concepción','Huambalpa','Independencia','Saurama','Vischongo']},
+      'Cajamarca': {'Cajamarca':['Cajamarca','Asunción','Chetilla','Cospan','Encañada','Jesús','Llacanora','Los Baños del Inca','Magdalena','Namora','San Juan'],'Cajabamba':['Cajabamba','Cachachi','Condebamba','Sitacocha'],'Celendín':['Celendín','Chumuch','Cortegana','Huasmin','Jorge Chávez','José Gálvez','Miguel Iglesias','Oxamarca','Sorochuco','Sucre','Utco','La Libertad de Pallán'],'Chota':['Chota','Anguia','Chadin','Chiguirip','Chimban','Choropampa','Cochabamba','Conchan','Huambos','Lajas','Llama','Miracosta','Paccha','Pion','Querocoto','San Juan de Licupis','Tacabamba','Tocmoche','Chalamarca'],'Contumazá':['Contumazá','Chilete','Cupisnique','Guzmango','San Benito','Santa Cruz de Toledo','Tantarica','Yonán'],'Cutervo':['Cutervo','Callayuc','Choros','Cujillo','La Ramada','Pimpingos','Querocotillo','San Andrés de Cutervo','San Juan de Cutervo','San Luis de Lucma','Santa Cruz','Santo Domingo de la Capilla','Santo Tomás','Socota','Toribio Casanova'],'Hualgayoc':['Bambamarca','Chugur','Hualgayoc'],'Jaén':['Jaén','Bellavista','Chontali','Colasay','Huabal','Las Pirias','Pucará','Sallique','San Felipe','San José del Alto','Santa Rosa'],'San Ignacio':['San Ignacio','Chirinos','Huarango','La Coipa','Namballe','San José de Lourdes','Tabaconas'],'San Marcos':['Pedro Gálvez','Chancay','Eduardo Villanueva','Gregorio Pita','Ichocán','José Manuel Quiroz','José Sabogal'],'San Miguel':['San Miguel','Bolívar','Calquis','Catilluc','El Prado','La Florida','Llapa','Nanchoc','Niepos','San Gregorio','San Silvestre de Cochán','Tongod','Unión Agua Blanca'],'San Pablo':['San Pablo','San Bernardino','San Luis','Tumbadén'],'Santa Cruz':['Santa Cruz','Andabamba','Catache','Chancaybaños','La Esperanza','Ninabamba','Pulan','Saucepampa','Sexi','Uticyacu','Yauyucán']},
+      'Callao': {'Callao':['Bellavista','Callao','Carmen de la Legua Reynoso','La Perla','La Punta','Mi Perú','Ventanilla']},
+      'Cusco': {'Cusco':['Cusco','Ccorca','Poroy','San Jerónimo','San Sebastián','Santiago','Saylla','Wanchaq'],'Acomayo':['Acomayo','Acopia','Acos','Mosoc Llacta','Pomacanchi','Rondocan','Sangarará'],'Anta':['Anta','Ancahuasi','Cachimayo','Chinchaypujio','Huarocondo','Limatambo','Mollepata','Pucyura','Zurite'],'Calca':['Calca','Coya','Lamay','Lares','Pisac','San Salvador','Taray','Yanatile'],'Canas':['Yanaoca','Checca','Kunturkanki','Langui','Layo','Pampamarca','Quehue','Túpac Amaru'],'Canchis':['Sicuani','Checacupe','Combapata','Marangani','Pitumarca','San Pablo','San Pedro','Tinta'],'Chumbivilcas':['Santo Tomás','Capacmarca','Chamaca','Colquemarca','Livitaca','Llusco','Quiñota','Velille'],'Espinar':['Espinar','Alto Pichigua','Coporaque','Ocoruro','Pallpata','Pichigua','Suyckutambo','Condoroma'],'La Convención':['Santa Ana','Echarate','Huayopata','Maranura','Ocobamba','Quellouno','Kimbiri','Santa Teresa','Vilcabamba','Pichari','Inkawasi','Villa Kintiarina','Villa Virgen'],'Paruro':['Paruro','Accha','Ccapi','Colcha','Huanoquite','Omacha','Paccaritambo','Pillpinto','Yaurisque'],'Paucartambo':['Paucartambo','Caicay','Challabamba','Colquepata','Huancarani','Kosñipata'],'Quispicanchi':['Urcos','Andahuaylillas','Camanti','Ccarhuayo','Ccatca','Cusipata','Huaro','Lucre','Marcapata','Ocongate','Oropesa','Quiquijana'],'Urubamba':['Urubamba','Chinchero','Huayllabamba','Machupicchu','Maras','Ollantaytambo','Yucay']},
+      'Huancavelica': {'Huancavelica':['Huancavelica','Acobambilla','Acoria','Conayca','Cuenca','Huando','Huayllahuara','Izcuchaca','Laria','Manta','Mariscal Cáceres','Moya','Nuevo Occoro','Palca','Pilchaca','Vilca','Yauli','Ascensión'],'Acobamba':['Acobamba','Andabamba','Anta','Caja','Marcas','Paucara','Pomacocha','Rosario'],'Angaraes':['Lircay','Anchonga','Callanmarca','Ccochaccasa','Chincho','Congalla','Huanca-Huanca','Huayllay Grande','Julcamarca','San Antonio de Antaparco','Santo Tomás de Pata','Secclla'],'Castrovirreyna':['Castrovirreyna','Arma','Aurahua','Capillas','Chupamarca','Cocas','Huachos','Huamatambo','Mollepampa','San Juan','Santa Ana','Tantara','Ticrapo'],'Churcampa':['Churcampa','Anco','Chinchihuasi','El Carmen','La Merced','Locroja','Paucarbamba','San Miguel de Mayocc','San Pedro de Coris','Zosimo Bolognesi'],'Huaytará':['Huaytará','Ayavi','Córdova','Huayacundo Arma','Laramarca','Ocoyo','Pilpichaca','Querco','Quito-Arma','San Antonio de Cusicancha','San Francisco de Sangayaico','San Isidro','Santiago de Chocorvos','Santiago de Quirahuara','Santo Domingo de Capillas','Tambo'],'Tayacaja':['Pampas','Acostambo','Acraquia','Ahuaycha','Colcabamba','Daniel Hernández','Huachocolpa','Huaribamba','Ñahuimpuquio','Pazos','Quishuar','Salcabamba','Salcahuasi','San Marcos de Rocchac','Surcubamba','Tintay Puncu','Quichuas','Andaymarca','Roble']},
+      'Huánuco': {'Huánuco':['Huánuco','Amarilis','Chinchao','Churubamba','Margos','Quisqui','San Francisco de Cayran','San Pedro de Chaulan','Santa María del Valle','Yarumayo','Pillco Marca'],'Ambo':['Ambo','Cayna','Colpas','Conchamarca','Huácar','San Francisco','San Rafael','Tomay Kichwa'],'Dos de Mayo':['La Unión','Chuquis','Marías','Pachas','Quivilla','Ripan','Shunqui','Sillapata','Yanas'],'Huacaybamba':['Huacaybamba','Canchabamba','Cochabamba','Pinra'],'Huamalíes':['Llata','Arancay','Chavín de Pariarca','Jacas Grande','Jircán','Miraflores','Monzón','Punchao','Puños','Singa','Tantamayo'],'Leoncio Prado':['Tingo María','Daniel Alomía Robles','Hermilio Valdizán','José Crespo y Castillo','Luyando','Mariano Dámaso Beraún'],'Marañón':['Huacrachuco','Cholón','San Buenaventura'],'Pachitea':['Panao','Chaglla','Molino','Umari'],'Puerto Inca':['Puerto Inca','Codo del Pozuzo','Honoria','Tournavista','Yuyapichis'],'Lauricocha':['Jesús','Baños','Jivia','Queropalca','Rondos','San Francisco de Asís','San Miguel de Cauri'],'Yarowilca':['Chavinillo','Cahuac','Chacabamba','Aparicio Pomares','Jacas Chico','Obas','Pampamarca','Choras']},
+      'Ica': {'Ica':['Ica','La Tinguiña','Los Aquijes','Ocucaje','Pachacutec','Parcona','Pueblo Nuevo','Salas','San José de Los Molinos','San Juan Bautista','Santiago','Subtanjalla','Tate','Yauca del Rosario'],'Chincha':['Chincha Alta','Alto Larán','Chavín','Chincha Baja','El Carmen','Grocio Prado','Pueblo Nuevo','San Juan de Yanac','San Pedro de Huacarpana','Sunampe','Tambo de Mora'],'Nasca':['Nasca','Changuillo','El Ingenio','Marcona','Vista Alegre'],'Palpa':['Palpa','Llipata','Río Grande','Santa Cruz','Tibillo'],'Pisco':['Pisco','Huancano','Humay','Independencia','Paracas','San Andrés','San Clemente','Túpac Amaru Inca']},
+      'Junín': {'Huancayo':['Huancayo','Carhuacallanga','Chacapampa','Chicche','Chilca','Chongos Alto','Chupuro','Colca','Cullhuas','El Tambo','Huacrapuquio','Hualhuas','Huancan','Huasicancha','Huayucachi','Ingenio','Pariahuanca','Pilcomayo','Pucará','Quichuay','Quilcas','San Agustín','San Jerónimo de Tunan','Saño','Sapallanga','Sicaya','Santo Domingo de Acobamba','Viques'],'Chanchamayo':['San Ramón','Chanchamayo','Perené','Pichanaqui','San Luis de Shuaro','Vitoc'],'Chupaca':['Chupaca','Ahuac','Chongos Bajo','Huachac','Huamancaca Chico','San Juan de Jarpa','Tres de Diciembre','Yanacancha'],'Concepción':['Concepción','Aco','Andamarca','Chambará','Cochas','Comas','Heroínas Toledo','Manzanares','Mariscal Castilla','Matahuasi','Mito','Nueve de Julio','Orcotuna','San José de Quero','Santa Rosa de Ocopa'],'Jauja':['Jauja','Acolla','Apata','Ataura','Canchayllo','Curicaca','El Mantaro','Huamalí','Huaripampa','Huertas','Janjaillo','Julcán','Leonor Ordóñez','Llocllapampa','Marco','Masma','Masma Chicche','Molinos','Monobamba','Muqui','Muquiyauyo','Paca','Paccha','Pancan','Parco','Pomacancha','Ricran','San Lorenzo','San Pedro de Chunan','Sausa','Sincos','Tunan Marca','Yauli','Yauyos'],'Junín':['Junín','Carhuamayo','Ondores','Ulcumayo'],'Satipo':['Satipo','Coviriali','Llaylla','Mazamari','Pampa Hermosa','Pangoa','Río Negro','Río Tambo','Vizcatán del Ene'],'Tarma':['Tarma','Acobamba','Huaricolca','Huasahuasi','La Unión','Palca','Palcamayo','San Pedro de Cajas','Tapo'],'Yauli':['La Oroya','Chacapalpa','Huay-Huay','Marcapomacocha','Morococha','Paccha','Santa Bárbara de Carhuacayán','Santa Rosa de Sacco','Suitucancha','Yauli']},
+      'La Libertad': {'Trujillo':['Trujillo','El Porvenir','Florencia de Mora','Huanchaco','La Esperanza','Laredo','Moche','Poroto','Salaverry','Simbal','Víctor Larco Herrera'],'Ascope':['Ascope','Chicama','Chocope','Magdalena de Cao','Paiján','Razuri','Santiago de Cao','Casa Grande'],'Bolívar':['Bolívar','Bambamarca','Condormarca','Longotea','Uchumarca','Ucuncha'],'Chepén':['Chepén','Pacanga','Pueblo Nuevo'],'Julcán':['Julcán','Calamarca','Carabamba','Huaso'],'Otuzco':['Otuzco','Agallpampa','Charat','Huaranchal','La Cuesta','Mache','Paranday','Salpo','Sinsicap','Usquil'],'Pacasmayo':['San Pedro de Lloc','Guadalupe','Jequetepeque','Pacasmayo','San José'],'Pataz':['Tayabamba','Buldibuyo','Chillia','Huancaspata','Huaylillas','Huayo','Ongon','Parcoy','Pataz','Pias','Santiago de Challas','Taurija','Urpay'],'Sánchez Carrión':['Huamachuco','Chugay','Cochorco','Curgos','Marcabal','Sanagorán','Sarín','Sartimbamba'],'Santiago de Chuco':['Santiago de Chuco','Angasmarca','Cachicadán','Mollebamba','Mollepata','Quiruvilca','Santa Cruz de Chuca','Sitabamba'],'Gran Chimú':['Cascas','Baños del Inca','Lucma','Marmot','Sayapullo'],'Virú':['Virú','Chao','Guadalupito']},
+      'Lambayeque': {'Chiclayo':['Chiclayo','Chongoyape','Eten','Eten Puerto','José Leonardo Ortiz','La Victoria','Lagunas','Monsefú','Nueva Arica','Oyotún','Picsi','Pimentel','Reque','Santa Rosa','Saña','Cayaltí','Pátapo','Pomalca','Pucalá','Tumán'],'Ferreñafe':['Ferreñafe','Cañaris','Incahuasi','Manuel Antonio Mesones Muro','Pitipo','Pueblo Nuevo'],'Lambayeque':['Lambayeque','Chóchope','Íllimo','Jayanca','Mochumí','Mórrope','Motupe','Olmos','Pacora','Salas','San José','Túcume']},
+      'Lima': {'Lima':['Lima','Ancón','Ate','Barranco','Breña','Carabayllo','Chaclacayo','Chorrillos','Cieneguilla','Comas','El Agustino','Independencia','Jesús María','La Molina','La Victoria','Lince','Los Olivos','Lurigancho','Lurín','Magdalena del Mar','Miraflores','Pachacamac','Pucusana','Pueblo Libre','Puente Piedra','Punta Hermosa','Punta Negra','Rímac','San Bartolo','San Borja','San Isidro','San Juan de Lurigancho','San Juan de Miraflores','San Luis','San Martín de Porres','San Miguel','Santa Anita','Santa María del Mar','Santa Rosa','Santiago de Surco','Surquillo','Villa El Salvador','Villa María del Triunfo'],'Barranca':['Barranca','Ámbar','Paramonga','Pativilca','Supe','Supe Puerto'],'Cajatambo':['Cajatambo','Copa','Gorgor','Huancapón','Manas'],'Canta':['Canta','Arahuay','Huamantanga','Huaros','Lachaqui','San Buenaventura','Santa Rosa de Quives'],'Cañete':['San Vicente de Cañete','Asia','Calango','Cerro Azul','Chilca','Coayllo','Imperial','Lunahuaná','Mala','Nuevo Imperial','Quilmaná','San Antonio','San Luis','Santa Cruz de Flores','Zúñiga'],'Huaral':['Huaral','Atavillos Alto','Atavillos Bajo','Aucallama','Chancay','Ihuarí','Lampián','Pacaraos','San Miguel de Acos','Santa Cruz de Andamarca','Sumbilca','Veintisiete de Noviembre'],'Huarochirí':['Matucana','Antioquia','Callahuanca','Carampoma','Chicla','Cuenca','Huachupampa','Huanza','Huarochirí','Jete','Lahuaytambo','Langa','Laraos','Mariatana','Rircay','San Andrés de Tupicocha','San Antonio','San Damián','San Juan de Iris','San Lorenzo de Quinti','San Mateo','San Mateo de Otao','San Pedro de Casta','San Pedro de Huancayre','Sangallaya','Santa Cruz de Cocachacra','Santa Eulalia','Santiago de Anchucaya','Santiago de Tuna','Santo Domingo de Los Olleros','Surco'],'Huaura':['Huacho','Ambar','Caleta de Carquín','Checras','Hualmay','Huaura','Leoncio Prado','Paccho','Santa Leonor','Santa María','Sayán','Végueta'],'Oyón':['Oyón','Andajes','Caujul','Cochamarca','Navan','Pachangara'],'Yauyos':['Yauyos','Alis','Allauca','Ayaviri','Azángaro','Cacra','Carania','Catahuasi','Chocos','Cochas','Colonia','Hongos','Huampará','Huancaya','Huangáscar','Huantán','Huañec','Laraos','Lincha','Madean','Miraflores','Omas','Putinza','Quinches','Quinocay','San Joaquín','San Pedro de Pilas','Tanta','Tauripampa','Tomas','Tupe','Viñac','Vitis']},
+      'Loreto': {'Maynas':['Iquitos','Alto Nanay','Fernando Lores','Indiana','Las Amazonas','Mazan','Napo','Punchana','Torres Causana','Belén','San Juan Bautista'],'Alto Amazonas':['Yurimaguas','Balsapuerto','Barranca','Cahuapanas','Jeberos','Lagunas','Santa Cruz','Teniente César López Rojas'],'Datem del Marañón':['San Lorenzo','Barranca','Cahuapanas','Manseriche','Morona','Pastaza'],'Loreto':['Nauta','Parinari','Tigre','Trompeteros','Urarinas'],'Mariscal Ramón Castilla':['Ramón Castilla','Pebas','San Pablo','Yaquerana'],'Putumayo':['San Antonio del Estrecho','Teniente Manuel Clavero','Yaguas','Rosa Panduro'],'Requena':['Requena','Alto Tapiche','Capelo','Emilio San Martín','Maquia','Puinahua','Saquena','Soplin','Tapiche','Jenaro Herrera','Yaquerana'],'Ucayali':['Contamana','Inahuaya','Padre Márquez','Pampa Hermosa','Sarayacu','Vargas Guerra']},
+      'Madre de Dios': {'Tambopata':['Tambopata','Las Piedras','Laberinto','Inambari'],'Manu':['Manu','Fitzcarrald','Madre de Dios','Uid'],'Tahuamanu':['Iñapari','Iberia','Tahuamanu']},
+      'Moquegua': {'Mariscal Nieto':['Moquegua','Carumas','Cuchumbaya','Samegua','San Cristóbal','Torata'],'General Sánchez Cerro':['Omate','Chojata','Coalaque','Ichuña','La Capilla','Lloque','Matalaque','Puquina','Quinistaquillas','Ubinas','Yunga'],'Ilo':['Ilo','El Algarrobal','Pacocha']},
+      'Pasco': {'Pasco':['Chaupimarca','Huachón','Huariaca','Huayllay','Ninacaca','Pallanchacra','Paucartambo','San Francisco de Asís de Yarusyacán','Simón Bolívar','Ticlacayán','Tinyahuarco','Vicco','Yanacancha'],'Daniel Alcides Carrión':['Yanahuanca','Chacayán','Goyllarisquizga','Paucar','San Pedro de Pillao','Santa Ana de Tusi','Tapuc','Vilcabamba'],'Oxapampa':['Oxapampa','Chontabamba','Huancabamba','Palcazu','Pozuzo','Puerto Bermúdez','Villa Rica','Constitución']},
+      'Piura': {'Piura':['Piura','Castilla','Catacaos','Cura Mori','El Tallán','La Arena','La Unión','Las Lomas','Tambogrande','Veintiséis de Octubre'],'Ayabaca':['Ayabaca','Frías','Jilili','Lagunas','Montero','Pacaipampa','Paimas','Sapillica','Sicchez','Suyo'],'Huancabamba':['Huancabamba','Canchaque','El Carmen de la Frontera','Huarmaca','Lalaquiz','San Miguel del Faique','Sondor','Sondorillo'],'Morropón':['Chulucanas','Buenos Aires','Chalaco','La Matanza','Morropón','Salitral','San Juan de Bigote','Santa Catalina de Mossa','Santo Domingo','Yamango'],'Paita':['Paita','Amotape','Arenal','Colán','La Huaca','Tamarindo','Vichayal'],'Sechura':['Sechura','Bernal','Cristo Nos Valga','Rinconada Llicuar','Vice'],'Sullana':['Sullana','Bellavista','Ignacio Escudero','Lancones','Marcavelica','Miguel Checa','Querecotillo','Salitral'],'Talara':['Pariñas','El Alto','La Brea','Lobitos','Los Órganos','Máncora']},
+      'Puno': {'Puno':['Puno','Acora','Amantani','Atuncolla','Capachica','Chucuito','Coata','Huata','Mañazo','Pichacani','Platería','San Antonio','Tiquillaca','Vilque'],'Azángaro':['Azángaro','Achaya','Arapa','Asillo','Caminaca','Chupa','José Domingo Choquehuanca','Muñani','Potoni','Saman','San Antón','San José','San Juan de Salinas','Santiago de Pupuja','Tirapata'],'Carabaya':['Macusani','Ajoyani','Ayapata','Coasa','Corani','Crucero','Ituata','Ollachea','San Gabán','Usicayos'],'Chucuito':['Juli','Desaguadero','Huacullani','Kelluyo','Pisacoma','Pomata','Zepita'],'El Collao':['Ilave','Capazo','Pilcuyo','Santa Rosa','Conduriri'],'Huancané':['Huancané','Cojata','Huatasani','Inchupalla','Pusi','Rosaspata','Taraco','Vilque Chico'],'Lampa':['Lampa','Cabanilla','Calapuja','Nicasio','Ocuviri','Palca','Paratia','Pucará','Santa Lucía','Vilavila'],'Melgar':['Ayaviri','Antauta','Cupi','Llalli','Macarí','Nuñoa','Orurillo','Santa Rosa','Umachiri'],'Moho':['Moho','Conima','Huayrapata','Tilali'],'San Antonio de Putina':['Putina','Ananea','Pedro Vilca Apaza','Quilcapuncu','Sina'],'San Román':['Juliaca','Cabana','Cabanillas','Caracoto','San Miguel'],'Sandia':['Sandia','Cuyocuyo','Limbani','Patambuco','Phara','Quiaca','San Juan del Oro','Yanahuaya','Alto Inambari','San Pedro de Putina Punco'],'Yunguyo':['Yunguyo','Anapia','Copani','Cuturapi','Ollaraya','Tinicachi','Unicachi']},
+      'San Martín': {'Moyobamba':['Moyobamba','Calzada','Habana','Jepelacio','Soritor','Yantaló'],'Bellavista':['Bellavista','Alto Biavo','Bajo Biavo','Huallaga','San Pablo','San Rafael'],'El Dorado':['San José de Sisa','Agua Blanca','San Martín','Santa Rosa','Shatoja'],'Huallaga':['Saposoa','Alto Saposoa','El Eslabón','Piscoyacu','Sacanche','Tingo de Saposoa'],'Lamas':['Lamas','Alonso de Alvarado','Barranquita','Caynarachi','Cuñumbuqui','Pinto Recodo','Rumisapa','San Roque de Cumbaza','Shanao','Tabalosos','Zapatero'],'Mariscal Cáceres':['Juanjuí','Campanilla','Huicungo','Pachiza','Pajarillo'],'Picota':['Picota','Buenos Aires','Caspisapa','Pilluana','Pucacaca','San Cristóbal','San Hilarión','Shamboyacu','Tingo de Ponaza','Tres Unidos'],'Rioja':['Rioja','Awajun','Elías Soplin Vargas','Nueva Cajamarca','Pardo Miguel','Posic','San Fernando','Yorongos','Yuracyacu'],'San Martín':['Tarapoto','Alberto Leveau','Cacatachi','Chazuta','Chipurana','El Porvenir','Huimbayoc','Juan Guerra','La Banda de Shilcayo','Morales','Papaplaya','San Antonio','Santa Rosa','Sauce','Shapaja'],'Tocache':['Tocache','Nuevo Progreso','Pólvora','Shunte','Uchiza']},
+      'Tacna': {'Tacna':['Tacna','Alto de la Alianza','Calana','Ciudad Nueva','Inclán','Pachía','Palca','Pocollay','Sama','Coronel Gregorio Albarracín Lanchipa'],'Candarave':['Candarave','Cairani','Camilaca','Curibaya','Huanuara','Quilahuani'],'Jorge Basadre':['Locumba','Ilabaya','Ite'],'Tarata':['Tarata','Héroes Albarracín','Estique','Estique-Pampa','Sitajara','Susapaya','Tarucachi','Ticaco']},
+      'Tumbes': {'Tumbes':['Tumbes','Corrales','La Cruz','Pampas de Hospital','San Jacinto','San Juan de la Virgen'],'Contralmirante Villar':['Zorritos','Casitas','Canoas de Punta Sal'],'Zarumilla':['Zarumilla','Aguas Verdes','Matapalo','Papayal']},
+      'Ucayali': {'Coronel Portillo':['Callería','Campoverde','Iparía','Masisea','Yarinacocha','Nueva Requena','Manantay'],'Atalaya':['Raymondi','Sepahua','Tahuanía','Yurúa'],'Padre Abad':['Padre Abad','Irazola','Curimaná','Neshuya','Alexander Von Humboldt'],'Purús':['Purús']}
+    };
+
+    var deptoSel = document.getElementById('acc-dir-depto');
+    var provSel  = document.getElementById('acc-dir-prov');
+    var distSel  = document.getElementById('acc-dir-dist');
+
+    function fillSelect(sel, items, placeholder) {
+      sel.innerHTML = '<option value="">' + placeholder + '</option>';
+      items.forEach(function(item) {
+        var opt = document.createElement('option');
+        opt.value = item;
+        opt.textContent = item;
+        sel.appendChild(opt);
+      });
+    }
+
+    // Seguridad — toggle mostrar/ocultar contraseña
+    document.querySelectorAll('.acc-pass-toggle').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var inp = document.getElementById(this.dataset.target);
+        var isText = inp.type === 'text';
+        inp.type = isText ? 'password' : 'text';
+        this.querySelector('.eye-show').style.display = isText ? '' : 'none';
+        this.querySelector('.eye-hide').style.display = isText ? 'none' : '';
+      });
+    });
+
+    // Seguridad — fortaleza de contraseña
+    var passNew     = document.getElementById('acc-pass-new');
+    var passConfirm = document.getElementById('acc-pass-confirm');
+    var passError   = document.getElementById('acc-pass-error');
+    var passSuccess = document.getElementById('acc-pass-success');
+    var passSaveBtn = document.getElementById('acc-pass-save-btn');
+    var strengthWrap  = document.getElementById('acc-pass-strength');
+    var strengthFill  = document.getElementById('acc-pass-strength-fill');
+    var strengthLabel = document.getElementById('acc-pass-strength-label');
+
+    function calcStrength(pw) {
+      var score = 0;
+      if (pw.length >= 8)  score++;
+      if (pw.length >= 12) score++;
+      if (/[A-Z]/.test(pw)) score++;
+      if (/[0-9]/.test(pw)) score++;
+      if (/[^A-Za-z0-9]/.test(pw)) score++;
+      return score;
+    }
+
+    if (passNew) {
+      passNew.addEventListener('input', function() {
+        var pw = this.value;
+        if (!pw) { strengthWrap.style.display = 'none'; return; }
+        strengthWrap.style.display = 'flex';
+        var s = calcStrength(pw);
+        var pct = Math.min(100, s * 20) + '%';
+        var color, label;
+        if (s <= 1) { color = '#e53e3e'; label = 'Muy débil'; }
+        else if (s === 2) { color = '#f6ad55'; label = 'Débil'; }
+        else if (s === 3) { color = '#ecc94b'; label = 'Regular'; }
+        else if (s === 4) { color = '#48bb78'; label = 'Fuerte'; }
+        else { color = '#22863a'; label = 'Muy fuerte'; }
+        strengthFill.style.width = pct;
+        strengthFill.style.background = color;
+        strengthLabel.textContent = label;
+        strengthLabel.style.color = color;
+      });
+    }
+
+    if (passSaveBtn) {
+      passSaveBtn.addEventListener('click', function() {
+        passError.style.display = 'none';
+        passSuccess.style.display = 'none';
+        var pw  = passNew.value;
+        var pw2 = passConfirm.value;
+        if (pw.length < 8) {
+          passError.textContent = 'La contraseña debe tener al menos 8 caracteres.';
+          passError.style.display = '';
+          passNew.focus();
+          return;
+        }
+        if (pw !== pw2) {
+          passError.textContent = 'Las contraseñas no coinciden.';
+          passError.style.display = '';
+          passConfirm.focus();
+          return;
+        }
+        passNew.value = '';
+        passConfirm.value = '';
+        strengthWrap.style.display = 'none';
+        passSuccess.style.display = '';
+        setTimeout(function() { passSuccess.style.display = 'none'; }, 4000);
+      });
+    }
+
+    if (deptoSel && provSel && distSel) {
+      deptoSel.addEventListener('change', function() {
+        var depto = this.value;
+        provSel.innerHTML = '<option value="">Seleccione provincia...</option>';
+        distSel.innerHTML = '<option value="">Seleccione provincia primero...</option>';
+        provSel.disabled = true;
+        distSel.disabled = true;
+        if (depto && peruData[depto]) {
+          fillSelect(provSel, Object.keys(peruData[depto]), 'Seleccione...');
+          provSel.disabled = false;
+        }
+      });
+      provSel.addEventListener('change', function() {
+        var depto = deptoSel.value;
+        var prov  = this.value;
+        distSel.innerHTML = '<option value="">Seleccione distrito...</option>';
+        distSel.disabled = true;
+        if (depto && prov && peruData[depto] && peruData[depto][prov]) {
+          fillSelect(distSel, peruData[depto][prov], 'Seleccione...');
+          distSel.disabled = false;
+        }
+      });
+    }
+  }
+
+})();
+</script>
+
+  <script>
+    // Galería de producto — cambio de imagen al hacer clic en miniatura
+    (function() {
+      var thumbs = document.querySelectorAll('.pdp-gallery-thumb');
+      var mainImg = document.getElementById('pdp-main-img');
+      if (!mainImg) return;
+      thumbs.forEach(function(thumb) {
+        thumb.addEventListener('click', function() {
+          thumbs.forEach(function(t) { t.classList.remove('active'); });
+          thumb.classList.add('active');
+          mainImg.src = thumb.src;
+        });
+      });
+    })();
+  </script>
+  <div class="pdp-share-toast" id="pdp-share-toast">¡Enlace copiado!</div>
+  <script>
+  /* ====== CARRITO ESTATICO ====== */
+  (function() {
+    var STORAGE_KEY = 'cubo_cart';
+
+    function loadCart() {
+      try { return JSON.parse(localStorage.getItem(STORAGE_KEY)) || []; }
+      catch(e) { return []; }
+    }
+    function saveCart(items) {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+    }
+
+    function formatPrice(raw) {
+      // raw puede ser 'USD 9.99' o '9.99' — retorna el numero
+      var m = raw.match(/[\d,.]+/);
+      return m ? parseFloat(m[0].replace(',','')) : 0;
+    }
+
+    function renderCart() {
+      var items = loadCart();
+      var list = document.getElementById('cart-items-list');
+      var emptyState = document.querySelector('.cart-empty-state');
+      var footer = document.querySelector('.cart-footer');
+      var badge = document.querySelector('.shopping-cart-quantity');
+      var totalEl = document.querySelector('.cart-total-price');
+
+      if (!list) return;
+
+      // Limpiar lista
+      list.innerHTML = '';
+
+      if (items.length === 0) {
+        if (emptyState) emptyState.style.display = '';
+        if (footer) footer.style.display = 'none';
+        if (badge) badge.textContent = '0';
+        return;
+      }
+
+      // Ocultar empty state, mostrar footer
+      if (emptyState) emptyState.style.display = 'none';
+      if (footer) footer.style.display = '';
+
+      var total = 0;
+      var totalQty = 0;
+
+      items.forEach(function(item, idx) {
+        total += item.price * item.qty;
+        totalQty += item.qty;
+
+        var div = document.createElement('div');
+        div.className = 'cart-item';
+        div.innerHTML =
+          '<img class="cart-item-img" src="' + item.img + '" alt="' + item.name + '" />' +
+          '<div class="cart-item-info">' +
+            '<p class="cart-item-name">' + item.name + '</p>' +
+            '<div class="cart-item-qty-row">' +
+              '<button class="cart-item-qty-btn" data-idx="' + idx + '" data-action="minus">&#8722;</button>' +
+              '<span class="cart-item-qty-val">' + item.qty + '</span>' +
+              '<button class="cart-item-qty-btn" data-idx="' + idx + '" data-action="plus">&#43;</button>' +
+            '</div>' +
+            '<p class="cart-item-price">USD $' + (item.price * item.qty).toFixed(2) + '</p>' +
+          '</div>' +
+          '<button class="cart-item-remove" data-idx="' + idx + '" aria-label="Eliminar">&times;</button>';
+        list.appendChild(div);
+      });
+
+      if (badge) badge.textContent = totalQty;
+      if (totalEl) totalEl.textContent = 'USD $' + total.toFixed(2);
+
+      // Botones eliminar
+      list.querySelectorAll('.cart-item-remove').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var i = parseInt(btn.getAttribute('data-idx'));
+          var cart = loadCart();
+          cart.splice(i, 1);
+          saveCart(cart);
+          renderCart();
+        });
+      });
+      // Botones cantidad +/-
+      list.querySelectorAll('.cart-item-qty-btn').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+          var i = parseInt(btn.getAttribute('data-idx'));
+          var action = btn.getAttribute('data-action');
+          var cart = loadCart();
+          if (!cart[i]) return;
+          if (action === 'plus') {
+            cart[i].qty += 1;
+          } else {
+            cart[i].qty -= 1;
+            if (cart[i].qty <= 0) { cart.splice(i, 1); }
+          }
+          saveCart(cart);
+          renderCart();
+        });
+      });
+    }
+
+    function addToCart(name, price, img, qty) {
+      var cart = loadCart();
+      // Si el mismo producto ya esta, sumar cantidad
+      var existing = cart.find(function(i) { return i.name === name; });
+      if (existing) {
+        existing.qty += qty;
+      } else {
+        cart.push({ name: name, price: price, img: img, qty: qty });
+      }
+      saveCart(cart);
+      renderCart();
+
+      // Abrir el carrito
+      var cartContainer = document.getElementById('cart-container');
+      if (cartContainer) cartContainer.classList.add('open');
+
+      // Feedback visual en el boton
+      var btn = document.querySelector('.w-commerce-commerceaddtocartbutton.cart-button');
+      if (btn) {
+        var original = btn.value;
+        btn.value = '¡Agregado!';
+        btn.disabled = true;
+        setTimeout(function() { btn.value = original; btn.disabled = false; }, 1500);
+      }
+    }
+
+    // Interceptar el formulario
+    var form = document.querySelector('.w-commerce-commerceaddtocartform.cart-default.two');
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var nameEl = document.querySelector('.product-detail-title');
+        var priceEl = document.querySelector('.product-detail-discount') || document.querySelector('.product-detail-price');
+        var imgEl = document.getElementById('pdp-main-img') || document.querySelector('.product-detail-image');
+        var qtyEl = form.querySelector('.cart-quantity');
+
+        var name = nameEl ? nameEl.textContent.trim() : 'Producto';
+        var price = priceEl ? formatPrice(priceEl.textContent) : 0;
+        var img = imgEl ? imgEl.src : '';
+        var qty = qtyEl ? (parseInt(qtyEl.value) || 1) : 1;
+
+        addToCart(name, price, img, qty);
+      });
+    }
+
+    // Inicializar carrito al cargar la pagina
+    renderCart();
+  })();
+  </script>
+  <script>
+  (function() {
+    var btn = document.getElementById('pdp-share-btn');
+    var toast = document.getElementById('pdp-share-toast');
+    if (!btn) return;
+    function showToast() {
+      if (!toast) return;
+      toast.classList.add('show');
+      setTimeout(function(){ toast.classList.remove('show'); }, 2500);
+    }
+    btn.addEventListener('click', function() {
+      var titleEl = document.querySelector('.product-detail-title');
+      var title = titleEl ? titleEl.textContent.trim() : document.title;
+      var url = window.location.href;
+      if (navigator.share) {
+        navigator.share({ title: title, url: url }).catch(function(){});
+      } else if (navigator.clipboard) {
+        navigator.clipboard.writeText(url).then(showToast).catch(function() {
+          var ta = document.createElement('textarea');
+          ta.value = url; document.body.appendChild(ta); ta.select();
+          document.execCommand('copy'); document.body.removeChild(ta);
+          showToast();
+        });
+      } else {
+        var ta = document.createElement('textarea');
+        ta.value = url; document.body.appendChild(ta); ta.select();
+        document.execCommand('copy'); document.body.removeChild(ta);
+        showToast();
+      }
+    });
+  })();
+  </script>
+</body>
+</html>
