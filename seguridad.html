@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <title>Centro de Seguridad - Cubo</title>
+  <meta content="Conocé cómo protegemos tu información y cómo mantener tu cuenta segura en Cubo." name="description" />
+  <meta content="width=device-width, initial-scale=1" name="viewport" />
+  <link href="https://cdn.prod.website-files.com" rel="preconnect" crossorigin="anonymous" />
+  <link href="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/css/givolt.webflow.shared.5760b6763.css" rel="stylesheet" type="text/css" crossorigin="anonymous" />
+  <link href="https://fonts.googleapis.com" rel="preconnect" />
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin="anonymous" />
+  <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
+  <script type="text/javascript">
+    WebFont.load({ google: { families: ["Antonio:300,400,500,600,700","DM Sans:300,400,500,600,700","Host Grotesk:300,400,500,600,700","Manrope:300,400,500,600,700","Outfit:300,400,500,600,700","Plus Jakarta Sans:300,400,500,600,700","Space Grotesk:300,400,500,600,700","Syne:300,400,500,600,700"] }});
+  </script>
+  <link href="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/69d4da7bec912f7377bc97fe_svgviewer-output%20(1).svg" rel="icon" type="image/png" sizes="32x32" />
+  <style>
+    .cat-dropdown { position: relative; }
+    .cat-dropdown-content { display: none; position: absolute; top: 100%; left: 0; z-index: 1000; background: #fff; border-radius: 8px; box-shadow: 0 8px 24px rgba(0,0,0,0.15); min-width: 220px; padding: 8px 0; }
+    .cat-dropdown-content.open { display: block; }
+    .mobile-menu { display: none; }
+    .mobile-menu.open { display: flex; }
+    .search-form-box { display: none; }
+    .search-form-box.open { display: block; }
+    .bg.menu-bg { display: none; }
+    .bg.menu-bg.open { display: block; }
+    .w-commerce-commercecartcontainerwrapper { display: none !important; }
+    .cart-button { cursor: pointer; border: none; text-align: center; display: block; }
+    .w-commerce-commercecartcontainerwrapper.open { display: flex !important; }
+    .header-main-box { display: grid !important; grid-template-columns: 1fr auto 1fr; align-items: center; }
+    .header-left-group { display: flex; align-items: center; gap: 28px; }
+    .header-left-group .header-menu-box { flex: 1; display: flex; justify-content: center; }
+    .header-btn-box { display: flex !important; align-items: center; justify-content: flex-end; }
+    .header-center-group { display: flex; align-items: center; gap: 16px; }
+    .nav-search-form { flex: 0 0 600px; margin: 0; }
+    .nav-search-wrap { display: flex; align-items: center; background: #fff; border-radius: 50px; padding: 5px 5px 5px 22px; gap: 8px; }
+    .nav-search-input { flex: 1; background: transparent; border: none; outline: none; color: #1a1a1a; font-family: inherit; font-size: 14px; min-width: 0; }
+    .nav-search-input::placeholder { color: rgba(0,0,0,0.42); }
+    .nav-search-btn { display: flex; align-items: center; justify-content: center; width: 38px; height: 38px; background: #1a1a1a; border: none; border-radius: 50%; cursor: pointer; flex-shrink: 0; transition: background 0.2s; }
+    .nav-search-btn:hover { background: #333; }
+    .nav-search-btn img { filter: invert(1); width: 16px; height: 16px; }
+    .header-login-btn { display: flex; align-items: center; gap: 8px; opacity: 0.9; transition: opacity 0.2s; text-decoration: none; color: #fff; }
+    .header-login-btn:hover { opacity: 1; }
+    .header-login-text { display: flex; flex-direction: column; line-height: 1.2; }
+    .header-login-title { font-size: 14px; font-weight: 600; color: inherit; white-space: nowrap; }
+    .header-login-sub { font-size: 12px; font-weight: 400; color: inherit; opacity: 0.75; white-space: nowrap; }
+    @media (max-width: 1280px) { .nav-search-form { flex: 0 0 420px; } }
+    @media (max-width: 991px) {
+      .header-main-box { grid-template-columns: 1fr auto auto; }
+      .header-left-group { flex: 0 0 auto; }
+      .header-menu-box { display: none; }
+      .nav-search-form { flex: 1; min-width: 0; }
+      .header-login-text { display: none; }
+      .header-login-btn { gap: 0; }
+      .header-btn-box { flex: 0 0 auto !important; justify-content: flex-end; }
+      .mobile-menu-open-btn { display: flex; align-items: center; cursor: pointer; }
+    }
+    @media (max-width: 767px) {
+      .header-main-box { grid-template-columns: auto 1fr auto; }
+      .header-center-group { justify-content: flex-end; gap: 12px; }
+      .header-btn-box { flex: 0 0 auto !important; }
+      .header-left-group { display: flex !important; }
+      .header-left-group .logo-box { display: flex !important; }
+      .header-left-group .site-logo { display: block !important; }
+    }
+    .main-header { position: sticky; top: 0; z-index: 999; transition: transform 0.3s ease; background-color: #1a1a2e; color: #fff; }
+    .main-header .header-left-group { display: flex !important; }
+    .main-header .header-left-group .logo-box { display: flex !important; }
+    .main-header .header-left-group .site-logo { display: block !important; width: auto !important; height: auto !important; opacity: 1 !important; visibility: visible !important; }
+    .main-header.nav-hidden { transform: translateY(-100%); }
+    .main-header .header-menu, .main-header .header-menu-hover, .main-header .header-menu-link { color: #fff !important; }
+    .main-header .menu-icon, .main-header .shopping-cart-icon, .main-header .mobile-menu-icon { filter: invert(1); }
+    .main-header .w-commerce-commercecartopenlinkcount { color: #fff; }
+    .mobile-menu-open-btn { display: none; }
+    .login-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); z-index: 9999; align-items: center; justify-content: center; }
+    .login-modal-overlay.open { display: flex; }
+    .login-modal-card { background: #fff; border-radius: 16px; padding: 40px 36px 36px; width: 100%; max-width: 440px; position: relative; box-shadow: 0 24px 64px rgba(0,0,0,0.25); display: flex; flex-direction: column; align-items: center; gap: 14px; }
+    .login-modal-close { position: absolute; top: 16px; right: 16px; background: none; border: none; cursor: pointer; color: #999; display: flex; align-items: center; padding: 4px; border-radius: 50%; transition: color 0.2s; }
+    .login-modal-close:hover { color: #1a1a1a; }
+    .login-modal-logo { height: 36px; width: auto; margin-bottom: 4px; }
+    .login-modal-title { font-size: 22px; font-weight: 700; color: #0f0f0f; margin: 0; text-align: center; }
+    .login-modal-subtitle { font-size: 14px; color: #777; margin: 0 0 6px; text-align: center; }
+    .login-btn-primary { display: block; width: 100%; padding: 14px; background: #1a1a2e; color: #fff; border-radius: 8px; text-align: center; font-size: 15px; font-weight: 600; text-decoration: none; transition: background 0.2s; border: none; cursor: pointer; }
+    .login-btn-primary:hover { background: #333; }
+    .login-btn-secondary { display: block; width: 100%; padding: 13px; background: transparent; color: #1a1a1a; border: 1.5px solid #d1d5db; border-radius: 8px; text-align: center; font-size: 15px; font-weight: 600; text-decoration: none; transition: border-color 0.2s; cursor: pointer; }
+    .login-btn-secondary:hover { border-color: #999; }
+    .login-divider { width: 100%; display: flex; align-items: center; gap: 12px; color: #aaa; font-size: 12px; font-weight: 500; letter-spacing: 0.05em; }
+    .login-divider::before, .login-divider::after { content: ''; flex: 1; height: 1px; background: #e5e7eb; }
+    .login-btn-google { display: flex; align-items: center; justify-content: center; gap: 10px; width: 100%; padding: 13px; background: transparent; color: #1a1a1a; border: 1.5px solid #d1d5db; border-radius: 8px; font-size: 15px; font-weight: 600; text-decoration: none; transition: border-color 0.2s; }
+    .login-btn-google:hover { border-color: #999; }
+    #login-view-main, #login-view-email { display: flex; flex-direction: column; align-items: center; gap: 14px; width: 100%; }
+    .login-email-input { width: 100%; padding: 13px 16px; border: 1.5px solid #d1d5db; border-radius: 8px; font-size: 15px; font-family: inherit; color: #1a1a1a; outline: none; box-sizing: border-box; transition: border-color 0.2s; }
+    .login-email-input:focus { border-color: #0f0f0f; }
+    .login-email-input::placeholder { color: #aaa; }
+    .login-modal-back { position: absolute; top: 16px; left: 16px; background: none; border: none; cursor: pointer; color: #999; display: flex; align-items: center; padding: 4px; border-radius: 50%; transition: color 0.2s; }
+    .login-modal-back:hover { color: #1a1a1a; }
+    #login-view-code { display: flex; flex-direction: column; align-items: center; gap: 14px; width: 100%; }
+    .login-code-badge { width: 56px; height: 56px; border-radius: 50%; background: #eef2ff; display: flex; align-items: center; justify-content: center; color: #4f6ef7; margin-bottom: 4px; }
+    .login-otp-wrap { display: flex; gap: 10px; justify-content: center; width: 100%; }
+    .login-otp-input { width: 44px; height: 52px; border: 1.5px solid #d1d5db; border-radius: 8px; text-align: center; font-size: 22px; font-family: inherit; color: #1a1a1a; outline: none; transition: border-color 0.2s; }
+    .login-otp-input:focus { border-color: #0f0f0f; }
+    .login-btn-text { background: none; border: none; cursor: pointer; color: #999; font-size: 14px; font-family: inherit; padding: 4px 8px; transition: color 0.2s; }
+    .login-btn-text:hover { color: #1a1a1a; }
+    .account-modal-overlay { display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.6); backdrop-filter: blur(4px); z-index: 9999; align-items: center; justify-content: center; }
+    .account-modal-overlay.open { display: flex; }
+    .account-modal-card { background: #fff; border-radius: 16px; width: 100%; max-width: 850px; position: relative; box-shadow: 0 24px 64px rgba(0,0,0,0.25); overflow: hidden; }
+    .account-modal-header { background: #1a1a2e; padding: 28px 40px; display: flex; align-items: center; gap: 14px; }
+    .account-modal-avatar { width: 44px; height: 44px; border-radius: 50%; background: rgba(255,255,255,0.15); display: flex; align-items: center; justify-content: center; color: #fff; flex-shrink: 0; }
+    .account-modal-user { flex: 1; min-width: 0; }
+    .account-modal-name { font-size: 16px; font-weight: 700; color: #fff; margin: 0; }
+    .account-modal-email-label { font-size: 13px; color: rgba(255,255,255,0.65); margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .account-modal-close { background: none; border: none; cursor: pointer; color: rgba(255,255,255,0.65); display: flex; padding: 4px; border-radius: 50%; transition: color 0.2s; flex-shrink: 0; }
+    .account-modal-close:hover { color: #fff; }
+    .account-tabs { display: flex; border-bottom: 1.5px solid #e5e7eb; padding: 0 40px; }
+    .account-tab { padding: 14px 0; margin-right: 28px; font-size: 14px; font-weight: 600; color: #999; cursor: pointer; border: none; border-bottom: 2px solid transparent; margin-bottom: -1.5px; background: none; font-family: inherit; transition: color 0.2s, border-color 0.2s; }
+    .account-tab.active { color: #1a1a2e; border-bottom-color: #1a1a2e; }
+    .account-tab-content { display: none; padding: 32px 40px 40px; max-height: 70vh; overflow-y: auto; }
+    .account-tab-content.active { display: block; }
+    .account-form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .account-form-label { font-size: 13px; font-weight: 600; color: #374151; }
+    .account-form-input { width: 100%; padding: 11px 14px; border: 1.5px solid #d1d5db; border-radius: 8px; font-size: 14px; font-family: inherit; color: #1a1a1a; outline: none; box-sizing: border-box; transition: border-color 0.2s; }
+    .account-form-input:focus { border-color: #1a1a2e; }
+    .account-save-btn { width: 100%; padding: 13px; background: #1a1a2e; color: #fff; border: none; border-radius: 8px; font-size: 15px; font-weight: 600; cursor: pointer; font-family: inherit; transition: background 0.2s; margin-top: 4px; }
+    .account-save-btn:hover { background: #2d2d4e; }
+    .account-orders-empty { text-align: center; padding: 48px 0 32px; color: #bbb; }
+    .account-orders-empty p { font-size: 15px; margin: 12px 0 0; color: #999; }
+    @media (max-width: 580px) { .account-modal-card { margin: 16px; } .account-tabs { padding: 0 20px; } .account-tab-content { padding: 20px 20px 24px; } .account-modal-header { padding: 20px; } }
+    /* Página */
+    .page-hero { background: linear-gradient(135deg, #1a1a2e 0%, #2d2d5e 100%); padding: 72px 24px 64px; text-align: center; color: #fff; }
+    .page-hero h1 { font-size: clamp(28px, 5vw, 52px); font-weight: 800; letter-spacing: -1px; margin-bottom: 12px; color: #fff !important; }
+    .page-hero p { font-size: 16px; color: rgba(255,255,255,0.75) !important; max-width: 500px; margin: 0 auto; line-height: 1.6; }
+    .policy-section { max-width: 820px; margin: 0 auto; padding: 64px 24px 80px; }
+    .policy-section h2 { font-size: 20px; font-weight: 800; color: #1a1a2e; margin: 40px 0 10px; padding-bottom: 8px; border-bottom: 2px solid #eef2ff; }
+    .policy-section h2:first-child { margin-top: 0; }
+    .policy-section p { font-size: 15px; color: #555; line-height: 1.85; margin-bottom: 12px; }
+    .policy-section ul { padding-left: 22px; margin-bottom: 14px; }
+    .policy-section ul li { font-size: 15px; color: #555; line-height: 1.8; margin-bottom: 6px; }
+    .policy-badge { display: inline-flex; align-items: center; gap: 8px; background: #eef2ff; color: #1a1a2e; font-size: 13px; font-weight: 600; padding: 8px 16px; border-radius: 20px; margin-bottom: 32px; }
+  
+    /* --- Logo Cubo: oculta imagen SVG, muestra texto --- */
+    img.site-logo,
+    .main-header .header-left-group img.site-logo,
+    .header-left-group img.site-logo { display: none !important; visibility: hidden !important; opacity: 0 !important; width: 0 !important; height: 0 !important; margin: 0 !important; padding: 0 !important; }
+    a.logo-box { display: inline-flex !important; align-items: center !important; text-decoration: none !important; }
+    a.logo-box::after { content: "Cubo"; font-size: 22px; font-weight: 800; color: #ffffff; letter-spacing: -0.5px; font-family: inherit; line-height: 1; }
+    .copyright-box a { text-decoration: none !important; border: none !important; }
+    .copyright-box a.w-inline-block img { display: none !important; visibility: hidden !important; }
+    .copyright-box a.w-inline-block::after { content: "Cubo"; font-size: 22px; font-weight: 800; color: #ffffff !important; font-family: inherit; }
+    .copyright-box .copyright-text-link::after { content: none !important; }
+    .copyright-line { display: none !important; }
+    img.login-modal-logo { display: none !important; visibility: hidden !important; width: 0 !important; height: 0 !important; }
+    #login-view-main::before { content: "Cubo"; display: block; font-size: 28px; font-weight: 800; color: #1a1a2e; text-align: center; letter-spacing: -0.5px; margin-bottom: 4px; font-family: inherit; }
+</style>
+</head>
+<body>
+<div class="page-wrapper">
+
+  <!-- HEADER -->
+  <header class="main-header">
+    <div class="w-layout-blockcontainer container w-container">
+      <div class="header-main-box">
+        <div class="header-left-group">
+          <a href="index.html" class="logo-box w-inline-block w--current">
+            <img loading="lazy" src="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/69cfa642d519614f2c137ab9_0.svg" alt="Cubo Logo" class="site-logo" />
+          </a>
+          <div class="header-menu-box">
+            <div class="cat-dropdown w-dropdown" id="cat-dropdown-desktop">
+              <div class="cat-toggle w-dropdown-toggle" id="cat-toggle-desktop">
+                <a href="#" class="header-menu-link w-inline-block" onclick="return false;">
+                  <p class="header-menu">Categorías</p>
+                  <p class="header-menu-hover">Categorías</p>
+                </a>
+                <img src="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/69d0cd30e7cb43d5d656127e_arrow-down.png" loading="lazy" alt="flecha" class="menu-icon" />
+              </div>
+              <nav class="cat-dropdown-content w-dropdown-list" id="cat-dropdown-list">
+                <div class="cat-list-box">
+                  <a href="/categoria/telefonos" class="cat-link">Teléfonos Inteligentes</a>
+                  <a href="/categoria/laptops" class="cat-link">Laptops</a>
+                  <a href="/categoria/hogar-inteligente" class="cat-link">Hogar Inteligente</a>
+                  <a href="/categoria/audio-sonido" class="cat-link">Audio y Sonido</a>
+                  <a href="/categoria/gaming" class="cat-link">Accesorios Gaming</a>
+                </div>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <div class="header-center-group">
+          <form action="/buscar" class="nav-search-form" role="search">
+            <div class="nav-search-wrap">
+              <input class="nav-search-input" type="search" name="query" placeholder="Buscar productos..." maxlength="256" aria-label="Buscar productos" />
+              <button type="submit" class="nav-search-btn" aria-label="Buscar">
+                <img src="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/6992c7e52a0ead73746b2828_Vector.svg" alt="" width="16" height="16" />
+              </button>
+            </div>
+          </form>
+          <a href="#" id="login-open-btn" class="header-login-btn w-inline-block" aria-label="Iniciar sesión">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+            <div class="header-login-text">
+              <span class="header-login-title">Iniciar sesión/Registrarse</span>
+              <span class="header-login-sub">Mi cuenta</span>
+            </div>
+          </a>
+          <div class="w-commerce-commercecartwrapper shopping-cart">
+            <a class="w-commerce-commercecartopenlink shopping-cart-btn w-inline-block" id="cart-open-btn" role="button" aria-label="Abrir carrito" href="#">
+              <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" class="shopping-cart-icon">
+              <circle cx="9" cy="21" r="1" fill="#000" stroke="#000"/>
+              <circle cx="20" cy="21" r="1" fill="#000" stroke="#000"/>
+              <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/>
+            </svg>
+              <div class="w-commerce-commercecartopenlinkcount shopping-cart-quantity">0</div>
+            </a>
+            <div class="w-commerce-commercecartcontainerwrapper w-commerce-commercecartcontainerwrapper--cartType-rightSidebar" id="cart-container">
+              <div role="dialog" class="w-commerce-commercecartcontainer cart-container">
+                <div class="w-commerce-commercecartheader">
+                  <h3 class="w-commerce-commercecartheading cart-title">Tu Carrito</h3>
+                  <a class="w-commerce-commercecartcloselink close-button w-inline-block" id="cart-close-btn" role="button" aria-label="Cerrar carrito">
+                    <svg width="16px" height="16px" viewBox="0 0 16 16"><g fill-rule="nonzero" fill="#333333"><polygon points="6.23223305 8 0.616116524 13.6161165 2.38388348 15.3838835 8 9.76776695 13.6161165 15.3838835 15.3838835 13.6161165 9.76776695 8 15.3838835 2.38388348 13.6161165 0.616116524 8 6.23223305 2.38388348 0.616116524 0.616116524 2.38388348 6.23223305 8"></polygon></g></svg>
+                  </a>
+                </div>
+                <div class="w-commerce-commercecartformwrapper">
+                  <div class="w-commerce-commercecartemptystate cart-empty-state">
+                    <div aria-live="polite">No hay productos en tu carrito.</div>
+                  </div>
+                  <div class="w-commerce-commercecartfooter cart-footer" style="display:none">
+                    <div class="w-commerce-commercecartlineitem">
+                      <div class="cart-product-text">Subtotal</div>
+                      <p class="cart-total-price">$0.00</p>
+                    </div>
+                    <button class="cart-button full-width" onclick="window.location.href='checkout.html'">Continuar al pago</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="header-btn-box">
+          <div class="mobile-menu-open-btn" id="mobile-menu-open-btn">
+            <img loading="lazy" src="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/6992c5fd8e233bfbd96ceb5f_menu.png" alt="menú" class="mobile-menu-icon" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="mobile-menu" id="mobile-menu">
+      <div class="mobile-logo-box">
+        <a href="index.html" class="logo-box w-inline-block w--current">
+          <img loading="lazy" src="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/69cfa642d519614f2c137ab9_0.svg" alt="Cubo Logo" class="site-logo" />
+        </a>
+        <img id="mobile-menu-close-btn" loading="lazy" alt="cerrar" src="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/6992c5fd8e233bfbd96ceb52_close%20(2).png" class="mobile-menu-close-btn" />
+      </div>
+      <div class="mobile-menu-box">
+        <div class="cat-dropdown w-dropdown">
+          <div class="mobile-dropdown-link w-dropdown-toggle" id="mobile-cat-toggle">
+            <div class="mobile-dropdown-title">Colección</div>
+            <img src="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/69d0cd30e7cb43d5d656127e_arrow-down.png" loading="lazy" alt="flecha" class="menu-icon" />
+          </div>
+          <nav class="cat-dropdown-content w-dropdown-list" id="mobile-cat-list">
+            <div class="cat-list-box">
+              <a href="/categoria/telefonos" class="mobile-dropdown-link two w-inline-block"><div class="mobile-dropdown-title">Teléfonos</div></a>
+              <a href="/categoria/laptops" class="mobile-dropdown-link two w-inline-block"><div class="mobile-dropdown-title">Laptops</div></a>
+              <a href="/categoria/hogar-inteligente" class="mobile-dropdown-link two w-inline-block"><div class="mobile-dropdown-title">Hogar Inteligente</div></a>
+              <a href="/categoria/audio-sonido" class="mobile-dropdown-link two w-inline-block"><div class="mobile-dropdown-title">Audio y Sonido</div></a>
+              <a href="/categoria/gaming" class="mobile-dropdown-link two w-inline-block"><div class="mobile-dropdown-title">Accesorios Gaming</div></a>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div class="search-form-box" id="search-form-box">
+      <div class="w-layout-blockcontainer container w-container">
+        <form action="/buscar" class="search-form w-form">
+          <input class="search-input w-input" autofocus maxlength="256" name="query" placeholder="Buscá productos, marcas y más" type="search" id="search" required />
+          <input type="submit" class="search-btn w-button" value="" />
+        </form>
+        <img id="search-close-btn" loading="lazy" alt="cerrar búsqueda" src="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/6992c5fd8e233bfbd96ceb5a_679274e26348659b0fc56c38_close.png" class="search-close-btn" />
+      </div>
+    </div>
+    <div class="bg menu-bg" id="menu-bg"></div>
+  </header>
+
+  <!-- HERO -->
+  <section class="page-hero">
+    <h1>Centro de Seguridad</h1>
+    <p>Tu seguridad es nuestra prioridad. Conocé cómo protegemos tu información y cómo podés mantener tu cuenta segura.</p>
+  </section>
+
+  <!-- CONTENIDO -->
+  <div class="policy-section">
+    <div class="policy-badge">
+      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      Seguridad y privacidad
+    </div>
+
+    <h2>Cómo protegemos tus datos</h2>
+    <p>En Cubo la protección de tu información personal es una prioridad absoluta. Implementamos múltiples capas de seguridad para garantizar que tus datos estén siempre resguardados.</p>
+    <ul>
+      <li>Todas las comunicaciones entre tu navegador y nuestros servidores están encriptadas mediante <strong>protocolo SSL/TLS</strong>, indicado por el candado verde en tu barra de direcciones.</li>
+      <li>Tus datos se almacenan en servidores seguros con acceso restringido, monitoreo continuo y copias de seguridad periódicas.</li>
+      <li>No compartimos tu información personal con terceros con fines comerciales. Solo compartimos los datos estrictamente necesarios con los proveedores de servicios que operan bajo acuerdos de confidencialidad.</li>
+      <li>Realizamos auditorías de seguridad periódicas para detectar y corregir posibles vulnerabilidades antes de que representen un riesgo.</li>
+    </ul>
+
+    <h2>Seguridad de tu cuenta</h2>
+    <p>Cubo utiliza un sistema de acceso moderno y seguro que elimina el uso de contraseñas tradicionales, reduciendo así el riesgo de accesos no autorizados.</p>
+    <ul>
+      <li><strong>Código OTP por email:</strong> cada vez que iniciás sesión, te enviamos un código de un solo uso a tu correo electrónico. Este código expira en 10 minutos y solo puede usarse una vez.</li>
+      <li><strong>Sin contraseñas almacenadas:</strong> al no utilizar contraseñas, no existe riesgo de que una filtración de base de datos exponga tu clave de acceso.</li>
+      <li><strong>Sesión con expiración automática:</strong> tu sesión se cierra automáticamente tras un período de inactividad, protegiendo tu cuenta si olvidás cerrar sesión en un dispositivo compartido.</li>
+      <li>Podés cerrar sesión en cualquier momento desde el menú de tu cuenta.</li>
+    </ul>
+
+    <h2>Compras seguras</h2>
+    <p>Cada transacción en Cubo está respaldada por un conjunto de medidas que protegen tanto a compradores como a vendedores.</p>
+    <ul>
+      <li><strong>Verificación de vendedores:</strong> todos los vendedores de la plataforma pasan por un proceso de verificación de identidad antes de poder publicar productos.</li>
+      <li><strong>Pagos protegidos:</strong> procesamos los pagos a través de pasarelas certificadas con estándares PCI DSS. En ningún momento almacenamos los datos de tu tarjeta de crédito o débito.</li>
+      <li><strong>Garantía de reembolso:</strong> si un producto no llega o no coincide con la descripción, Cubo interviene para garantizar que recibás un reembolso o reemplazo según corresponda.</li>
+    </ul>
+
+    <h2>¿Qué hacer si sospechás de actividad inusual?</h2>
+    <p>Si notás movimientos extraños en tu cuenta, correos que no reconocés o compras que no realizaste, actuá de inmediato siguiendo estos pasos:</p>
+    <ul>
+      <li><strong>Revisá tu acceso:</strong> cerrá sesión en todos los dispositivos desde la configuración de tu cuenta y volvé a ingresar con un nuevo código OTP.</li>
+      <li><strong>Contactá a soporte:</strong> escribinos a <strong>soporte@cubo.com</strong> o usá nuestra <a href="contacto.html" style="color:#1a1a2e;font-weight:600;">página de contacto</a> para notificar la situación. Nuestro equipo responde en menos de 24 horas hábiles.</li>
+      <li><strong>Reportá la actividad:</strong> podés reportar cualquier actividad sospechosa de forma detallada a través de nuestra página <a href="actividad-sospechosa.html" style="color:#1a1a2e;font-weight:600;">Reportar actividad sospechosa</a>.</li>
+      <li>Nunca compartas tu código OTP con nadie. Cubo jamás te pedirá ese código por teléfono, chat o correo.</li>
+    </ul>
+
+    <h2>Privacidad de datos</h2>
+    <p>Respetamos tu privacidad y cumplimos con las normativas internacionales de protección de datos personales.</p>
+    <ul>
+      <li><strong>Recolección mínima:</strong> solo recopilamos los datos estrictamente necesarios para brindarte el servicio: nombre, correo electrónico y dirección de envío.</li>
+      <li><strong>Derecho al olvido:</strong> podés solicitar en cualquier momento la eliminación de tu cuenta y todos tus datos personales de nuestros sistemas, con efecto dentro de los 30 días siguientes a la solicitud.</li>
+      <li><strong>Política GDPR:</strong> cumplimos con el Reglamento General de Protección de Datos (GDPR) de la Unión Europea y sus principios de transparencia, limitación de finalidad y minimización de datos.</li>
+      <li>Para ejercer tus derechos de acceso, rectificación o eliminación de datos, contactanos en <strong>privacidad@cubo.com</strong>.</li>
+    </ul>
+  </div>
+
+  <!-- FOOTER -->
+  <section class="main-footer">
+    <div class="footer-widgets">
+      <div class="w-layout-blockcontainer container w-container">
+        <div class="w-layout-grid footer-grid">
+          <div class="footer-title-box">
+            <h3 class="footer-title">Accedé a Ofertas Exclusivas Antes que Nadie</h3>
+            <p class="footer-text">Registrate hoy y recibí acceso anticipado a descuentos, ofertas limitadas y novedades exclusivas.</p>
+            <div class="newsletter-form-block w-form">
+              <form id="email-form" name="email-form" method="get" class="newsletter-form">
+                <input class="newsletter-input w-input" maxlength="256" name="email" placeholder="Ingresá tu email." type="email" id="email" required />
+                <input type="submit" class="primary-button newsletter-btn w-button" value="Obtener Acceso" />
+              </form>
+              <div class="form-success blue w-form-done" style="display:none"><div>¡Gracias! Tu suscripción fue registrada exitosamente.</div></div>
+              <div class="w-form-fail" style="display:none"><div>¡Ups! Algo salió mal al enviar el formulario.</div></div>
+            </div>
+          </div>
+          <div class="footer-links-wrap">
+            <div>
+              <h6 class="footer-title-two">Categorías</h6>
+              <div class="footer-links-box">
+                <a href="nosotros.html" class="footer-link">Nosotros</a>
+                <a href="contacto.html" class="footer-link">Contacto</a>
+              </div>
+            </div>
+            <div>
+              <h6 class="footer-title-two">Atención al cliente</h6>
+              <div class="footer-links-box">
+                <a href="devolucion.html" class="footer-link">Política de devolución y reembolso</a>
+                <a href="propiedad-intelectual.html" class="footer-link">Política de propiedad intelectual</a>
+                <a href="envio.html" class="footer-link">Información de envío</a>
+                <a href="actividad-sospechosa.html" class="footer-link">Reportar actividad sospechosa</a>
+              </div>
+            </div>
+            <div>
+              <h6 class="footer-title-two">Ayuda</h6>
+              <div class="footer-links-box">
+                <a href="faq.html" class="footer-link">Centro de ayuda y preguntas frecuentes</a>
+                <a href="seguridad.html" class="footer-link">Centro de seguridad</a>
+                <a href="proteccion-compras.html" class="footer-link">Protección de compras de Cubo</a>
+                <a href="asociate.html" class="footer-link">Asóciate a Cubo</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="w-layout-blockcontainer container w-container">
+        <div class="footer-bottom-inner">
+          <div class="copyright-box">
+            <a href="index.html" class="w-inline-block w--current"><img loading="lazy" src="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/69cfa684789fe8d974b2bca8_Givolt..svg" alt="Cubo" /></a>
+            <div class="copyright-line"></div>
+            <p class="copyright-text">© Copyright - <a href="index.html" class="copyright-text-link">Cubo</a> | Diseñado por Polplab | Desarrollado por Polplab</p>
+          </div>
+          <div class="footer-social-box">
+            <a href="https://www.facebook.com/" target="_blank" class="footer-social w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/69969e280586c4a4a900c548_1.svg" alt="Facebook" class="footer-social-icon" /></a>
+            <a href="https://x.com/" target="_blank" class="footer-social w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/69969e2845dfd4faac2ce0e3_2.svg" alt="X/Twitter" class="footer-social-icon" /></a>
+            <a href="http://linkedin.com/" target="_blank" class="footer-social w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/69969e28dbe79657e2f510c7_3.svg" alt="LinkedIn" class="footer-social-icon" /></a>
+            <a href="https://www.instagram.com/" target="_blank" class="footer-social w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/69969e2868879ee03dd9660f_4.svg" alt="Instagram" class="footer-social-icon" /></a>
+            <a href="https://www.youtube.com/" target="_blank" class="footer-social w-inline-block"><img loading="lazy" src="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/69969e296dca1183fd217937_6.svg" alt="YouTube" class="footer-social-icon" /></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div>
+
+<!-- Modal Login -->
+<div id="login-modal" class="login-modal-overlay">
+  <div class="login-modal-card">
+    <button class="login-modal-back" id="login-modal-back" aria-label="Volver" style="display:none"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg></button>
+    <button class="login-modal-close" id="login-modal-close" aria-label="Cerrar"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    <div id="login-view-main">
+      <img src="https://cdn.prod.website-files.com/69896fff4e4f45bb25a046a6/69cfa642d519614f2c137ab9_0.svg" alt="Cubo" class="login-modal-logo" />
+      <h2 class="login-modal-title">¡Bienvenido!</h2>
+      <p class="login-modal-subtitle">Ingresá para comprar y ver tus pedidos</p>
+      <button id="login-email-btn" class="login-btn-primary">Ingresar con Email</button>
+      <a href="/mi-cuenta" class="login-btn-secondary">Usar Contraseña</a>
+      <div class="login-divider"><span>O CONTINUÁ CON</span></div>
+      <a href="#" class="login-btn-google"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.2l6.7-6.7C35.7 2.5 30.2 0 24 0 14.6 0 6.6 5.5 2.8 13.5l7.8 6C12.5 13.2 17.8 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.7c-.5 2.9-2.2 5.4-4.7 7l7.3 5.7c4.3-4 6.8-9.9 6.8-16.7z"/><path fill="#FBBC05" d="M10.6 28.5A14.6 14.6 0 0 1 9.5 24c0-1.6.3-3.1.8-4.5l-7.8-6A23.9 23.9 0 0 0 0 24c0 3.9.9 7.5 2.5 10.8l8.1-6.3z"/><path fill="#34A853" d="M24 48c6.2 0 11.4-2 15.2-5.5l-7.3-5.7c-2 1.4-4.6 2.2-7.9 2.2-6.2 0-11.5-3.7-13.4-9L2.5 36.2C6.3 42.8 14.6 48 24 48z"/></svg>Google</a>
+    </div>
+    <div id="login-view-email" style="display:none">
+      <h2 class="login-modal-title" style="margin-bottom:4px">Ingresá tu email</h2>
+      <p class="login-modal-subtitle">Te enviaremos un código para acceder</p>
+      <input id="login-email-input" class="login-email-input" type="email" placeholder="tucorreo@email.com" autocomplete="email" />
+      <button id="login-send-btn" class="login-btn-primary">Enviar código</button>
+      <button id="login-cancel-btn" class="login-btn-secondary">Cancelar</button>
+    </div>
+    <div id="login-view-code" style="display:none">
+      <div class="login-code-badge"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="22,4 12,13 2,4"/></svg></div>
+      <h2 class="login-modal-title">Verificación</h2>
+      <p class="login-modal-subtitle">Ingresá el código enviado a<br><strong id="login-code-email" style="color:#1a1a1a"></strong></p>
+      <div class="login-otp-wrap">
+        <input class="login-otp-input" type="text" inputmode="numeric" maxlength="1" />
+        <input class="login-otp-input" type="text" inputmode="numeric" maxlength="1" />
+        <input class="login-otp-input" type="text" inputmode="numeric" maxlength="1" />
+        <input class="login-otp-input" type="text" inputmode="numeric" maxlength="1" />
+        <input class="login-otp-input" type="text" inputmode="numeric" maxlength="1" />
+        <input class="login-otp-input" type="text" inputmode="numeric" maxlength="1" />
+      </div>
+      <button id="login-verify-btn" class="login-btn-primary">Ingresar</button>
+      <p id="login-code-error" style="display:none; color:#e53e3e; font-size:13px; margin:0; text-align:center;">Código incorrecto.</p>
+      <button id="login-code-cancel-btn" class="login-btn-text">Cancelar</button>
+    </div>
+  </div>
+</div>
+
+<!-- Account Modal -->
+<div id="account-modal" class="account-modal-overlay">
+  <div class="account-modal-card">
+    <div class="account-modal-header">
+      <div class="account-modal-avatar"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg></div>
+      <div class="account-modal-user">
+        <p class="account-modal-name">Mi Cuenta</p>
+        <p class="account-modal-email-label" id="account-display-email"></p>
+      </div>
+      <button id="account-logout-btn" style="background:rgba(255,255,255,0.12);border:1px solid rgba(255,255,255,0.25);color:#fff;padding:7px 14px;border-radius:7px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;transition:background 0.2s;margin-right:8px;">Cerrar sesión</button>
+      <button class="account-modal-close" id="account-modal-close" aria-label="Cerrar"><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg></button>
+    </div>
+    <div class="account-tabs">
+      <button class="account-tab active" data-tab="pedidos">Mis Pedidos</button>
+      <button class="account-tab" data-tab="perfil">Mi Perfil</button>
+    </div>
+    <div id="account-tab-pedidos" class="account-tab-content active">
+      <div class="account-orders-empty"><svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg><p>Aún no tenés pedidos realizados.</p></div>
+    </div>
+    <div id="account-tab-perfil" class="account-tab-content">
+      <div class="account-form-group"><label class="account-form-label">Correo electrónico</label><input type="email" class="account-form-input" id="acc-email" placeholder="tucorreo@email.com" /></div>
+      <button class="account-save-btn">Guardar cambios</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+(function() {
+  var mobileMenu = document.getElementById('mobile-menu');
+  var mobileOpenBtn = document.getElementById('mobile-menu-open-btn');
+  var mobileCloseBtn = document.getElementById('mobile-menu-close-btn');
+  if (mobileOpenBtn) mobileOpenBtn.addEventListener('click', function() { mobileMenu.classList.add('open'); });
+  if (mobileCloseBtn) mobileCloseBtn.addEventListener('click', function() { mobileMenu.classList.remove('open'); });
+  var catToggle = document.getElementById('cat-toggle-desktop');
+  var catList = document.getElementById('cat-dropdown-list');
+  if (catToggle && catList) {
+    catToggle.addEventListener('mouseenter', function() { catList.classList.add('open'); });
+    document.getElementById('cat-dropdown-desktop').addEventListener('mouseleave', function() { catList.classList.remove('open'); });
+  }
+  var mobileCatToggle = document.getElementById('mobile-cat-toggle');
+  var mobileCatList = document.getElementById('mobile-cat-list');
+  if (mobileCatToggle && mobileCatList) mobileCatToggle.addEventListener('click', function() { mobileCatList.classList.toggle('open'); });
+  var searchCloseBtn = document.getElementById('search-close-btn');
+  var searchFormBox = document.getElementById('search-form-box');
+  var menuBg = document.getElementById('menu-bg');
+  if (searchCloseBtn) searchCloseBtn.addEventListener('click', function() { searchFormBox.classList.remove('open'); menuBg.classList.remove('open'); });
+  if (menuBg) menuBg.addEventListener('click', function() { searchFormBox.classList.remove('open'); menuBg.classList.remove('open'); });
+  var cartOpenBtn = document.getElementById('cart-open-btn');
+  var cartCloseBtn = document.getElementById('cart-close-btn');
+  var cartContainer = document.getElementById('cart-container');
+  if (cartOpenBtn) cartOpenBtn.addEventListener('click', function(e) { e.preventDefault(); cartContainer.classList.toggle('open'); });
+  if (cartCloseBtn) cartCloseBtn.addEventListener('click', function() { cartContainer.classList.remove('open'); });
+  (function() {
+    var header = document.querySelector('.main-header');
+    var lastY = 0;
+    window.addEventListener('scroll', function() {
+      var currentY = window.scrollY;
+      if (currentY > lastY && currentY > 80) header.classList.add('nav-hidden');
+      else header.classList.remove('nav-hidden');
+      lastY = currentY;
+    }, { passive: true });
+  })();
+  emailjs.init({ publicKey: 'NsfhcxqtJENlNs5P2' });
+  var loginModal = document.getElementById('login-modal');
+  var loginOpenBtn = document.getElementById('login-open-btn');
+  var loginCloseBtn = document.getElementById('login-modal-close');
+  var loginBackBtn = document.getElementById('login-modal-back');
+  var loginEmailBtn = document.getElementById('login-email-btn');
+  var loginCancelBtn = document.getElementById('login-cancel-btn');
+  var loginSendBtn = document.getElementById('login-send-btn');
+  var loginVerifyBtn = document.getElementById('login-verify-btn');
+  var loginCodeCancel = document.getElementById('login-code-cancel-btn');
+  var viewMain = document.getElementById('login-view-main');
+  var viewEmail = document.getElementById('login-view-email');
+  var viewCode = document.getElementById('login-view-code');
+  var emailInput = document.getElementById('login-email-input');
+  var codeEmailLabel = document.getElementById('login-code-email');
+  var otpInputs = document.querySelectorAll('.login-otp-input');
+  var codeError = document.getElementById('login-code-error');
+  var isLoggedIn = false;
+  var currentUserEmail = '';
+  function setLoggedIn(email) {
+    isLoggedIn = true; currentUserEmail = email;
+    var titleEl = document.querySelector('#login-open-btn .header-login-title');
+    var subEl = document.querySelector('#login-open-btn .header-login-sub');
+    if (titleEl) titleEl.textContent = 'Hola, ' + email.substring(0, 6) + '...';
+    if (subEl) subEl.textContent = 'Ver mi cuenta';
+    loginOpenBtn.setAttribute('aria-label', 'Mi cuenta');
+  }
+  function showView(view) {
+    viewMain.style.display = 'none'; viewEmail.style.display = 'none'; viewCode.style.display = 'none';
+    view.style.display = '';
+    loginBackBtn.style.display = (view === viewMain) ? 'none' : '';
+  }
+  function closeModal() {
+    loginModal.classList.remove('open'); document.body.style.overflow = '';
+    showView(viewMain); emailInput.value = '';
+    otpInputs.forEach(function(i) { i.value = ''; });
+    sessionStorage.removeItem('login_code'); sessionStorage.removeItem('login_code_expires');
+  }
+  otpInputs.forEach(function(input, idx) {
+    input.addEventListener('input', function() {
+      this.value = this.value.replace(/\D/g, '');
+      if (codeError) codeError.style.display = 'none';
+      if (this.value && idx < otpInputs.length - 1) otpInputs[idx + 1].focus();
+    });
+    input.addEventListener('keydown', function(e) { if (e.key === 'Backspace' && !this.value && idx > 0) otpInputs[idx - 1].focus(); });
+  });
+  if (loginOpenBtn && loginModal) {
+    loginOpenBtn.addEventListener('click', function(e) {
+      e.preventDefault();
+      if (isLoggedIn) { openAccountModal(currentUserEmail); return; }
+      loginModal.classList.add('open'); document.body.style.overflow = 'hidden'; showView(viewMain);
+    });
+    loginCloseBtn.addEventListener('click', closeModal);
+    loginModal.addEventListener('click', function(e) { if (e.target === loginModal) closeModal(); });
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && loginModal.classList.contains('open')) closeModal(); });
+    loginBackBtn.addEventListener('click', function() { if (viewCode.style.display !== 'none') showView(viewEmail); else showView(viewMain); });
+    loginEmailBtn.addEventListener('click', function() { showView(viewEmail); emailInput.focus(); });
+    loginCancelBtn.addEventListener('click', function() { showView(viewMain); });
+    loginCodeCancel.addEventListener('click', closeModal);
+    loginSendBtn.addEventListener('click', function() {
+      var email = emailInput.value.trim();
+      if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { emailInput.focus(); return; }
+      var code = Math.floor(100000 + Math.random() * 900000).toString();
+      sessionStorage.setItem('login_code', code); sessionStorage.setItem('login_code_expires', (Date.now() + 10 * 60 * 1000).toString());
+      if (codeEmailLabel) codeEmailLabel.textContent = email;
+      showView(viewCode);
+      var bypassDiv = document.createElement('div');
+      bypassDiv.id = 'dev-code-display';
+      bypassDiv.style.cssText = 'margin-top:12px;padding:10px;background:#fff3cd;border:1px solid #ffc107;border-radius:6px;text-align:center;font-size:14px;color:#333;';
+      bypassDiv.innerHTML = '<b>Código (modo prueba):</b> <span style="font-size:20px;letter-spacing:4px;font-weight:bold;color:#1a1a2e">' + code + '</span>';
+      var existing = document.getElementById('dev-code-display');
+      if (existing) existing.replaceWith(bypassDiv); else viewCode.appendChild(bypassDiv);
+    });
+    loginVerifyBtn.addEventListener('click', function() {
+      var entered = Array.from(otpInputs).map(function(i) { return i.value; }).join('');
+      if (entered.length < 6) { otpInputs[0].focus(); return; }
+      var stored = sessionStorage.getItem('login_code');
+      var expires = parseInt(sessionStorage.getItem('login_code_expires') || '0');
+      if (!stored || Date.now() > expires) { showView(viewEmail); return; }
+      if (entered === stored) {
+        sessionStorage.removeItem('login_code'); sessionStorage.removeItem('login_code_expires');
+        var userEmail = codeEmailLabel.textContent;
+        closeModal(); setLoggedIn(userEmail);
+      } else {
+        if (codeError) codeError.style.display = '';
+        otpInputs.forEach(function(i) { i.value = ''; }); otpInputs[0].focus();
+      }
+    });
+  }
+  var accountModal = document.getElementById('account-modal');
+  var accountCloseBtn = document.getElementById('account-modal-close');
+  var accountDisplayEmail = document.getElementById('account-display-email');
+  var accountTabs = document.querySelectorAll('.account-tab');
+  var accountTabPanels = document.querySelectorAll('.account-tab-content');
+  function openAccountModal(email) {
+    if (accountDisplayEmail) accountDisplayEmail.textContent = email || '';
+    var accEmail = document.getElementById('acc-email');
+    if (accEmail) accEmail.value = email || '';
+    accountModal.classList.add('open'); document.body.style.overflow = 'hidden';
+  }
+  function closeAccountModal() { accountModal.classList.remove('open'); document.body.style.overflow = ''; }
+  function logout() {
+    isLoggedIn = false; currentUserEmail = '';
+    sessionStorage.removeItem('login_code'); sessionStorage.removeItem('login_code_expires');
+    var titleEl = document.querySelector('#login-open-btn .header-login-title');
+    var subEl = document.querySelector('#login-open-btn .header-login-sub');
+    if (titleEl) titleEl.textContent = 'Iniciar sesión';
+    if (subEl) subEl.textContent = 'Accede a tu cuenta';
+    loginOpenBtn.setAttribute('aria-label', 'Iniciar sesión');
+    closeAccountModal();
+  }
+  if (accountModal) {
+    var logoutBtn = document.getElementById('account-logout-btn');
+    if (logoutBtn) logoutBtn.addEventListener('click', logout);
+    accountCloseBtn.addEventListener('click', closeAccountModal);
+    accountModal.addEventListener('click', function(e) { if (e.target === accountModal) closeAccountModal(); });
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape' && accountModal.classList.contains('open')) closeAccountModal(); });
+    accountTabs.forEach(function(tab) {
+      tab.addEventListener('click', function() {
+        var target = this.dataset.tab;
+        accountTabs.forEach(function(t) { t.classList.remove('active'); });
+        accountTabPanels.forEach(function(p) { p.classList.remove('active'); });
+        this.classList.add('active');
+        document.getElementById('account-tab-' + target).classList.add('active');
+      });
+    });
+  }
+})();
+</script>
+</body>
+</html>
